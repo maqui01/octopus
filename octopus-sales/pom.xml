@@ -5,6 +5,12 @@
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
   
+  <parent>
+    <groupId>papasoft.octopus.sys</groupId>
+  	<artifactId>sys</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+  
   <dependencies>
     <dependency>
       <groupId>papasoft.octopus.shared</groupId>

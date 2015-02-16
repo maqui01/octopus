@@ -5,6 +5,12 @@
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
   
+  <parent>
+    <groupId>papasoft.octopus.sys</groupId>
+  	<artifactId>sys</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+  
   <repositories>
 	<repository>
 		<id>repo</id>
@@ -23,16 +29,6 @@
     <dependency>
       <groupId>papasoft.octopus.shared</groupId>
 	  <artifactId>octopus-shared</artifactId>
-      <version>1.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>papasoft.octopus.interface</groupId>
-	  <artifactId>octopus-interface</artifactId>
-      <version>1.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>papasoft.octopus.sales</groupId>
-	  <artifactId>octopus-sales</artifactId>
       <version>1.0-SNAPSHOT</version>
     </dependency>
 	<dependency>

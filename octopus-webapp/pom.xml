@@ -5,6 +5,12 @@
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
   
+  <parent>
+    <groupId>papasoft.octopus.sys</groupId>
+  	<artifactId>sys</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+  
   <repositories>
 	<repository>
 		<id>primefaces-themes</id>
