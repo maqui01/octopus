@@ -6,10 +6,11 @@
   <packaging>pom</packaging>
   <modules>
     <module>octopus-interface</module>
-    <module>octopus-server</module>
+    <module>octopus-server-core</module>
     <module>octopus-sales</module>
     <module>octopus-shared</module>
     <module>octopus-webapp</module>
+    <module>octopus-server-starter</module>
   </modules>
   
   <repositories>
