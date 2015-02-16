@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+  		xmlns:f="http://java.sun.com/jsf/core"
+      	xmlns:t="http://myfaces.apache.org/tomahawk"
+      	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title><t:outputText value="#{msg.octopus_webapp}"/></title>
+	<h:outputStylesheet library="css" name="style.css"/>
+</h:head>
+<h:body>
+
+	<h:form id="main">
+		<f:view locale="#{facesContext.externalContext.requestLocale}">
+		<!-- Ajax Status -->
+		<p:ajaxStatus onstart="document.getElementById('ajaxStatus').style.display = 'block';" oncomplete="document.getElementById('ajaxStatus').style.display = 'none';"/>
+		<t:div id="ajaxStatus" forceId="true" style="position: fixed; top:45%; width: 100%; z-index:2; text-align: center; display:none;">
+			<t:graphicImage alt="Loading..." library="images" name="ajax_status.gif"/>
+		</t:div>
+		
+		<p:confirmDialog global="true">
+	        <p:commandButton value="#{msg.accept}" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+	        <p:commandButton value="#{msg.cancel}" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+	    </p:confirmDialog>
+	    <p:defaultCommand target="searchButton" />
+	
+		<p:layout fullPage="true" >
+			<p:layoutUnit position="north" resizable="false" closable="false" collapsible="false">
+				<p:toolbar>
+					<f:facet name="left">
+						<t:panelGrid styleClass="header" columns="2" cellspacing="0" cellpadding="0">
+					        	<t:graphicImage alt="#{msg.octopus_webapp}" library="images" name="oc_logo.png" styleClass="header_logo"/>
+								<t:outputText value="#{msg.octopus_webapp}" styleClass="header_logo_text"/>
+						</t:panelGrid>
+					</f:facet>
+					<f:facet name="right">
+						<p:commandButton title="#{msg.home}" alt="#{msg.home}" value="#{msg.home}" icon="ui-icon-home"
+								action="home" immediate="true"/>
+						<p:menuButton value="#{msg.administration}" style="padding-left: 5px; padding-right: 10px;" rendered="#{userBean.isAdminUser}">
+			               
+			               <p:menuitem value="#{msg.users}" icon="ui-icon-person" action="users" immediate="true" actionListener="#{crudContext.clearSelectedValues}"/>
+			               <p:menuitem value="#{msg.customers}" icon="ui-icon-contact" action="customers" immediate="true" actionListener="#{crudContext.clearSelectedValues}"/>
+			               <p:menuitem value="#{msg.articles}" icon="ui-icon-cart" action="articles" immediate="true" actionListener="#{crudContext.clearSelectedValues}"/>
+			           </p:menuButton>
+						<p:commandButton value="#{msg.logout}" icon="ui-icon-power" action="#{loginBean.logout}" immediate="true"/>
+					</f:facet>
+				</p:toolbar>
+			</p:layoutUnit>
+		    <p:layoutUnit position="center">
+		    
+	        	<t:panelGrid id="customerCrudPanel" columns="1" border="0"
+					width="900px" align="center" cellspacing="4" cellpadding="4">
+						<t:panelGrid columns="3" style="padding-left: 5px;">
+							<h:outputLabel value="#{msg.name}" for="in_username"/>
+							<p:inputText id="in_customername" value="#{crudCustomerBean.customerName}"/>
+							<p:commandButton id="searchButton" value="#{msg.search}" update="customersDatatable customerDataPanel" process="in_customername" actionListener="#{crudCustomerBean.searchCustomers}"/>
+						</t:panelGrid>
+						<p:dataTable id="customersDatatable" value="#{crudCustomerBean.customers}" rows="10" emptyMessage="#{msg.no_results}" 
+							paginator="true" paginatorPosition="bottom" binding="#{crudCustomerBean.customersDatatable}"
+							selectionMode="single" selection="#{crudContext.selectedCustomer}" 
+							var="cust" rowKey="#{cust.id}">
+							<f:facet name="header">
+					            <p:outputLabel value="#{msg.customers}"/>
+					        </f:facet>
+					        <p:ajax event="rowSelect" update="@([id$=customerDataPanel]) @([id$=customersDatatable])" listener="#{crudCustomerBean.customerSelect}"/>
+					        <p:column style="text-align: center" headerText="#{msg.code_short}" width="50">
+								<h:outputText value="#{cust.id}"/>
+							</p:column>
+     						<p:column style="text-align: left" headerText="#{msg.name}">
+								<h:outputText value="#{cust.name}"/>
+							</p:column>
+							<p:column style="text-align: right" headerText="#{msg.prices_list_number}" width="50">
+								<h:outputText value="#{cust.pricesList}"/>
+							</p:column>
+							<p:column style="text-align: left" headerText="#{msg.email}">
+								<h:outputText value="#{cust.email}"/>
+							</p:column>
+							<p:column style="text-align: left" headerText="#{msg.address}" width="250">
+								<h:outputText value="#{cust.address}"/>
+							</p:column>
+							<p:column style="text-align: left" headerText="#{msg.phone_number}">
+								<h:outputText value="#{cust.phoneNumber}"/>
+							</p:column>
+						</p:dataTable>
+						<t:panelGrid id="customerDataPanel" width="100%" cellpadding="0" cellspacing="0">
+							<p:commandButton value="#{msg['new']}" icon="ui-icon-plus" action="#{crudCustomerBean.newCustomer}" update="@([id$=customerDataPanel])" rendered="#{crudContext.selectedCustomer == null}" process="@this"/>
+							<p:panel rendered="#{crudContext.selectedCustomer != null}" header="#{crudCustomerBean.customerPanelTitle}">
+								<f:facet name="options">
+						            <p:menu>
+						                <p:submenu icon="ui-icon-gear">
+						                    <p:menuitem> 
+						                    	<p:commandLink styleClass="ui-menuitem-link" action="#{crudCustomerBean.deleteCustomer}" update="@([id$=customerDataPanel]) @([id$=customersDatatable])">
+						                    		<t:outputText styleClass="ui-menuitem-icon ui-icon ui-icon-close"/>
+						                    		<t:outputText styleClass="ui-menuitem-text" value="#{msg.delete_customer}"/>
+						                    		<p:confirm header="#{msg.delete_customer}" message="#{msg.are_you_sure_delete_customer}" icon="ui-icon-alert"/>
+						                    	</p:commandLink>
+						                    </p:menuitem>
+						                </p:submenu>
+						            </p:menu>
+						        </f:facet>
+								<t:panelGrid columns="2" columnClasses="topVerticalAlign, topVerticalAlign, topVerticalAlign">
+									<t:panelGrid columns="2">
+										<h:outputLabel value="#{msg.name}" for="edit_customerName"/>
+										<t:panelGrid columns="1" cellpadding="0" cellspacing="0">
+											<p:inputText id="edit_customerName" value="#{crudContext.selectedCustomer.name}" required="true" autocomplete="off" requiredMessage="#{msg.required}"/>
+											<p:message for="edit_customerName" display="text"/>
+										</t:panelGrid>
+										
+										<h:outputLabel value="#{msg.prices_list}" for="edit_prices_list"/>
+										<p:selectOneMenu id="edit_prices_list" value="#{crudContext.selectedCustomer.pricesList}" style="padding-left:3px">
+											 <f:selectItems value="#{crudCustomerBean.allPricesList}" var="list" itemValue="#{list}" itemLabel="#{list}"/>
+										</p:selectOneMenu>
+										
+										<h:outputLabel value="#{msg.observation}" for="edit_observation"/>
+										<p:inputTextarea id="edit_observation" value="#{crudContext.selectedCustomer.observation}" cols="50" rows="4" />
+										
+									</t:panelGrid>
+									<t:panelGrid columns="2">
+										<h:outputLabel value="#{msg.email}" for="edit_customerEmail"/>
+										<t:panelGrid columns="2" cellpadding="0" cellspacing="0">
+											<p:inputText id="edit_customerEmail" value="#{crudContext.selectedCustomer.email}" validatorMessage="#{msg.mail_invalid}">
+												<f:validateRegex pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$"/>
+	                						</p:inputText>	
+	                						<p:message for="edit_customerEmail" display="text"/>
+                						</t:panelGrid>
+                															
+										<h:outputLabel value="#{msg.phone_number}" for="edit_phone_number"/>
+										<t:panelGrid columns="2" cellpadding="0" cellspacing="0">
+											<p:inputMask id="edit_phone_number" value="#{crudContext.selectedCustomer.phoneNumber}" maxlength="15"/>
+	                						<p:message for="edit_phone_number" display="text"/>
+                						</t:panelGrid>
+										
+										<h:outputLabel value="#{msg.address}" for="edit_address"/>
+										<p:inputText id="edit_address" value="#{crudContext.selectedCustomer.address}" size="40"/>
+										
+									</t:panelGrid>
+								</t:panelGrid>
+								<p:commandButton value="#{msg.save}" action="#{crudCustomerBean.saveSelectedCustomer}" update="@([id$=customerDataPanel]) @([id$=customersDatatable])" process="customerDataPanel"/>
+								<p:commandButton value="#{msg.cancel}" action="#{crudCustomerBean.cancelCustomerEdit}" update="@([id$=customerDataPanel])" process="@this"/>
+							</p:panel>
+						</t:panelGrid> 
+				</t:panelGrid>
+			       
+		    </p:layoutUnit>
+		
+		</p:layout>
+		</f:view>
+	</h:form>
+	
+</h:body>
+</html>

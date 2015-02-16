@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+  		xmlns:f="http://java.sun.com/jsf/core"
+      	xmlns:t="http://myfaces.apache.org/tomahawk"
+      	xmlns:p="http://primefaces.org/ui"
+      	xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+<h:head>
+	<title><t:outputText value="#{msg.octopus_webapp}"/></title>
+	<h:outputStylesheet library="css" name="style.css"/>
+</h:head>
+<h:body>
+
+	<h:form id="main">
+		<f:view locale="#{facesContext.externalContext.requestLocale}">
+		<p:dialog id="promotionArticlesDialog" widgetVar="promotionArticlesDialog" dynamic="true" modal="true" draggable="false" resizable="false" showHeader="false">
+			<t:panelGrid columns="1" id="edit_promotionArticlesPanel_dialog" rendered="#{crudArticleBean.selectedArticleIsPromotion}" width="600">
+				<p:dataTable id="edit_promoArticles_dialog" value="#{crudContext.selectedPromotionItems}" 
+						var="item" binding="#{crudArticleBean.promoArticlesDialogDatatable}" 
+						paginator="true" rows="5" paginatorPosition="bottom" paginatorAlwaysVisible="false">
+					<f:facet name="header">
+						<p:outputLabel value="#{msg.promotion_items}"/>
+					</f:facet>
+			        <p:column headerText="#{msg.code_short}" width="50" style="text-align: center">
+			        	<t:outputLabel value="#{item.article.code}"/>
+			        </p:column>
+			        <p:column headerText="#{msg.name}" width="350">
+			        	<t:outputLabel value="#{item.article.name}"/>
+			        </p:column>
+			        <p:column headerText="#{msg.quantity_short}" width="70">
+			        	<p:inputText value="#{item.quantity}" size="8" style="text-align: right"/>
+			        </p:column>
+			        <p:column width="20">
+			        	<p:commandButton icon="ui-icon-minus" style="height:18px;width:18px;vertical-align:middle" action="#{crudArticleBean.deletePromoArticleDialog}" update="edit_promoArticles_dialog" process="@([id$=edit_promotionArticlesPanel_dialog]) @([id$=promotionArticlesToAdd_dialog])"/>
+			        </p:column>
+				</p:dataTable>
+			</t:panelGrid>
+			<t:panelGrid columns="5" columnClasses="right_align_column, left_align_column, right_align_column, left_align_column">
+				<t:outputLabel value="#{msg.code_short}"/>
+				<p:inputText value="#{crudArticleBean.promoArticleCode}" size="10"/>
+				<t:outputLabel value="#{msg.name}"/>
+				<p:inputText value="#{crudArticleBean.promoArticleName}" size="40"/>
+				<p:commandButton value="#{msg.search}" action="#{crudArticleBean.searchPromoArticles}" update="promoArticlesToAdd"/>
+			</t:panelGrid>
+			<t:panelGrid columns="1" id="promotionArticlesToAdd_dialog" width="600">
+				<p:dataTable id="promoArticlesToAdd" value="#{crudArticleBean.promoArticlesToAdd}" 
+						var="promoArt" binding="#{crudArticleBean.promoArticlesToAddDatatable}" 
+						paginator="true" rows="5" paginatorPosition="bottom" paginatorAlwaysVisible="false">
+					<f:facet name="header">
+						<p:outputLabel value="#{msg.articles_to_add}"/>
+					</f:facet>
+			        <p:column headerText="#{msg.code_short}" width="50" style="text-align: center">
+			        	<t:outputLabel value="#{promoArt.code}"/>
+			        </p:column>
+			        <p:column headerText="#{msg.name}">
+			        	<t:outputLabel value="#{promoArt.name}"/>
+			        </p:column>
+			        <p:column width="20">
+			        	<p:commandButton icon="ui-icon-plus" style="height:18px;width:18px;vertical-align:middle" action="#{crudArticleBean.addArticleToPromotion}" update="@([id$=edit_promotionArticlesPanel_dialog])" process="@([id$=edit_promotionArticlesPanel_dialog]) @([id$=promotionArticlesToAdd_dialog])"/>
+			        </p:column>
+				</p:dataTable>
+			</t:panelGrid>
+			<t:panelGrid columns="2">
+				<p:commandButton value="#{msg.save}" action="#{crudArticleBean.savePromotionArticles}" onclick="PF('promotionArticlesDialog').hide();" update="edit_promotionArticlesPanel" process="edit_promotionArticlesPanel_dialog edit_promotionArticlesPanel"/>
+				<p:commandButton value="#{msg.cancel}" onclick="PF('promotionArticlesDialog').hide(); return false;"/>
+			</t:panelGrid>
+		</p:dialog>
+		
+		<!-- Ajax Status -->
+		<p:ajaxStatus onstart="document.getElementById('ajaxStatus').style.display = 'block';" oncomplete="document.getElementById('ajaxStatus').style.display = 'none';"/>
+		<t:div id="ajaxStatus" forceId="true" style="position: fixed; top:45%; width: 100%; z-index:2; text-align: center; display:none;">
+			<t:graphicImage alt="Loading..." library="images" name="ajax_status.gif"/>
+		</t:div>
+		
+		<p:confirmDialog global="true">
+	        <p:commandButton value="#{msg.accept}" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+	        <p:commandButton value="#{msg.cancel}" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+	    </p:confirmDialog>
+	    <p:defaultCommand target="searchButton" />
+	
+		<p:layout fullPage="true" >
+			<p:layoutUnit position="north" resizable="false" closable="false" collapsible="false">
+				<p:toolbar>
+					<f:facet name="left">
+						<t:panelGrid styleClass="header" columns="2" cellspacing="0" cellpadding="0">
+					        	<t:graphicImage alt="#{msg.octopus_webapp}" library="images" name="oc_logo.png" styleClass="header_logo"/>
+								<t:outputText value="#{msg.octopus_webapp}" styleClass="header_logo_text"/>
+						</t:panelGrid>
+					</f:facet>
+					<f:facet name="right">
+						<p:commandButton title="#{msg.home}" alt="#{msg.home}" value="#{msg.home}" icon="ui-icon-home"
+								action="home" immediate="true"/>
+						<p:menuButton value="#{msg.administration}" style="padding-left: 5px; padding-right: 10px;" rendered="#{userBean.isAdminUser}">
+			               <p:menuitem value="#{msg.users}" icon="ui-icon-person" action="users" immediate="true" actionListener="#{crudContext.clearSelectedValues}"/>
+			               <p:menuitem value="#{msg.customers}" icon="ui-icon-contact" action="customers" immediate="true" actionListener="#{crudContext.clearSelectedValues}"/>
+			               <p:menuitem value="#{msg.articles}" icon="ui-icon-cart" action="articles" immediate="true" actionListener="#{crudContext.clearSelectedValues}"/>
+			           </p:menuButton>
+						<p:commandButton value="#{msg.logout}" icon="ui-icon-power" action="#{loginBean.logout}" immediate="true"/>
+					</f:facet>
+				</p:toolbar>
+			</p:layoutUnit>
+		    <p:layoutUnit position="center">
+		    
+	        	<t:panelGrid id="articleCrudPanel" columns="1" border="0"
+					width="900px" align="center" cellspacing="4" cellpadding="4">
+						<t:panelGrid id="articles_filters_panel" columns="5" style="padding-left: 5px;">
+							<t:outputLabel value="#{msg.code_short}"/>
+							<p:inputText value="#{crudArticleBean.articleCode}" size="10"/>
+							<h:outputLabel value="#{msg.name}"/>
+							<p:inputText value="#{crudArticleBean.articleName}" size="40"/>
+							<p:commandButton id="searchButton" value="#{msg.search}" update="articlesDatatable articleDataPanel" process="articles_filters_panel" actionListener="#{crudArticleBean.searchArticles}"/>
+						</t:panelGrid>
+						<p:dataTable id="articlesDatatable" value="#{crudArticleBean.articles}" rows="10" emptyMessage="#{msg.no_results}" 
+							paginator="true" paginatorPosition="bottom" binding="#{crudArticleBean.articlesDatatable}"
+							selectionMode="single" selection="#{crudContext.selectedArticle}" 
+							var="art" rowKey="#{art.code}">
+							<f:facet name="header">
+					            <p:outputLabel value="#{msg.articles}"/>
+					        </f:facet>
+					        
+					        <p:columnGroup type="header">
+					            <p:row>
+					                <p:column rowspan="2" headerText="#{msg.code_short}" width="50"/>
+					                <p:column rowspan="2" headerText="#{msg.name}" width="300"/>
+					                <p:column rowspan="2" headerText="#{msg.pack}" width="50"/>
+					                <p:column colspan="3" headerText="#{msg.promotions}"/>
+					            </p:row>
+					            <p:row>
+					                <p:column headerText="#{msg.promo_start_date}" />
+					                <p:column headerText="#{msg.promo_end_date}" />
+					                <p:column headerText="#{msg.promo_group}" />
+					            </p:row>
+					        </p:columnGroup>
+					        
+					        <p:ajax event="rowSelect" update="@([id$=articleDataPanel]) @([id$=articlesDatatable])" listener="#{crudArticleBean.articleSelect}"/>
+					        <p:column style="text-align: center">
+								<h:outputText value="#{art.code}"/>
+							</p:column>
+     						<p:column style="text-align: left">
+								<h:outputText value="#{art.name}"/>
+							</p:column>
+     						<p:column style="text-align: right">
+								<h:outputText value="#{art.pack}"/>
+							</p:column>
+     						<p:column style="text-align: center">
+								<h:outputText value="#{crudArticleBean.startDate}">
+									<f:convertDateTime pattern="dd/MM/yyyy" type="both" timeZone="GMT-3"/>
+								</h:outputText>
+							</p:column>
+     						<p:column style="text-align: center">
+								<h:outputText value="#{crudArticleBean.endDate}">
+									<f:convertDateTime pattern="dd/MM/yyyy" type="both" timeZone="GMT-3"/>
+								</h:outputText>
+							</p:column>
+     						<p:column style="text-align: left">
+								<h:outputText value="#{crudArticleBean.customerGroup}"/>
+							</p:column>
+						</p:dataTable>
+						<t:panelGrid id="articleDataPanel" width="100%" cellpadding="0" cellspacing="0">
+							<t:panelGrid columns="2">
+								<p:commandButton value="#{msg.new_article}" icon="ui-icon-plus" action="#{crudArticleBean.newArticle}" update="@([id$=articleDataPanel]) @([id$=articlesDatatable])" rendered="#{crudContext.selectedArticle == null}" process="@this"/>
+								<p:commandButton value="#{msg.new_promotion}" icon="ui-icon-plus" action="#{crudArticleBean.newPromotion}" update="@([id$=articleDataPanel]) @([id$=articlesDatatable])" rendered="#{crudContext.selectedArticle == null}" process="@this"/>
+							</t:panelGrid>
+							<p:panel rendered="#{crudContext.selectedArticle != null}" header="#{crudArticleBean.articlePanelTitle}">
+								<f:facet name="options">
+						            <p:menu>
+						                <p:submenu icon="ui-icon-gear">
+						                    <p:menuitem> 
+						                    	<p:commandLink styleClass="ui-menuitem-link" action="#{crudArticleBean.deleteArticle}" update="@([id$=articleDataPanel]) @([id$=articlesDatatable])">
+						                    		<t:outputText styleClass="ui-menuitem-icon ui-icon ui-icon-close"/>
+						                    		<t:outputText styleClass="ui-menuitem-text" value="#{msg.delete_article}"/>
+						                    		<p:confirm header="#{msg.delete_article}" message="#{msg.are_you_sure_delete_article}" icon="ui-icon-alert"/>
+						                    	</p:commandLink>
+						                    </p:menuitem>
+						                </p:submenu>
+						            </p:menu>
+						        </f:facet>
+								<t:panelGrid rendered="#{!crudArticleBean.selectedArticleIsPromotion}" columns="2" columnClasses="topVerticalAlign, topVerticalAlign, topVerticalAlign">
+									<t:panelGrid columns="2">
+										<h:outputLabel value="#{msg.name}" for="edit_articleName"/>
+										<t:panelGrid columns="1" cellpadding="0" cellspacing="0">
+											<p:inputText id="edit_articleName" value="#{crudContext.selectedArticle.name}" required="true" autocomplete="off" requiredMessage="#{msg.required}"/>
+											<p:message for="edit_articleName" display="text"/>
+										</t:panelGrid>
+										
+										<h:outputLabel value="#{msg.pack}" for="edit_articlePack"/>
+										<t:panelGrid columns="1" cellpadding="0" cellspacing="0">
+											<p:inputText id="edit_articlePack" value="#{crudContext.selectedArticle.pack}" required="true" autocomplete="off" requiredMessage="#{msg.required}"/>
+											<p:message for="edit_articlePack" display="text"/>
+										</t:panelGrid>
+										
+										<h:outputLabel value="#{msg.stock}" for="edit_articleStock"/>
+										<t:panelGrid columns="1" cellpadding="0" cellspacing="0">
+											<p:inputText id="edit_articleStock" value="#{crudContext.selectedStock.stock}" autocomplete="off" required="true" requiredMessage="#{msg.required}"/>
+											<p:message for="edit_articleStock" display="text"/>
+										</t:panelGrid>
+									</t:panelGrid>
+									<t:panelGrid columns="1" id="edit_pricesListPanel">
+										<p:dataGrid id="edit_pricesList" value="#{crudContext.selectedArticlePrices}" var="price" rowIndexVar="idx" columns="4">
+											<f:facet name="header">
+												<p:outputLabel value="#{msg.prices_list}"/>
+											</f:facet>
+									        <t:panelGrid border="0" width="145" columns="3" columnClasses="right_align_column, left_align_column, left_align_column">
+									        	<t:div style="width:20px">
+									        		<t:outputText value="#{idx+1}: " style="font-weight:bold" />
+									        	</t:div>
+									        	<t:inputText id="priceValue" value="#{price.value}" maxlength="10" size="10"/>
+									        	
+									        	<p:commandButton icon="ui-icon-minus" style="height:18px;width:18px;vertical-align:middle" action="#{crudArticleBean.deleteLastPrice}" rendered="#{idx + 1 == fn:length(crudContext.selectedArticlePrices) and idx != 0}" update="@([id$=edit_pricesListPanel])"/>
+									        </t:panelGrid>
+										</p:dataGrid>
+										<p:commandButton value="#{msg.add_new_price}" icon="ui-icon-plus" action="#{crudArticleBean.addNewPrice}" update="edit_pricesListPanel" rendered="#{crudArticleBean.canAddNewPrice}" process="edit_pricesListPanel"/>
+									</t:panelGrid>
+								</t:panelGrid>
+								<t:panelGrid rendered="#{crudArticleBean.selectedArticleIsPromotion}" columns="2" columnClasses="topVerticalAlign, topVerticalAlign, topVerticalAlign">
+									<t:panelGrid columns="2">
+										<h:outputLabel value="#{msg.name}" for="edit_promoName"/>
+										<t:panelGrid columns="1" cellpadding="0" cellspacing="0">
+											<p:inputText id="edit_promoName" value="#{crudContext.selectedArticle.name}" required="true" autocomplete="off" requiredMessage="#{msg.required}"/>
+											<p:message for="edit_promoName" display="text"/>
+										</t:panelGrid>
+										
+										<h:outputLabel value="#{msg.pack}" for="edit_promoPack"/>
+										<t:panelGrid columns="1" cellpadding="0" cellspacing="0">
+											<p:inputText id="edit_promoPack" value="#{crudContext.selectedArticle.pack}" required="true" autocomplete="off" requiredMessage="#{msg.required}"/>
+											<p:message for="edit_promoPack" display="text"/>
+										</t:panelGrid>
+										
+										<h:outputLabel value="#{msg.promo_group}" for="edit_promoGroup"/>
+										<t:panelGrid columns="1" cellpadding="0" cellspacing="0">
+											<p:inputText id="edit_promoGroup" value="#{crudContext.selectedArticle.customerGroup}" autocomplete="off"/>
+											<p:message for="edit_promoGroup" display="text"/>
+										</t:panelGrid>
+										
+										<h:outputLabel value="#{msg.price}" for="edit_promoPrice"/>
+										<t:panelGrid columns="1" cellpadding="0" cellspacing="0">
+											<p:inputText id="edit_promoPrice" value="#{crudContext.selectedArticle.price}" autocomplete="off" required="true" requiredMessage="#{msg.required}"/>
+											<p:message for="edit_promoPrice" display="text"/>
+										</t:panelGrid>
+										
+										<h:outputLabel value="#{msg.stock}" for="edit_promoStock"/>
+										<t:panelGrid columns="1" cellpadding="0" cellspacing="0">
+											<p:inputText id="edit_promoStock" value="#{crudContext.selectedStock.stock}" autocomplete="off" required="true" requiredMessage="#{msg.required}"/>
+											<p:message for="edit_promoStock" display="text"/>
+										</t:panelGrid>
+										
+										<h:outputLabel value="#{msg.promo_start_date}" for="edit_promoStartDate"/>
+										<t:panelGrid columns="1" cellpadding="0" cellspacing="0">
+											<p:calendar id="edit_promoStartDate" value="#{crudContext.selectedArticle.startDate}" pattern="dd/MM/yyyy" mask="true" required="true" requiredMessage="#{msg.required}"/>
+											<p:message for="edit_promoStartDate" display="text"/>
+										</t:panelGrid>
+										
+										<h:outputLabel value="#{msg.promo_end_date}" for="edit_promoEndDate"/>
+										<t:panelGrid columns="1" cellpadding="0" cellspacing="0">
+											<p:calendar id="edit_promoEndDate" value="#{crudContext.selectedArticle.endDate}" pattern="dd/MM/yyyy" mask="true" required="true" requiredMessage="#{msg.required}"/>
+											<p:message for="edit_promoEndDate" display="text"/>
+										</t:panelGrid>
+									</t:panelGrid>
+									<t:panelGrid columns="1" id="edit_promotionArticlesPanel">
+										<p:dataTable id="edit_promoArticles" value="#{crudContext.selectedArticle.items}" 
+												var="item" binding="#{crudArticleBean.promoArticlesDatatable}" 
+												paginator="true" rows="5" paginatorPosition="bottom" paginatorAlwaysVisible="false">
+											<f:facet name="header">
+												<p:outputLabel value="#{msg.items}"/>
+											</f:facet>
+									        <p:column headerText="#{msg.code_short}" width="50" style="text-align: center">
+									        	<t:outputLabel value="#{item.article.code}"/>
+									        </p:column>
+									        <p:column headerText="#{msg.name}">
+									        	<t:outputLabel value="#{item.article.name}"/>
+									        </p:column>
+									        <p:column headerText="#{msg.quantity_short}" width="30" style="text-align: right">
+									        	<t:outputLabel value="#{item.quantity}"/>
+									        </p:column>
+									        <p:column width="20">
+									        	<p:commandButton icon="ui-icon-minus" style="height:18px;width:18px;vertical-align:middle" action="#{crudArticleBean.deletePromoArticle}" update="edit_promoArticles"/>
+									        </p:column>
+										</p:dataTable>
+										<p:commandButton value="#{msg.add_new_promo_article}" icon="ui-icon-plus" onclick="PF('promotionArticlesDialog').show();" update="@([id$=edit_promotionArticlesPanel_dialog]) @([id$=promotionArticlesToAdd_dialog])" action="#{crudArticleBean.refreshPromoArticlesDialog}" process="@this"/>
+									</t:panelGrid>
+								</t:panelGrid>
+								<p:commandButton value="#{msg.save}" action="#{crudArticleBean.saveSelectedArticle}" update="@([id$=articleDataPanel]) @([id$=articlesDatatable])" process="articleDataPanel"/>
+								<p:commandButton value="#{msg.cancel}" action="#{crudArticleBean.cancelArticleEdit}" update="@([id$=articleDataPanel]) @([id$=articlesDatatable])" process="@this"/>
+							</p:panel>
+						</t:panelGrid> 
+				</t:panelGrid>
+			       
+		    </p:layoutUnit>
+		
+		</p:layout>
+		</f:view>
+	</h:form>
+	
+</h:body>
+</html>

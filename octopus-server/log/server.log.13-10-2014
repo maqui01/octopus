@@ -1,0 +1,1274 @@
+2014-10-13/15:44:07.046 [main] INFO  Server starting
+2014-10-13/15:44:07.141 [main] INFO  Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@7a1576: startup date [Mon Oct 13 15:44:07 ART 2014]; root of context hierarchy
+2014-10-13/15:44:07.510 [main] INFO  MLog clients using log4j logging.
+2014-10-13/15:44:07.617 [main] INFO  Initializing c3p0-0.9.1 [built 16-January-2007 14:46:42; debug? true; trace: 10]
+2014-10-13/15:44:07.843 [main] INFO  HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2014-10-13/15:44:07.852 [main] INFO  HHH000412: Hibernate Core {4.2.0.Final}
+2014-10-13/15:44:07.854 [main] INFO  HHH000206: hibernate.properties not found
+2014-10-13/15:44:07.856 [main] INFO  HHH000021: Bytecode provider name : javassist
+2014-10-13/15:44:08.178 [main] WARN  HHH000038: Composite-id class does not override equals(): papasoft.octopus.se.domain.Stock
+2014-10-13/15:44:08.178 [main] WARN  HHH000039: Composite-id class does not override hashCode(): papasoft.octopus.se.domain.Stock
+2014-10-13/15:44:08.179 [main] WARN  HHH000039: Composite-id class does not override hashCode(): papasoft.octopus.se.domain.SEArticle
+2014-10-13/15:44:08.273 [main] INFO  Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgeosh95304gze9lqkpn|18b9a72, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgeosh95304gze9lqkpn|18b9a72, idleConnectionTestPeriod -> 3000, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://localhost:3306/octopus, lastAcquisitionFailureDefaultUser -> null, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 20, maxStatements -> 50, maxStatementsPerConnection -> 0, minPoolSize -> 5, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+2014-10-13/15:44:08.487 [main] INFO  HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2014-10-13/15:44:08.499 [main] INFO  HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2014-10-13/15:44:08.524 [main] INFO  HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-10-13/15:44:08.531 [main] INFO  HHH000397: Using ASTQueryTranslatorFactory
+2014-10-13/15:44:08.863 [main] INFO  HHH000228: Running hbm2ddl schema update
+2014-10-13/15:44:08.864 [main] INFO  HHH000102: Fetching database metadata
+2014-10-13/15:44:08.868 [main] INFO  HHH000396: Updating schema
+2014-10-13/15:44:08.891 [main] INFO  HHH000261: Table found: octopus.article
+2014-10-13/15:44:08.892 [main] INFO  HHH000037: Columns: [startdate, company, name, customergroup, pack, article_type, code, enddate]
+2014-10-13/15:44:08.892 [main] INFO  HHH000108: Foreign keys: [fkd458ccf6e0f26781]
+2014-10-13/15:44:08.892 [main] INFO  HHH000126: Indexes: [fkd458ccf6e0f26781, primary]
+2014-10-13/15:44:08.898 [main] INFO  HHH000261: Table found: octopus.article_price
+2014-10-13/15:44:08.898 [main] INFO  HHH000037: Columns: [companyid, priceid, price, articleid]
+2014-10-13/15:44:08.898 [main] INFO  HHH000108: Foreign keys: [fk2748d0c0e1af996e]
+2014-10-13/15:44:08.898 [main] INFO  HHH000126: Indexes: [fk2748d0c0e1af996e, fk2748d0c06556300e, primary]
+2014-10-13/15:44:08.904 [main] INFO  HHH000261: Table found: octopus.company
+2014-10-13/15:44:08.904 [main] INFO  HHH000037: Columns: [id, remainingorders, email, name, creationdate, testcompany]
+2014-10-13/15:44:08.904 [main] INFO  HHH000108: Foreign keys: []
+2014-10-13/15:44:08.904 [main] INFO  HHH000126: Indexes: [primary]
+2014-10-13/15:44:08.910 [main] INFO  HHH000261: Table found: octopus.customer
+2014-10-13/15:44:08.910 [main] INFO  HHH000037: Columns: [id, phonenumber, observation, address, email, company, name, cust_group, priceslist]
+2014-10-13/15:44:08.910 [main] INFO  HHH000108: Foreign keys: [fk24217fdee0f26781]
+2014-10-13/15:44:08.911 [main] INFO  HHH000126: Indexes: [id, primary, fk24217fdee0f26781]
+2014-10-13/15:44:08.915 [main] INFO  HHH000261: Table found: octopus.iab_order
+2014-10-13/15:44:08.915 [main] INFO  HHH000037: Columns: [id, status, token, orderid, date, sku]
+2014-10-13/15:44:08.916 [main] INFO  HHH000108: Foreign keys: []
+2014-10-13/15:44:08.916 [main] INFO  HHH000126: Indexes: [primary]
+2014-10-13/15:44:08.921 [main] INFO  HHH000261: Table found: octopus.order_item
+2014-10-13/15:44:08.922 [main] INFO  HHH000037: Columns: [id, companyid, price, tocredit, name, quantity, orderid, itemid, pack, articlecode]
+2014-10-13/15:44:08.922 [main] INFO  HHH000108: Foreign keys: [fk_fgitlw88thprv5ixaxy8854jl, fk_d9fp313gthlw9q6hv0e4aanlm]
+2014-10-13/15:44:08.922 [main] INFO  HHH000126: Indexes: [fk_fgitlw88thprv5ixaxy8854jl, primary, fk_d9fp313gthlw9q6hv0e4aanlm]
+2014-10-13/15:44:08.927 [main] INFO  HHH000261: Table found: octopus.order_m
+2014-10-13/15:44:08.927 [main] INFO  HHH000037: Columns: [id, companyid, customercompanyid, status, date, customer, user]
+2014-10-13/15:44:08.928 [main] INFO  HHH000108: Foreign keys: [fk_t42ekg5tps9w3lnrjipjq6gv2, fk_lv1x2e5sfgjgsatxrol85ctut, fk_i76kddwje4cycmlpnbb1f4e1w]
+2014-10-13/15:44:08.928 [main] INFO  HHH000126: Indexes: [fk_t42ekg5tps9w3lnrjipjq6gv2, primary, fk_lv1x2e5sfgjgsatxrol85ctut, fk_i76kddwje4cycmlpnbb1f4e1w]
+2014-10-13/15:44:08.933 [main] INFO  HHH000261: Table found: octopus.promo_item
+2014-10-13/15:44:08.933 [main] INFO  HHH000037: Columns: [id, companyid, price, tocredit, article, promotionid, quantity]
+2014-10-13/15:44:08.933 [main] INFO  HHH000108: Foreign keys: [fk3a1abc43e8e4d37b, fk3a1abc43a98299c8]
+2014-10-13/15:44:08.934 [main] INFO  HHH000126: Indexes: [fk3a1abc4318558873, fk3a1abc43e8e4d37b, primary, fk3a1abc4313cfd268, fk3a1abc43a98299c8]
+2014-10-13/15:44:08.938 [main] INFO  HHH000261: Table found: octopus.role
+2014-10-13/15:44:08.938 [main] INFO  HHH000037: Columns: [id, name]
+2014-10-13/15:44:08.938 [main] INFO  HHH000108: Foreign keys: []
+2014-10-13/15:44:08.939 [main] INFO  HHH000126: Indexes: [primary]
+2014-10-13/15:44:08.943 [main] INFO  HHH000261: Table found: octopus.sales_user_customer
+2014-10-13/15:44:08.943 [main] INFO  HHH000037: Columns: [companyid, customerid, daystovisit, salesuserid]
+2014-10-13/15:44:08.943 [main] INFO  HHH000108: Foreign keys: [fk3b0a2fdf37e0a400]
+2014-10-13/15:44:08.943 [main] INFO  HHH000126: Indexes: [fk3b0a2fdf37e0a400, fk3b0a2fdf882fd6f8, fk3b0a2fdf4abc6fb0]
+2014-10-13/15:44:08.947 [main] INFO  HHH000261: Table found: octopus.stock
+2014-10-13/15:44:08.948 [main] INFO  HHH000037: Columns: [companyid, stock, article]
+2014-10-13/15:44:08.948 [main] INFO  HHH000108: Foreign keys: [fk68af71694aef1d3, fk68af71618558873]
+2014-10-13/15:44:08.948 [main] INFO  HHH000126: Indexes: [fk68af71694aef1d3, primary, fk68af71618558873]
+2014-10-13/15:44:08.952 [main] INFO  HHH000261: Table found: octopus.user
+2014-10-13/15:44:08.953 [main] INFO  HHH000037: Columns: [id, companyid, ident, status, user_type, name, cancreatecreditnotes, password]
+2014-10-13/15:44:08.953 [main] INFO  HHH000108: Foreign keys: [fk36ebcb5415495c]
+2014-10-13/15:44:08.953 [main] INFO  HHH000126: Indexes: [primary, fk36ebcb5415495c]
+2014-10-13/15:44:08.957 [main] INFO  HHH000261: Table found: octopus.user_roles
+2014-10-13/15:44:08.957 [main] INFO  HHH000037: Columns: [roleid, userid]
+2014-10-13/15:44:08.957 [main] INFO  HHH000108: Foreign keys: [fk73429949b05fbf60]
+2014-10-13/15:44:08.958 [main] INFO  HHH000126: Indexes: [fk73429949b05fbf60, fk73429949b5b514ca]
+2014-10-13/15:44:08.958 [main] INFO  HHH000232: Schema update complete
+2014-10-13/15:44:09.051 [main] INFO  Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgeosh95304gze9lqkpn|8a9705, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgeosh95304gze9lqkpn|8a9705, idleConnectionTestPeriod -> 3000, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://localhost:3306/octopus, lastAcquisitionFailureDefaultUser -> null, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 20, maxStatements -> 50, maxStatementsPerConnection -> 0, minPoolSize -> 5, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+2014-10-13/15:44:09.060 [main] INFO  HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2014-10-13/15:44:09.061 [main] INFO  HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2014-10-13/15:44:09.062 [main] INFO  HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-10-13/15:44:09.062 [main] INFO  HHH000397: Using ASTQueryTranslatorFactory
+2014-10-13/15:44:09.069 [main] INFO  HHH000228: Running hbm2ddl schema update
+2014-10-13/15:44:09.070 [main] INFO  HHH000102: Fetching database metadata
+2014-10-13/15:44:09.070 [main] INFO  HHH000396: Updating schema
+2014-10-13/15:44:09.075 [main] INFO  HHH000261: Table found: octopus.audit_entry
+2014-10-13/15:44:09.075 [main] INFO  HHH000037: Columns: [id, body, userid, messagetype, moduleid, messageid, type, sessionid, remoteip, date, deviceid]
+2014-10-13/15:44:09.075 [main] INFO  HHH000108: Foreign keys: []
+2014-10-13/15:44:09.075 [main] INFO  HHH000126: Indexes: [primary]
+2014-10-13/15:44:09.076 [main] INFO  HHH000232: Schema update complete
+2014-10-13/15:44:09.322 [main] INFO  Server started
+2014-10-13/15:46:36.997 [xWorkerPool-1-thread-1] DEBUG Inc: ModId=1 MsgType=0 User=0 Fields=3 - Response size: 1248
+2014-10-13/15:47:45.537 [xWorkerPool-1-thread-1] DEBUG Inc: ModId=1 MsgType=1 User=1 Fields=0 - Response size: 1712
+2014-10-13/15:47:45.837 [xWorkerPool-1-thread-2] DEBUG Inc: ModId=1 MsgType=2 User=1 Fields=0 - Response size: 13312
+2014-10-13/15:47:50.277 [xWorkerPool-1-thread-1] DEBUG Inc: ModId=1 MsgType=3 User=1 Fields=1 - Response size: 544
+2014-10-13/15:48:03.052 [xWorkerPool-1-thread-1] WARN  [DEPRECATION] Encountered positional parameter near line 1, column 66.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+2014-10-13/15:48:03.054 [xWorkerPool-1-thread-1] WARN  [DEPRECATION] Encountered positional parameter near line 1, column 95.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+2014-10-13/15:48:03.095 [xWorkerPool-1-thread-1] DEBUG Inc: ModId=1 MsgType=6 User=1 Fields=5 - Response size: 464
+2014-10-13/15:48:08.630 [xWorkerPool-1-thread-2] DEBUG Inc: ModId=1 MsgType=6 User=1 Fields=5 - Response size: 464
+2014-10-13/15:48:15.747 [xWorkerPool-1-thread-2] DEBUG Inc: ModId=1 MsgType=6 User=1 Fields=5 - Response size: 464
+2014-10-13/15:48:23.200 [xWorkerPool-1-thread-2] DEBUG Inc: ModId=1 MsgType=4 User=1 Fields=2 - Response size: 464
+2014-10-13/15:50:00.006 [cron4j::scheduler[332d42d4014692c9014a5594000001490ad321e26cf536b9]::executor[332d42d4014692c9009939c3000001490ad87bc40da9b000]] INFO  Starting Inactive orders purge process
+2014-10-13/15:50:00.006 [cron4j::scheduler[332d42d4014692c9014a5594000001490ad321e26cf536b9]::executor[332d42d4014692c9009939c3000001490ad87bc62846fe7b]] INFO  Starting Testing companies purge process
+2014-10-13/15:50:00.008 [cron4j::scheduler[332d42d4014692c9014a5594000001490ad321e26cf536b9]::executor[332d42d4014692c9009939c3000001490ad87bc62846fe7b]] INFO  Testing companies purge process ended
+2014-10-13/15:50:00.008 [cron4j::scheduler[332d42d4014692c9014a5594000001490ad321e26cf536b9]::executor[332d42d4014692c9009939c3000001490ad87bc40da9b000]] INFO  Inactive orders purge process ended
+2014-10-13/16:00:00.001 [cron4j::scheduler[332d42d4014692c9014a5594000001490ad321e26cf536b9]::executor[332d42d4014692c901ecb4e2000001490ae1a3813460d678]] INFO  Starting Inactive orders purge process
+2014-10-13/16:00:00.001 [cron4j::scheduler[332d42d4014692c9014a5594000001490ad321e26cf536b9]::executor[332d42d4014692c901ecb4e2000001490ae1a3813d178d04]] INFO  Starting Testing companies purge process
+2014-10-13/16:00:00.003 [cron4j::scheduler[332d42d4014692c9014a5594000001490ad321e26cf536b9]::executor[332d42d4014692c901ecb4e2000001490ae1a3813d178d04]] INFO  Testing companies purge process ended
+2014-10-13/16:00:00.004 [cron4j::scheduler[332d42d4014692c9014a5594000001490ad321e26cf536b9]::executor[332d42d4014692c901ecb4e2000001490ae1a3813460d678]] INFO  Inactive orders purge process ended
+2014-10-13/16:10:00.001 [cron4j::scheduler[332d42d4014692c9014a5594000001490ad321e26cf536b9]::executor[332d42d4014692c90084b3bb000001490aeacb4002032ac5]] INFO  Starting Inactive orders purge process
+2014-10-13/16:10:00.001 [cron4j::scheduler[332d42d4014692c9014a5594000001490ad321e26cf536b9]::executor[332d42d4014692c90084b3bb000001490aeacb410de73170]] INFO  Starting Testing companies purge process
+2014-10-13/16:10:00.002 [cron4j::scheduler[332d42d4014692c9014a5594000001490ad321e26cf536b9]::executor[332d42d4014692c90084b3bb000001490aeacb410de73170]] INFO  Testing companies purge process ended
+2014-10-13/16:10:00.002 [cron4j::scheduler[332d42d4014692c9014a5594000001490ad321e26cf536b9]::executor[332d42d4014692c90084b3bb000001490aeacb4002032ac5]] INFO  Inactive orders purge process ended
+2014-10-13/22:59:51.517 [main] INFO  Server starting
+2014-10-13/22:59:51.612 [main] INFO  Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1171b26: startup date [Mon Oct 13 22:59:51 ART 2014]; root of context hierarchy
+2014-10-13/22:59:51.972 [main] INFO  MLog clients using log4j logging.
+2014-10-13/22:59:52.072 [main] INFO  Initializing c3p0-0.9.1 [built 16-January-2007 14:46:42; debug? true; trace: 10]
+2014-10-13/22:59:52.295 [main] INFO  HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2014-10-13/22:59:52.303 [main] INFO  HHH000412: Hibernate Core {4.2.0.Final}
+2014-10-13/22:59:52.306 [main] INFO  HHH000206: hibernate.properties not found
+2014-10-13/22:59:52.307 [main] INFO  HHH000021: Bytecode provider name : javassist
+2014-10-13/22:59:52.631 [main] WARN  HHH000038: Composite-id class does not override equals(): papasoft.octopus.se.domain.Stock
+2014-10-13/22:59:52.632 [main] WARN  HHH000039: Composite-id class does not override hashCode(): papasoft.octopus.se.domain.Stock
+2014-10-13/22:59:52.633 [main] WARN  HHH000039: Composite-id class does not override hashCode(): papasoft.octopus.se.domain.SEArticle
+2014-10-13/22:59:52.727 [main] INFO  Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgeosh953fou6dgbezhx|18b9a72, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgeosh953fou6dgbezhx|18b9a72, idleConnectionTestPeriod -> 3000, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://localhost:3306/octopus, lastAcquisitionFailureDefaultUser -> null, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 20, maxStatements -> 50, maxStatementsPerConnection -> 0, minPoolSize -> 5, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+2014-10-13/23:00:12.696 [Timer-0] WARN  com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector@2b105d -- APPARENT DEADLOCK!!! Creating emergency threads for unassigned pending tasks!
+2014-10-13/23:00:12.698 [Timer-0] WARN  com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector@2b105d -- APPARENT DEADLOCK!!! Complete Status: 
+	Managed Threads: 3
+	Active Threads: 3
+	Active Tasks: 
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@1a88001 (com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@16bf0aa (com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@18532dc (com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1)
+	Pending Tasks: 
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@1ce1387
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@640b25
+Pool thread stack traces:
+	Thread[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2,5,main]
+		java.net.PlainSocketImpl.socketConnect(Native Method)
+		java.net.PlainSocketImpl.doConnect(Unknown Source)
+		java.net.PlainSocketImpl.connectToAddress(Unknown Source)
+		java.net.PlainSocketImpl.connect(Unknown Source)
+		java.net.SocksSocketImpl.connect(Unknown Source)
+		java.net.Socket.connect(Unknown Source)
+		java.net.Socket.connect(Unknown Source)
+		java.net.Socket.<init>(Unknown Source)
+		java.net.Socket.<init>(Unknown Source)
+		com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:256)
+		com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:271)
+		com.mysql.jdbc.Connection.createNewIO(Connection.java:2771)
+		com.mysql.jdbc.Connection.<init>(Connection.java:1555)
+		com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:285)
+		com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:135)
+		com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+		com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+		com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+		com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+		com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+	Thread[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0,5,main]
+		java.net.PlainSocketImpl.socketConnect(Native Method)
+		java.net.PlainSocketImpl.doConnect(Unknown Source)
+		java.net.PlainSocketImpl.connectToAddress(Unknown Source)
+		java.net.PlainSocketImpl.connect(Unknown Source)
+		java.net.SocksSocketImpl.connect(Unknown Source)
+		java.net.Socket.connect(Unknown Source)
+		java.net.Socket.connect(Unknown Source)
+		java.net.Socket.<init>(Unknown Source)
+		java.net.Socket.<init>(Unknown Source)
+		com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:256)
+		com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:271)
+		com.mysql.jdbc.Connection.createNewIO(Connection.java:2771)
+		com.mysql.jdbc.Connection.<init>(Connection.java:1555)
+		com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:285)
+		com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:135)
+		com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+		com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+		com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+		com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+		com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+	Thread[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1,5,main]
+		java.net.PlainSocketImpl.socketConnect(Native Method)
+		java.net.PlainSocketImpl.doConnect(Unknown Source)
+		java.net.PlainSocketImpl.connectToAddress(Unknown Source)
+		java.net.PlainSocketImpl.connect(Unknown Source)
+		java.net.SocksSocketImpl.connect(Unknown Source)
+		java.net.Socket.connect(Unknown Source)
+		java.net.Socket.connect(Unknown Source)
+		java.net.Socket.<init>(Unknown Source)
+		java.net.Socket.<init>(Unknown Source)
+		com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:256)
+		com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:271)
+		com.mysql.jdbc.Connection.createNewIO(Connection.java:2771)
+		com.mysql.jdbc.Connection.<init>(Connection.java:1555)
+		com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:285)
+		com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:135)
+		com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+		com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+		com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+		com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+		com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+
+
+2014-10-13/23:01:12.699 [Timer-0] WARN  Task com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@1a88001 (in deadlocked PoolThread) failed to complete in maximum time 60000ms. Trying interrupt().
+2014-10-13/23:01:12.699 [Timer-0] WARN  Task com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@16bf0aa (in deadlocked PoolThread) failed to complete in maximum time 60000ms. Trying interrupt().
+2014-10-13/23:01:12.700 [Timer-0] WARN  Task com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@18532dc (in deadlocked PoolThread) failed to complete in maximum time 60000ms. Trying interrupt().
+2014-10-13/23:01:12.841 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] WARN  com.mchange.v2.resourcepool.BasicResourcePool@1f0cbfb -- Thread unexpectedly interrupted while performing an acquisition attempt.
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1805)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+2014-10-13/23:01:12.859 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] WARN  com.mchange.v2.resourcepool.BasicResourcePool@1f0cbfb -- Thread unexpectedly interrupted while performing an acquisition attempt.
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1805)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+2014-10-13/23:01:12.860 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] WARN  com.mchange.v2.resourcepool.BasicResourcePool@1f0cbfb -- Thread unexpectedly interrupted while performing an acquisition attempt.
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1805)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+2014-10-13/23:01:41.771 [Task-Thread-for-com.mchange.v2.async.ThreadPerTaskAsynchronousRunner@64af0f] WARN  com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@1ce1387 -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+com.mysql.jdbc.CommunicationsException: Communications link failure due to underlying exception: 
+
+** BEGIN NESTED EXCEPTION ** 
+
+java.net.ConnectException
+MESSAGE: Connection refused: connect
+
+STACKTRACE:
+
+java.net.ConnectException: Connection refused: connect
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.PlainSocketImpl.doConnect(Unknown Source)
+	at java.net.PlainSocketImpl.connectToAddress(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:256)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:271)
+	at com.mysql.jdbc.Connection.createNewIO(Connection.java:2771)
+	at com.mysql.jdbc.Connection.<init>(Connection.java:1555)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:285)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:135)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPerTaskAsynchronousRunner$TaskThread.run(ThreadPerTaskAsynchronousRunner.java:255)
+
+
+** END NESTED EXCEPTION **
+
+
+
+Last packet sent to the server was 0 ms ago.
+	at com.mysql.jdbc.Connection.createNewIO(Connection.java:2847)
+	at com.mysql.jdbc.Connection.<init>(Connection.java:1555)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:285)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:135)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPerTaskAsynchronousRunner$TaskThread.run(ThreadPerTaskAsynchronousRunner.java:255)
+2014-10-13/23:01:41.771 [Task-Thread-for-com.mchange.v2.async.ThreadPerTaskAsynchronousRunner@64af0f] WARN  com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@640b25 -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+com.mysql.jdbc.CommunicationsException: Communications link failure due to underlying exception: 
+
+** BEGIN NESTED EXCEPTION ** 
+
+java.net.ConnectException
+MESSAGE: Connection refused: connect
+
+STACKTRACE:
+
+java.net.ConnectException: Connection refused: connect
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.PlainSocketImpl.doConnect(Unknown Source)
+	at java.net.PlainSocketImpl.connectToAddress(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:256)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:271)
+	at com.mysql.jdbc.Connection.createNewIO(Connection.java:2771)
+	at com.mysql.jdbc.Connection.<init>(Connection.java:1555)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:285)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:135)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPerTaskAsynchronousRunner$TaskThread.run(ThreadPerTaskAsynchronousRunner.java:255)
+
+
+** END NESTED EXCEPTION **
+
+
+
+Last packet sent to the server was 0 ms ago.
+	at com.mysql.jdbc.Connection.createNewIO(Connection.java:2847)
+	at com.mysql.jdbc.Connection.<init>(Connection.java:1555)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:285)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:135)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPerTaskAsynchronousRunner$TaskThread.run(ThreadPerTaskAsynchronousRunner.java:255)
+2014-10-13/23:01:41.775 [main] WARN  HHH000342: Could not obtain connection to query metadata : Connections could not be acquired from the underlying database!
+2014-10-13/23:01:41.786 [main] INFO  HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2014-10-13/23:01:41.797 [main] INFO  HHH000422: Disabling contextual LOB creation as connection was null
+2014-10-13/23:01:41.820 [main] INFO  HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-10-13/23:01:41.827 [main] INFO  HHH000397: Using ASTQueryTranslatorFactory
+2014-10-13/23:01:42.164 [main] INFO  HHH000228: Running hbm2ddl schema update
+2014-10-13/23:01:42.164 [main] INFO  HHH000102: Fetching database metadata
+2014-10-13/23:02:41.904 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] WARN  com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@124b4a9 -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+com.mysql.jdbc.CommunicationsException: Communications link failure due to underlying exception: 
+
+** BEGIN NESTED EXCEPTION ** 
+
+java.net.ConnectException
+MESSAGE: Connection refused: connect
+
+STACKTRACE:
+
+java.net.ConnectException: Connection refused: connect
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.PlainSocketImpl.doConnect(Unknown Source)
+	at java.net.PlainSocketImpl.connectToAddress(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:256)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:271)
+	at com.mysql.jdbc.Connection.createNewIO(Connection.java:2771)
+	at com.mysql.jdbc.Connection.<init>(Connection.java:1555)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:285)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:135)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+
+
+** END NESTED EXCEPTION **
+
+
+
+Last packet sent to the server was 0 ms ago.
+	at com.mysql.jdbc.Connection.createNewIO(Connection.java:2847)
+	at com.mysql.jdbc.Connection.<init>(Connection.java:1555)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:285)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:135)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+2014-10-13/23:02:41.905 [main] ERROR HHH000319: Could not get database metadata
+java.sql.SQLException: Connections could not be acquired from the underlying database!
+	at com.mchange.v2.sql.SqlUtils.toSQLException(SqlUtils.java:106)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool.checkoutPooledConnection(C3P0PooledConnectionPool.java:529)
+	at com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getConnection(AbstractPoolBackedDataSource.java:128)
+	at org.hibernate.service.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:141)
+	at org.hibernate.tool.hbm2ddl.SuppliedConnectionProviderConnectionHelper.prepare(SuppliedConnectionProviderConnectionHelper.java:51)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:194)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:178)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:505)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1750)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1788)
+	at org.springframework.orm.hibernate4.LocalSessionFactoryBuilder.buildSessionFactory(LocalSessionFactoryBuilder.java:242)
+	at org.springframework.orm.hibernate4.LocalSessionFactoryBean.buildSessionFactory(LocalSessionFactoryBean.java:372)
+	at org.springframework.orm.hibernate4.LocalSessionFactoryBean.afterPropertiesSet(LocalSessionFactoryBean.java:357)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1545)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1483)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:524)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:461)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:295)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:223)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:292)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:323)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:107)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1391)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1132)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:461)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:295)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:223)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:292)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:323)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:107)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1391)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1132)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:461)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:295)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:223)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:292)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:323)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:107)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1391)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1132)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:461)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:295)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:223)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:292)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:626)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:932)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:479)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:139)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:93)
+	at papasoft.octopus.context.OctopusContext.getCtx(OctopusContext.java:34)
+	at papasoft.octopus.server.ServerStarter.initializeServer(ServerStarter.java:61)
+	at papasoft.octopus.server.ServerStarter.start(ServerStarter.java:40)
+	at papasoft.octopus.server.ServerStarter.main(ServerStarter.java:33)
+Caused by: com.mchange.v2.resourcepool.CannotAcquireResourceException: A ResourcePool could not acquire a resource from its primary factory or source.
+	at com.mchange.v2.resourcepool.BasicResourcePool.awaitAvailable(BasicResourcePool.java:1319)
+	at com.mchange.v2.resourcepool.BasicResourcePool.prelimCheckoutResource(BasicResourcePool.java:557)
+	at com.mchange.v2.resourcepool.BasicResourcePool.checkoutResource(BasicResourcePool.java:477)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool.checkoutPooledConnection(C3P0PooledConnectionPool.java:525)
+	... 58 more
+2014-10-13/23:02:41.906 [main] ERROR HHH000299: Could not complete schema update
+java.sql.SQLException: Connections could not be acquired from the underlying database!
+	at com.mchange.v2.sql.SqlUtils.toSQLException(SqlUtils.java:106)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool.checkoutPooledConnection(C3P0PooledConnectionPool.java:529)
+	at com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getConnection(AbstractPoolBackedDataSource.java:128)
+	at org.hibernate.service.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:141)
+	at org.hibernate.tool.hbm2ddl.SuppliedConnectionProviderConnectionHelper.prepare(SuppliedConnectionProviderConnectionHelper.java:51)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:194)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:178)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:505)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1750)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1788)
+	at org.springframework.orm.hibernate4.LocalSessionFactoryBuilder.buildSessionFactory(LocalSessionFactoryBuilder.java:242)
+	at org.springframework.orm.hibernate4.LocalSessionFactoryBean.buildSessionFactory(LocalSessionFactoryBean.java:372)
+	at org.springframework.orm.hibernate4.LocalSessionFactoryBean.afterPropertiesSet(LocalSessionFactoryBean.java:357)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1545)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1483)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:524)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:461)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:295)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:223)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:292)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:323)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:107)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1391)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1132)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:461)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:295)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:223)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:292)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:323)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:107)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1391)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1132)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:461)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:295)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:223)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:292)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:323)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:107)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1391)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1132)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:461)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:295)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:223)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:292)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:626)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:932)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:479)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:139)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:93)
+	at papasoft.octopus.context.OctopusContext.getCtx(OctopusContext.java:34)
+	at papasoft.octopus.server.ServerStarter.initializeServer(ServerStarter.java:61)
+	at papasoft.octopus.server.ServerStarter.start(ServerStarter.java:40)
+	at papasoft.octopus.server.ServerStarter.main(ServerStarter.java:33)
+Caused by: com.mchange.v2.resourcepool.CannotAcquireResourceException: A ResourcePool could not acquire a resource from its primary factory or source.
+	at com.mchange.v2.resourcepool.BasicResourcePool.awaitAvailable(BasicResourcePool.java:1319)
+	at com.mchange.v2.resourcepool.BasicResourcePool.prelimCheckoutResource(BasicResourcePool.java:557)
+	at com.mchange.v2.resourcepool.BasicResourcePool.checkoutResource(BasicResourcePool.java:477)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool.checkoutPooledConnection(C3P0PooledConnectionPool.java:525)
+	... 58 more
+2014-10-13/23:02:41.920 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] WARN  com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@1a9bced -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+com.mysql.jdbc.CommunicationsException: Communications link failure due to underlying exception: 
+
+** BEGIN NESTED EXCEPTION ** 
+
+java.net.ConnectException
+MESSAGE: Connection refused: connect
+
+STACKTRACE:
+
+java.net.ConnectException: Connection refused: connect
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.PlainSocketImpl.doConnect(Unknown Source)
+	at java.net.PlainSocketImpl.connectToAddress(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:256)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:271)
+	at com.mysql.jdbc.Connection.createNewIO(Connection.java:2771)
+	at com.mysql.jdbc.Connection.<init>(Connection.java:1555)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:285)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:135)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+
+
+** END NESTED EXCEPTION **
+
+
+
+Last packet sent to the server was 0 ms ago.
+	at com.mysql.jdbc.Connection.createNewIO(Connection.java:2847)
+	at com.mysql.jdbc.Connection.<init>(Connection.java:1555)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:285)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:135)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+2014-10-13/23:02:42.011 [main] INFO  Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgeosh953fou6dgbezhx|1792d2c, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgeosh953fou6dgbezhx|1792d2c, idleConnectionTestPeriod -> 3000, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://localhost:3306/octopus, lastAcquisitionFailureDefaultUser -> null, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 20, maxStatements -> 50, maxStatementsPerConnection -> 0, minPoolSize -> 5, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+2014-10-13/23:03:02.004 [Timer-1] WARN  com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector@107eafc -- APPARENT DEADLOCK!!! Creating emergency threads for unassigned pending tasks!
+2014-10-13/23:03:02.005 [Timer-1] WARN  com.mchange.v2.async.ThreadPoolAsynchronousRunner$DeadlockDetector@107eafc -- APPARENT DEADLOCK!!! Complete Status: 
+	Managed Threads: 3
+	Active Threads: 3
+	Active Tasks: 
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@d45f89 (com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@cc5c6c (com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@c7cb61 (com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1)
+	Pending Tasks: 
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@f94dad
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@15ab821
+Pool thread stack traces:
+	Thread[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0,5,main]
+		java.net.PlainSocketImpl.socketConnect(Native Method)
+		java.net.PlainSocketImpl.doConnect(Unknown Source)
+		java.net.PlainSocketImpl.connectToAddress(Unknown Source)
+		java.net.PlainSocketImpl.connect(Unknown Source)
+		java.net.SocksSocketImpl.connect(Unknown Source)
+		java.net.Socket.connect(Unknown Source)
+		java.net.Socket.connect(Unknown Source)
+		java.net.Socket.<init>(Unknown Source)
+		java.net.Socket.<init>(Unknown Source)
+		com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:256)
+		com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:271)
+		com.mysql.jdbc.Connection.createNewIO(Connection.java:2771)
+		com.mysql.jdbc.Connection.<init>(Connection.java:1555)
+		com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:285)
+		com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:135)
+		com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+		com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+		com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+		com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+		com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+	Thread[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2,5,main]
+		java.net.PlainSocketImpl.socketConnect(Native Method)
+		java.net.PlainSocketImpl.doConnect(Unknown Source)
+		java.net.PlainSocketImpl.connectToAddress(Unknown Source)
+		java.net.PlainSocketImpl.connect(Unknown Source)
+		java.net.SocksSocketImpl.connect(Unknown Source)
+		java.net.Socket.connect(Unknown Source)
+		java.net.Socket.connect(Unknown Source)
+		java.net.Socket.<init>(Unknown Source)
+		java.net.Socket.<init>(Unknown Source)
+		com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:256)
+		com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:271)
+		com.mysql.jdbc.Connection.createNewIO(Connection.java:2771)
+		com.mysql.jdbc.Connection.<init>(Connection.java:1555)
+		com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:285)
+		com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:135)
+		com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+		com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+		com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+		com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+		com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+	Thread[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1,5,main]
+		java.net.PlainSocketImpl.socketConnect(Native Method)
+		java.net.PlainSocketImpl.doConnect(Unknown Source)
+		java.net.PlainSocketImpl.connectToAddress(Unknown Source)
+		java.net.PlainSocketImpl.connect(Unknown Source)
+		java.net.SocksSocketImpl.connect(Unknown Source)
+		java.net.Socket.connect(Unknown Source)
+		java.net.Socket.connect(Unknown Source)
+		java.net.Socket.<init>(Unknown Source)
+		java.net.Socket.<init>(Unknown Source)
+		com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:256)
+		com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:271)
+		com.mysql.jdbc.Connection.createNewIO(Connection.java:2771)
+		com.mysql.jdbc.Connection.<init>(Connection.java:1555)
+		com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:285)
+		com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:135)
+		com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+		com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+		com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+		com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+		com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+		com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+		com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+
+
+2014-10-13/23:04:02.006 [Timer-1] WARN  Task com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@d45f89 (in deadlocked PoolThread) failed to complete in maximum time 60000ms. Trying interrupt().
+2014-10-13/23:04:02.006 [Timer-1] WARN  Task com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@cc5c6c (in deadlocked PoolThread) failed to complete in maximum time 60000ms. Trying interrupt().
+2014-10-13/23:04:02.006 [Timer-1] WARN  Task com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@c7cb61 (in deadlocked PoolThread) failed to complete in maximum time 60000ms. Trying interrupt().
+2014-10-13/23:04:02.081 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#2] WARN  com.mchange.v2.resourcepool.BasicResourcePool@1b8424e -- Thread unexpectedly interrupted while performing an acquisition attempt.
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1805)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+2014-10-13/23:04:02.101 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] WARN  com.mchange.v2.resourcepool.BasicResourcePool@1b8424e -- Thread unexpectedly interrupted while performing an acquisition attempt.
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1805)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+2014-10-13/23:04:02.171 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] WARN  com.mchange.v2.resourcepool.BasicResourcePool@1b8424e -- Thread unexpectedly interrupted while performing an acquisition attempt.
+java.lang.InterruptedException: sleep interrupted
+	at java.lang.Thread.sleep(Native Method)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1805)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+2014-10-13/23:04:31.092 [Task-Thread-for-com.mchange.v2.async.ThreadPerTaskAsynchronousRunner@16509fe] WARN  com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@f94dad -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+com.mysql.jdbc.CommunicationsException: Communications link failure due to underlying exception: 
+
+** BEGIN NESTED EXCEPTION ** 
+
+java.net.ConnectException
+MESSAGE: Connection refused: connect
+
+STACKTRACE:
+
+java.net.ConnectException: Connection refused: connect
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.PlainSocketImpl.doConnect(Unknown Source)
+	at java.net.PlainSocketImpl.connectToAddress(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:256)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:271)
+	at com.mysql.jdbc.Connection.createNewIO(Connection.java:2771)
+	at com.mysql.jdbc.Connection.<init>(Connection.java:1555)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:285)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:135)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPerTaskAsynchronousRunner$TaskThread.run(ThreadPerTaskAsynchronousRunner.java:255)
+
+
+** END NESTED EXCEPTION **
+
+
+
+Last packet sent to the server was 0 ms ago.
+	at com.mysql.jdbc.Connection.createNewIO(Connection.java:2847)
+	at com.mysql.jdbc.Connection.<init>(Connection.java:1555)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:285)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:135)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPerTaskAsynchronousRunner$TaskThread.run(ThreadPerTaskAsynchronousRunner.java:255)
+2014-10-13/23:04:31.093 [main] WARN  HHH000342: Could not obtain connection to query metadata : Connections could not be acquired from the underlying database!
+2014-10-13/23:04:31.094 [main] INFO  HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2014-10-13/23:04:31.094 [main] INFO  HHH000422: Disabling contextual LOB creation as connection was null
+2014-10-13/23:04:31.095 [main] INFO  HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-10-13/23:04:31.095 [main] INFO  HHH000397: Using ASTQueryTranslatorFactory
+2014-10-13/23:04:31.102 [main] INFO  HHH000228: Running hbm2ddl schema update
+2014-10-13/23:04:31.103 [main] INFO  HHH000102: Fetching database metadata
+2014-10-13/23:04:31.175 [Task-Thread-for-com.mchange.v2.async.ThreadPerTaskAsynchronousRunner@16509fe] WARN  com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@15ab821 -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+com.mysql.jdbc.CommunicationsException: Communications link failure due to underlying exception: 
+
+** BEGIN NESTED EXCEPTION ** 
+
+java.net.ConnectException
+MESSAGE: Connection refused: connect
+
+STACKTRACE:
+
+java.net.ConnectException: Connection refused: connect
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.PlainSocketImpl.doConnect(Unknown Source)
+	at java.net.PlainSocketImpl.connectToAddress(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:256)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:271)
+	at com.mysql.jdbc.Connection.createNewIO(Connection.java:2771)
+	at com.mysql.jdbc.Connection.<init>(Connection.java:1555)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:285)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:135)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPerTaskAsynchronousRunner$TaskThread.run(ThreadPerTaskAsynchronousRunner.java:255)
+
+
+** END NESTED EXCEPTION **
+
+
+
+Last packet sent to the server was 0 ms ago.
+	at com.mysql.jdbc.Connection.createNewIO(Connection.java:2847)
+	at com.mysql.jdbc.Connection.<init>(Connection.java:1555)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:285)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:135)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPerTaskAsynchronousRunner$TaskThread.run(ThreadPerTaskAsynchronousRunner.java:255)
+2014-10-13/23:04:31.176 [main] ERROR HHH000319: Could not get database metadata
+java.sql.SQLException: Connections could not be acquired from the underlying database!
+	at com.mchange.v2.sql.SqlUtils.toSQLException(SqlUtils.java:106)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool.checkoutPooledConnection(C3P0PooledConnectionPool.java:529)
+	at com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getConnection(AbstractPoolBackedDataSource.java:128)
+	at org.hibernate.service.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:141)
+	at org.hibernate.tool.hbm2ddl.SuppliedConnectionProviderConnectionHelper.prepare(SuppliedConnectionProviderConnectionHelper.java:51)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:194)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:178)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:505)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1750)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1788)
+	at org.springframework.orm.hibernate4.LocalSessionFactoryBuilder.buildSessionFactory(LocalSessionFactoryBuilder.java:242)
+	at org.springframework.orm.hibernate4.LocalSessionFactoryBean.buildSessionFactory(LocalSessionFactoryBean.java:372)
+	at org.springframework.orm.hibernate4.LocalSessionFactoryBean.afterPropertiesSet(LocalSessionFactoryBean.java:357)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1545)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1483)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:524)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:461)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:295)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:223)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:292)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:323)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:107)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1391)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1132)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:461)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:295)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:223)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:292)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:323)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:107)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1391)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1132)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:461)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:295)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:223)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:292)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:323)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:107)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1391)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1132)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:461)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:295)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:223)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:292)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:626)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:932)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:479)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:139)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:93)
+	at papasoft.octopus.context.OctopusContext.getCtx(OctopusContext.java:34)
+	at papasoft.octopus.server.ServerStarter.initializeServer(ServerStarter.java:61)
+	at papasoft.octopus.server.ServerStarter.start(ServerStarter.java:40)
+	at papasoft.octopus.server.ServerStarter.main(ServerStarter.java:33)
+Caused by: com.mchange.v2.resourcepool.CannotAcquireResourceException: A ResourcePool could not acquire a resource from its primary factory or source.
+	at com.mchange.v2.resourcepool.BasicResourcePool.awaitAvailable(BasicResourcePool.java:1319)
+	at com.mchange.v2.resourcepool.BasicResourcePool.prelimCheckoutResource(BasicResourcePool.java:557)
+	at com.mchange.v2.resourcepool.BasicResourcePool.checkoutResource(BasicResourcePool.java:477)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool.checkoutPooledConnection(C3P0PooledConnectionPool.java:525)
+	... 58 more
+2014-10-13/23:04:31.177 [main] ERROR HHH000299: Could not complete schema update
+java.sql.SQLException: Connections could not be acquired from the underlying database!
+	at com.mchange.v2.sql.SqlUtils.toSQLException(SqlUtils.java:106)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool.checkoutPooledConnection(C3P0PooledConnectionPool.java:529)
+	at com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource.getConnection(AbstractPoolBackedDataSource.java:128)
+	at org.hibernate.service.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:141)
+	at org.hibernate.tool.hbm2ddl.SuppliedConnectionProviderConnectionHelper.prepare(SuppliedConnectionProviderConnectionHelper.java:51)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:194)
+	at org.hibernate.tool.hbm2ddl.SchemaUpdate.execute(SchemaUpdate.java:178)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:505)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1750)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1788)
+	at org.springframework.orm.hibernate4.LocalSessionFactoryBuilder.buildSessionFactory(LocalSessionFactoryBuilder.java:242)
+	at org.springframework.orm.hibernate4.LocalSessionFactoryBean.buildSessionFactory(LocalSessionFactoryBean.java:372)
+	at org.springframework.orm.hibernate4.LocalSessionFactoryBean.afterPropertiesSet(LocalSessionFactoryBean.java:357)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1545)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1483)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:524)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:461)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:295)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:223)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:292)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:323)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:107)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1391)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1132)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:461)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:295)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:223)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:292)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:323)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:107)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1391)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1132)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:461)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:295)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:223)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:292)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:323)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:107)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1391)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1132)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:461)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:295)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:223)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:292)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:626)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:932)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:479)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:139)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:93)
+	at papasoft.octopus.context.OctopusContext.getCtx(OctopusContext.java:34)
+	at papasoft.octopus.server.ServerStarter.initializeServer(ServerStarter.java:61)
+	at papasoft.octopus.server.ServerStarter.start(ServerStarter.java:40)
+	at papasoft.octopus.server.ServerStarter.main(ServerStarter.java:33)
+Caused by: com.mchange.v2.resourcepool.CannotAcquireResourceException: A ResourcePool could not acquire a resource from its primary factory or source.
+	at com.mchange.v2.resourcepool.BasicResourcePool.awaitAvailable(BasicResourcePool.java:1319)
+	at com.mchange.v2.resourcepool.BasicResourcePool.prelimCheckoutResource(BasicResourcePool.java:557)
+	at com.mchange.v2.resourcepool.BasicResourcePool.checkoutResource(BasicResourcePool.java:477)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool.checkoutPooledConnection(C3P0PooledConnectionPool.java:525)
+	... 58 more
+2014-10-13/23:04:31.384 [main] INFO  Server started
+2014-10-13/23:05:31.238 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#1] WARN  com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@a948c2 -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+com.mysql.jdbc.CommunicationsException: Communications link failure due to underlying exception: 
+
+** BEGIN NESTED EXCEPTION ** 
+
+java.net.ConnectException
+MESSAGE: Connection refused: connect
+
+STACKTRACE:
+
+java.net.ConnectException: Connection refused: connect
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.PlainSocketImpl.doConnect(Unknown Source)
+	at java.net.PlainSocketImpl.connectToAddress(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:256)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:271)
+	at com.mysql.jdbc.Connection.createNewIO(Connection.java:2771)
+	at com.mysql.jdbc.Connection.<init>(Connection.java:1555)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:285)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:135)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+
+
+** END NESTED EXCEPTION **
+
+
+
+Last packet sent to the server was 0 ms ago.
+	at com.mysql.jdbc.Connection.createNewIO(Connection.java:2847)
+	at com.mysql.jdbc.Connection.<init>(Connection.java:1555)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:285)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:135)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+2014-10-13/23:05:31.302 [com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] WARN  com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask@1e7d8b1 -- Acquisition Attempt Failed!!! Clearing pending acquires. While trying to acquire a needed new resource, we failed to succeed more than the maximum number of allowed acquisition attempts (30). Last acquisition attempt exception: 
+com.mysql.jdbc.CommunicationsException: Communications link failure due to underlying exception: 
+
+** BEGIN NESTED EXCEPTION ** 
+
+java.net.ConnectException
+MESSAGE: Connection refused: connect
+
+STACKTRACE:
+
+java.net.ConnectException: Connection refused: connect
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.PlainSocketImpl.doConnect(Unknown Source)
+	at java.net.PlainSocketImpl.connectToAddress(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:256)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:271)
+	at com.mysql.jdbc.Connection.createNewIO(Connection.java:2771)
+	at com.mysql.jdbc.Connection.<init>(Connection.java:1555)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:285)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:135)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+
+
+** END NESTED EXCEPTION **
+
+
+
+Last packet sent to the server was 0 ms ago.
+	at com.mysql.jdbc.Connection.createNewIO(Connection.java:2847)
+	at com.mysql.jdbc.Connection.<init>(Connection.java:1555)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:285)
+	at com.mchange.v2.c3p0.DriverManagerDataSource.getConnection(DriverManagerDataSource.java:135)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:182)
+	at com.mchange.v2.c3p0.WrapperConnectionPoolDataSource.getPooledConnection(WrapperConnectionPoolDataSource.java:171)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.acquireResource(C3P0PooledConnectionPool.java:137)
+	at com.mchange.v2.resourcepool.BasicResourcePool.doAcquire(BasicResourcePool.java:1014)
+	at com.mchange.v2.resourcepool.BasicResourcePool.access$800(BasicResourcePool.java:32)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AcquireTask.run(BasicResourcePool.java:1810)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+2014-10-13/23:06:41.041 [main] INFO  Server starting
+2014-10-13/23:06:41.131 [main] INFO  Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@e0cc23: startup date [Mon Oct 13 23:06:41 ART 2014]; root of context hierarchy
+2014-10-13/23:06:41.473 [main] INFO  MLog clients using log4j logging.
+2014-10-13/23:06:41.571 [main] INFO  Initializing c3p0-0.9.1 [built 16-January-2007 14:46:42; debug? true; trace: 10]
+2014-10-13/23:06:41.792 [main] INFO  HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2014-10-13/23:06:41.801 [main] INFO  HHH000412: Hibernate Core {4.2.0.Final}
+2014-10-13/23:06:41.804 [main] INFO  HHH000206: hibernate.properties not found
+2014-10-13/23:06:41.805 [main] INFO  HHH000021: Bytecode provider name : javassist
+2014-10-13/23:06:42.126 [main] WARN  HHH000038: Composite-id class does not override equals(): papasoft.octopus.se.domain.Stock
+2014-10-13/23:06:42.127 [main] WARN  HHH000039: Composite-id class does not override hashCode(): papasoft.octopus.se.domain.Stock
+2014-10-13/23:06:42.128 [main] WARN  HHH000039: Composite-id class does not override hashCode(): papasoft.octopus.se.domain.SEArticle
+2014-10-13/23:06:42.223 [main] INFO  Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgeosh953fxm5c1jm5we|1f07597, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgeosh953fxm5c1jm5we|1f07597, idleConnectionTestPeriod -> 3000, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://localhost:3306/octopus, lastAcquisitionFailureDefaultUser -> null, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 20, maxStatements -> 50, maxStatementsPerConnection -> 0, minPoolSize -> 5, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+2014-10-13/23:06:42.435 [main] INFO  HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2014-10-13/23:06:42.447 [main] INFO  HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2014-10-13/23:06:42.472 [main] INFO  HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-10-13/23:06:42.480 [main] INFO  HHH000397: Using ASTQueryTranslatorFactory
+2014-10-13/23:06:42.810 [main] INFO  HHH000228: Running hbm2ddl schema update
+2014-10-13/23:06:42.811 [main] INFO  HHH000102: Fetching database metadata
+2014-10-13/23:06:42.815 [main] INFO  HHH000396: Updating schema
+2014-10-13/23:06:42.937 [main] INFO  HHH000261: Table found: octopus.article
+2014-10-13/23:06:42.937 [main] INFO  HHH000037: Columns: [startdate, company, name, customergroup, pack, article_type, code, enddate]
+2014-10-13/23:06:42.937 [main] INFO  HHH000108: Foreign keys: [fkd458ccf6e0f26781]
+2014-10-13/23:06:42.938 [main] INFO  HHH000126: Indexes: [fkd458ccf6e0f26781, primary]
+2014-10-13/23:06:42.943 [main] INFO  HHH000261: Table found: octopus.article_price
+2014-10-13/23:06:42.944 [main] INFO  HHH000037: Columns: [companyid, priceid, price, articleid]
+2014-10-13/23:06:42.944 [main] INFO  HHH000108: Foreign keys: [fk2748d0c0e1af996e]
+2014-10-13/23:06:42.944 [main] INFO  HHH000126: Indexes: [fk2748d0c0e1af996e, fk2748d0c06556300e, primary]
+2014-10-13/23:06:42.965 [main] INFO  HHH000261: Table found: octopus.company
+2014-10-13/23:06:42.965 [main] INFO  HHH000037: Columns: [id, remainingorders, email, name, creationdate, testcompany]
+2014-10-13/23:06:42.965 [main] INFO  HHH000108: Foreign keys: []
+2014-10-13/23:06:42.965 [main] INFO  HHH000126: Indexes: [primary]
+2014-10-13/23:06:42.984 [main] INFO  HHH000261: Table found: octopus.customer
+2014-10-13/23:06:42.984 [main] INFO  HHH000037: Columns: [id, phonenumber, observation, address, email, company, name, cust_group, priceslist]
+2014-10-13/23:06:42.984 [main] INFO  HHH000108: Foreign keys: [fk24217fdee0f26781]
+2014-10-13/23:06:42.985 [main] INFO  HHH000126: Indexes: [id, primary, fk24217fdee0f26781]
+2014-10-13/23:06:43.033 [main] INFO  HHH000261: Table found: octopus.iab_order
+2014-10-13/23:06:43.034 [main] INFO  HHH000037: Columns: [id, status, token, orderid, date, sku]
+2014-10-13/23:06:43.034 [main] INFO  HHH000108: Foreign keys: []
+2014-10-13/23:06:43.034 [main] INFO  HHH000126: Indexes: [primary]
+2014-10-13/23:06:43.040 [main] INFO  HHH000261: Table found: octopus.order_item
+2014-10-13/23:06:43.041 [main] INFO  HHH000037: Columns: [id, companyid, price, tocredit, name, quantity, orderid, itemid, pack, articlecode]
+2014-10-13/23:06:43.041 [main] INFO  HHH000108: Foreign keys: [fk_fgitlw88thprv5ixaxy8854jl, fk_d9fp313gthlw9q6hv0e4aanlm]
+2014-10-13/23:06:43.041 [main] INFO  HHH000126: Indexes: [fk_fgitlw88thprv5ixaxy8854jl, primary, fk_d9fp313gthlw9q6hv0e4aanlm]
+2014-10-13/23:06:43.047 [main] INFO  HHH000261: Table found: octopus.order_m
+2014-10-13/23:06:43.047 [main] INFO  HHH000037: Columns: [id, companyid, customercompanyid, status, date, customer, user]
+2014-10-13/23:06:43.047 [main] INFO  HHH000108: Foreign keys: [fk_t42ekg5tps9w3lnrjipjq6gv2, fk_lv1x2e5sfgjgsatxrol85ctut, fk_i76kddwje4cycmlpnbb1f4e1w]
+2014-10-13/23:06:43.047 [main] INFO  HHH000126: Indexes: [fk_t42ekg5tps9w3lnrjipjq6gv2, primary, fk_lv1x2e5sfgjgsatxrol85ctut, fk_i76kddwje4cycmlpnbb1f4e1w]
+2014-10-13/23:06:43.053 [main] INFO  HHH000261: Table found: octopus.promo_item
+2014-10-13/23:06:43.053 [main] INFO  HHH000037: Columns: [id, companyid, price, tocredit, article, promotionid, quantity]
+2014-10-13/23:06:43.053 [main] INFO  HHH000108: Foreign keys: [fk3a1abc43e8e4d37b, fk3a1abc43a98299c8]
+2014-10-13/23:06:43.053 [main] INFO  HHH000126: Indexes: [fk3a1abc4318558873, fk3a1abc43e8e4d37b, primary, fk3a1abc4313cfd268, fk3a1abc43a98299c8]
+2014-10-13/23:06:43.071 [main] INFO  HHH000261: Table found: octopus.role
+2014-10-13/23:06:43.071 [main] INFO  HHH000037: Columns: [id, name]
+2014-10-13/23:06:43.072 [main] INFO  HHH000108: Foreign keys: []
+2014-10-13/23:06:43.072 [main] INFO  HHH000126: Indexes: [primary]
+2014-10-13/23:06:43.076 [main] INFO  HHH000261: Table found: octopus.sales_user_customer
+2014-10-13/23:06:43.077 [main] INFO  HHH000037: Columns: [companyid, customerid, daystovisit, salesuserid]
+2014-10-13/23:06:43.077 [main] INFO  HHH000108: Foreign keys: [fk3b0a2fdf37e0a400]
+2014-10-13/23:06:43.077 [main] INFO  HHH000126: Indexes: [fk3b0a2fdf37e0a400, fk3b0a2fdf882fd6f8, fk3b0a2fdf4abc6fb0]
+2014-10-13/23:06:43.082 [main] INFO  HHH000261: Table found: octopus.stock
+2014-10-13/23:06:43.082 [main] INFO  HHH000037: Columns: [companyid, stock, article]
+2014-10-13/23:06:43.082 [main] INFO  HHH000108: Foreign keys: [fk68af71694aef1d3, fk68af71618558873]
+2014-10-13/23:06:43.082 [main] INFO  HHH000126: Indexes: [fk68af71694aef1d3, primary, fk68af71618558873]
+2014-10-13/23:06:43.098 [main] INFO  HHH000261: Table found: octopus.user
+2014-10-13/23:06:43.098 [main] INFO  HHH000037: Columns: [id, companyid, ident, status, user_type, name, cancreatecreditnotes, password]
+2014-10-13/23:06:43.099 [main] INFO  HHH000108: Foreign keys: [fk36ebcb5415495c]
+2014-10-13/23:06:43.099 [main] INFO  HHH000126: Indexes: [primary, fk36ebcb5415495c]
+2014-10-13/23:06:43.104 [main] INFO  HHH000261: Table found: octopus.user_roles
+2014-10-13/23:06:43.104 [main] INFO  HHH000037: Columns: [roleid, userid]
+2014-10-13/23:06:43.104 [main] INFO  HHH000108: Foreign keys: [fk73429949b05fbf60]
+2014-10-13/23:06:43.105 [main] INFO  HHH000126: Indexes: [fk73429949b05fbf60, fk73429949b5b514ca]
+2014-10-13/23:06:43.105 [main] INFO  HHH000232: Schema update complete
+2014-10-13/23:06:43.203 [main] INFO  Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgeosh953fxm5c1jm5we|d03e03, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgeosh953fxm5c1jm5we|d03e03, idleConnectionTestPeriod -> 3000, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://localhost:3306/octopus, lastAcquisitionFailureDefaultUser -> null, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 20, maxStatements -> 50, maxStatementsPerConnection -> 0, minPoolSize -> 5, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+2014-10-13/23:06:43.214 [main] INFO  HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2014-10-13/23:06:43.214 [main] INFO  HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2014-10-13/23:06:43.215 [main] INFO  HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-10-13/23:06:43.215 [main] INFO  HHH000397: Using ASTQueryTranslatorFactory
+2014-10-13/23:06:43.224 [main] INFO  HHH000228: Running hbm2ddl schema update
+2014-10-13/23:06:43.224 [main] INFO  HHH000102: Fetching database metadata
+2014-10-13/23:06:43.224 [main] INFO  HHH000396: Updating schema
+2014-10-13/23:06:43.258 [main] INFO  HHH000261: Table found: octopus.audit_entry
+2014-10-13/23:06:43.259 [main] INFO  HHH000037: Columns: [id, body, userid, messagetype, moduleid, messageid, type, sessionid, remoteip, date, deviceid]
+2014-10-13/23:06:43.259 [main] INFO  HHH000108: Foreign keys: []
+2014-10-13/23:06:43.259 [main] INFO  HHH000126: Indexes: [primary]
+2014-10-13/23:06:43.259 [main] INFO  HHH000232: Schema update complete
+2014-10-13/23:06:43.541 [main] INFO  Server started
+2014-10-13/23:09:12.595 [xWorkerPool-1-thread-1] ERROR Error creating test company
+java.lang.NullPointerException
+	at papasoft.octopus.se.sales.minterface.SESalesInterface.createTestCompany(SESalesInterface.java:367)
+	at papasoft.octopus.sales.message.LoginMessage.handleMessage(LoginMessage.java:48)
+	at papasoft.octopus.module.Module.handleMessage(Module.java:55)
+	at papasoft.octopus.server.handler.TransactionHandler.handleMessage(TransactionHandler.java:193)
+	at papasoft.octopus.server.handler.TransactionHandler.sendResponse(TransactionHandler.java:121)
+	at papasoft.octopus.server.handler.TransactionHandler.onData(TransactionHandler.java:75)
+	at org.xsocket.connection.HandlerAdapter.performOnData(HandlerAdapter.java:242)
+	at org.xsocket.connection.HandlerAdapter.access$200(HandlerAdapter.java:42)
+	at org.xsocket.connection.HandlerAdapter$PerformOnDataTask.run(HandlerAdapter.java:210)
+	at org.xsocket.SerializedTaskQueue.performPendingTasks(SerializedTaskQueue.java:161)
+	at org.xsocket.SerializedTaskQueue.access$100(SerializedTaskQueue.java:40)
+	at org.xsocket.SerializedTaskQueue$MultithreadedTaskProcessor.run(SerializedTaskQueue.java:189)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+2014-10-13/23:09:12.604 [xWorkerPool-1-thread-1] DEBUG Inc: ModId=1 MsgType=0 User=0 Fields=3 - Response size: 464
+2014-10-13/23:09:18.291 [xWorkerPool-1-thread-2] ERROR Error creating test company
+java.lang.NullPointerException
+	at papasoft.octopus.se.sales.minterface.SESalesInterface.createTestCompany(SESalesInterface.java:367)
+	at papasoft.octopus.sales.message.LoginMessage.handleMessage(LoginMessage.java:48)
+	at papasoft.octopus.module.Module.handleMessage(Module.java:55)
+	at papasoft.octopus.server.handler.TransactionHandler.handleMessage(TransactionHandler.java:193)
+	at papasoft.octopus.server.handler.TransactionHandler.sendResponse(TransactionHandler.java:121)
+	at papasoft.octopus.server.handler.TransactionHandler.onData(TransactionHandler.java:75)
+	at org.xsocket.connection.HandlerAdapter.performOnData(HandlerAdapter.java:242)
+	at org.xsocket.connection.HandlerAdapter.access$200(HandlerAdapter.java:42)
+	at org.xsocket.connection.HandlerAdapter$PerformOnDataTask.run(HandlerAdapter.java:210)
+	at org.xsocket.SerializedTaskQueue.performPendingTasks(SerializedTaskQueue.java:161)
+	at org.xsocket.SerializedTaskQueue.access$100(SerializedTaskQueue.java:40)
+	at org.xsocket.SerializedTaskQueue$MultithreadedTaskProcessor.run(SerializedTaskQueue.java:189)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+2014-10-13/23:09:18.295 [xWorkerPool-1-thread-2] DEBUG Inc: ModId=1 MsgType=0 User=0 Fields=3 - Response size: 464
+2014-10-13/23:10:00.008 [cron4j::scheduler[332d42d300ddcabb0028c7a1000001490c68514c20f5d266]::executor[332d42d300ddcabb00ece686000001490c6b50c3611381ab]] INFO  Starting Inactive orders purge process
+2014-10-13/23:10:00.010 [cron4j::scheduler[332d42d300ddcabb0028c7a1000001490c68514c20f5d266]::executor[332d42d300ddcabb00ece686000001490c6b50c3611381ab]] INFO  Inactive orders purge process ended
+2014-10-13/23:10:00.011 [cron4j::scheduler[332d42d300ddcabb0028c7a1000001490c68514c20f5d266]::executor[332d42d300ddcabb00ece686000001490c6b50c52603a5b3]] INFO  Starting Testing companies purge process
+2014-10-13/23:10:00.058 [cron4j::scheduler[332d42d300ddcabb0028c7a1000001490c68514c20f5d266]::executor[332d42d300ddcabb00ece686000001490c6b50c52603a5b3]] INFO  Testing companies purge process ended
+2014-10-13/23:13:21.350 [xWorkerPool-1-thread-2] ERROR Error creating test company
+java.lang.NullPointerException
+	at papasoft.octopus.se.sales.minterface.SESalesInterface.createTestCompany(SESalesInterface.java:367)
+	at papasoft.octopus.sales.message.LoginMessage.handleMessage(LoginMessage.java:48)
+	at papasoft.octopus.module.Module.handleMessage(Module.java:55)
+	at papasoft.octopus.server.handler.TransactionHandler.handleMessage(TransactionHandler.java:193)
+	at papasoft.octopus.server.handler.TransactionHandler.sendResponse(TransactionHandler.java:121)
+	at papasoft.octopus.server.handler.TransactionHandler.onData(TransactionHandler.java:75)
+	at org.xsocket.connection.HandlerAdapter.performOnData(HandlerAdapter.java:242)
+	at org.xsocket.connection.HandlerAdapter.access$200(HandlerAdapter.java:42)
+	at org.xsocket.connection.HandlerAdapter$PerformOnDataTask.run(HandlerAdapter.java:210)
+	at org.xsocket.SerializedTaskQueue.performPendingTasks(SerializedTaskQueue.java:161)
+	at org.xsocket.SerializedTaskQueue.access$100(SerializedTaskQueue.java:40)
+	at org.xsocket.SerializedTaskQueue$MultithreadedTaskProcessor.run(SerializedTaskQueue.java:189)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+2014-10-13/23:13:21.366 [xWorkerPool-1-thread-2] ERROR Error receiving message
+papasoft.octopus.exception.OctopusException: Error sending message
+	at papasoft.octopus.server.handler.TransactionHandler.sendResponseMessage(TransactionHandler.java:183)
+	at papasoft.octopus.server.handler.TransactionHandler.sendResponse(TransactionHandler.java:135)
+	at papasoft.octopus.server.handler.TransactionHandler.onData(TransactionHandler.java:75)
+	at org.xsocket.connection.HandlerAdapter.performOnData(HandlerAdapter.java:242)
+	at org.xsocket.connection.HandlerAdapter.access$200(HandlerAdapter.java:42)
+	at org.xsocket.connection.HandlerAdapter$PerformOnDataTask.run(HandlerAdapter.java:210)
+	at org.xsocket.SerializedTaskQueue.performPendingTasks(SerializedTaskQueue.java:161)
+	at org.xsocket.SerializedTaskQueue.access$100(SerializedTaskQueue.java:40)
+	at org.xsocket.SerializedTaskQueue$MultithreadedTaskProcessor.run(SerializedTaskQueue.java:189)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.xsocket.connection.ExtendedClosedChannelException: could not write. channel is close or not initialized (id=85bddf141490c68516351c7b44S3 (closed))
+	at org.xsocket.connection.AbstractNonBlockingStream.ensureStreamIsOpenAndWritable(AbstractNonBlockingStream.java:1537)
+	at org.xsocket.connection.AbstractNonBlockingStream.write(AbstractNonBlockingStream.java:981)
+	at papasoft.octopus.server.handler.TransactionHandler.sendResponseMessage(TransactionHandler.java:179)
+	... 11 more
+2014-10-13/23:20:00.002 [cron4j::scheduler[332d42d300ddcabb0028c7a1000001490c68514c20f5d266]::executor[332d42d300ddcabb0116d55f000001490c747881186004e3]] INFO  Starting Inactive orders purge process
+2014-10-13/23:20:00.002 [cron4j::scheduler[332d42d300ddcabb0028c7a1000001490c68514c20f5d266]::executor[332d42d300ddcabb0116d55f000001490c74788262845174]] INFO  Starting Testing companies purge process
+2014-10-13/23:20:00.004 [cron4j::scheduler[332d42d300ddcabb0028c7a1000001490c68514c20f5d266]::executor[332d42d300ddcabb0116d55f000001490c747881186004e3]] INFO  Inactive orders purge process ended
+2014-10-13/23:20:00.004 [cron4j::scheduler[332d42d300ddcabb0028c7a1000001490c68514c20f5d266]::executor[332d42d300ddcabb0116d55f000001490c74788262845174]] INFO  Testing companies purge process ended
+2014-10-13/23:47:57.437 [main] INFO  Server starting
+2014-10-13/23:47:57.529 [main] INFO  Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@b4e29b: startup date [Mon Oct 13 23:47:57 ART 2014]; root of context hierarchy
+2014-10-13/23:47:57.876 [main] INFO  MLog clients using log4j logging.
+2014-10-13/23:47:57.974 [main] INFO  Initializing c3p0-0.9.1 [built 16-January-2007 14:46:42; debug? true; trace: 10]
+2014-10-13/23:47:58.199 [main] INFO  HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2014-10-13/23:47:58.208 [main] INFO  HHH000412: Hibernate Core {4.2.0.Final}
+2014-10-13/23:47:58.210 [main] INFO  HHH000206: hibernate.properties not found
+2014-10-13/23:47:58.212 [main] INFO  HHH000021: Bytecode provider name : javassist
+2014-10-13/23:47:58.537 [main] WARN  HHH000038: Composite-id class does not override equals(): papasoft.octopus.se.domain.Stock
+2014-10-13/23:47:58.538 [main] WARN  HHH000039: Composite-id class does not override hashCode(): papasoft.octopus.se.domain.Stock
+2014-10-13/23:47:58.539 [main] WARN  HHH000039: Composite-id class does not override hashCode(): papasoft.octopus.se.domain.SEArticle
+2014-10-13/23:47:58.634 [main] INFO  Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgeosh953heoyb1id12bk|15d4273, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgeosh953heoyb1id12bk|15d4273, idleConnectionTestPeriod -> 3000, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://localhost:3306/octopus, lastAcquisitionFailureDefaultUser -> null, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 20, maxStatements -> 50, maxStatementsPerConnection -> 0, minPoolSize -> 5, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+2014-10-13/23:47:58.847 [main] INFO  HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2014-10-13/23:47:58.860 [main] INFO  HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2014-10-13/23:47:58.885 [main] INFO  HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-10-13/23:47:58.893 [main] INFO  HHH000397: Using ASTQueryTranslatorFactory
+2014-10-13/23:47:59.229 [main] INFO  HHH000228: Running hbm2ddl schema update
+2014-10-13/23:47:59.229 [main] INFO  HHH000102: Fetching database metadata
+2014-10-13/23:47:59.234 [main] INFO  HHH000396: Updating schema
+2014-10-13/23:47:59.256 [main] INFO  HHH000261: Table found: octopus.article
+2014-10-13/23:47:59.257 [main] INFO  HHH000037: Columns: [startdate, company, name, customergroup, pack, article_type, code, enddate]
+2014-10-13/23:47:59.257 [main] INFO  HHH000108: Foreign keys: [fkd458ccf6e0f26781]
+2014-10-13/23:47:59.257 [main] INFO  HHH000126: Indexes: [fkd458ccf6e0f26781, primary]
+2014-10-13/23:47:59.263 [main] INFO  HHH000261: Table found: octopus.article_price
+2014-10-13/23:47:59.263 [main] INFO  HHH000037: Columns: [companyid, priceid, price, articleid]
+2014-10-13/23:47:59.263 [main] INFO  HHH000108: Foreign keys: [fk2748d0c0e1af996e]
+2014-10-13/23:47:59.263 [main] INFO  HHH000126: Indexes: [fk2748d0c0e1af996e, fk2748d0c06556300e, primary]
+2014-10-13/23:47:59.268 [main] INFO  HHH000261: Table found: octopus.company
+2014-10-13/23:47:59.269 [main] INFO  HHH000037: Columns: [id, remainingorders, email, name, creationdate, testcompany]
+2014-10-13/23:47:59.269 [main] INFO  HHH000108: Foreign keys: []
+2014-10-13/23:47:59.269 [main] INFO  HHH000126: Indexes: [primary]
+2014-10-13/23:47:59.274 [main] INFO  HHH000261: Table found: octopus.customer
+2014-10-13/23:47:59.275 [main] INFO  HHH000037: Columns: [id, phonenumber, observation, address, email, company, name, cust_group, priceslist]
+2014-10-13/23:47:59.275 [main] INFO  HHH000108: Foreign keys: [fk24217fdee0f26781]
+2014-10-13/23:47:59.275 [main] INFO  HHH000126: Indexes: [id, primary, fk24217fdee0f26781]
+2014-10-13/23:47:59.280 [main] INFO  HHH000261: Table found: octopus.iab_order
+2014-10-13/23:47:59.280 [main] INFO  HHH000037: Columns: [id, status, token, orderid, date, sku]
+2014-10-13/23:47:59.280 [main] INFO  HHH000108: Foreign keys: []
+2014-10-13/23:47:59.281 [main] INFO  HHH000126: Indexes: [primary]
+2014-10-13/23:47:59.286 [main] INFO  HHH000261: Table found: octopus.order_item
+2014-10-13/23:47:59.286 [main] INFO  HHH000037: Columns: [id, companyid, price, tocredit, name, quantity, orderid, itemid, pack, articlecode]
+2014-10-13/23:47:59.287 [main] INFO  HHH000108: Foreign keys: [fk_fgitlw88thprv5ixaxy8854jl, fk_d9fp313gthlw9q6hv0e4aanlm]
+2014-10-13/23:47:59.287 [main] INFO  HHH000126: Indexes: [fk_fgitlw88thprv5ixaxy8854jl, primary, fk_d9fp313gthlw9q6hv0e4aanlm]
+2014-10-13/23:47:59.292 [main] INFO  HHH000261: Table found: octopus.order_m
+2014-10-13/23:47:59.292 [main] INFO  HHH000037: Columns: [id, companyid, customercompanyid, status, date, customer, user]
+2014-10-13/23:47:59.292 [main] INFO  HHH000108: Foreign keys: [fk_t42ekg5tps9w3lnrjipjq6gv2, fk_lv1x2e5sfgjgsatxrol85ctut, fk_i76kddwje4cycmlpnbb1f4e1w]
+2014-10-13/23:47:59.292 [main] INFO  HHH000126: Indexes: [fk_t42ekg5tps9w3lnrjipjq6gv2, primary, fk_lv1x2e5sfgjgsatxrol85ctut, fk_i76kddwje4cycmlpnbb1f4e1w]
+2014-10-13/23:47:59.297 [main] INFO  HHH000261: Table found: octopus.promo_item
+2014-10-13/23:47:59.298 [main] INFO  HHH000037: Columns: [id, companyid, price, tocredit, article, promotionid, quantity]
+2014-10-13/23:47:59.298 [main] INFO  HHH000108: Foreign keys: [fk3a1abc43e8e4d37b, fk3a1abc43a98299c8]
+2014-10-13/23:47:59.298 [main] INFO  HHH000126: Indexes: [fk3a1abc4318558873, fk3a1abc43e8e4d37b, primary, fk3a1abc4313cfd268, fk3a1abc43a98299c8]
+2014-10-13/23:47:59.302 [main] INFO  HHH000261: Table found: octopus.role
+2014-10-13/23:47:59.302 [main] INFO  HHH000037: Columns: [id, name]
+2014-10-13/23:47:59.302 [main] INFO  HHH000108: Foreign keys: []
+2014-10-13/23:47:59.302 [main] INFO  HHH000126: Indexes: [primary]
+2014-10-13/23:47:59.307 [main] INFO  HHH000261: Table found: octopus.sales_user_customer
+2014-10-13/23:47:59.307 [main] INFO  HHH000037: Columns: [companyid, customerid, daystovisit, salesuserid]
+2014-10-13/23:47:59.307 [main] INFO  HHH000108: Foreign keys: [fk3b0a2fdf37e0a400]
+2014-10-13/23:47:59.307 [main] INFO  HHH000126: Indexes: [fk3b0a2fdf37e0a400, fk3b0a2fdf882fd6f8, fk3b0a2fdf4abc6fb0]
+2014-10-13/23:47:59.311 [main] INFO  HHH000261: Table found: octopus.stock
+2014-10-13/23:47:59.312 [main] INFO  HHH000037: Columns: [companyid, stock, article]
+2014-10-13/23:47:59.312 [main] INFO  HHH000108: Foreign keys: [fk68af71694aef1d3, fk68af71618558873]
+2014-10-13/23:47:59.312 [main] INFO  HHH000126: Indexes: [fk68af71694aef1d3, primary, fk68af71618558873]
+2014-10-13/23:47:59.317 [main] INFO  HHH000261: Table found: octopus.user
+2014-10-13/23:47:59.317 [main] INFO  HHH000037: Columns: [id, companyid, ident, status, user_type, name, cancreatecreditnotes, password]
+2014-10-13/23:47:59.317 [main] INFO  HHH000108: Foreign keys: [fk36ebcb5415495c]
+2014-10-13/23:47:59.318 [main] INFO  HHH000126: Indexes: [primary, fk36ebcb5415495c]
+2014-10-13/23:47:59.322 [main] INFO  HHH000261: Table found: octopus.user_roles
+2014-10-13/23:47:59.322 [main] INFO  HHH000037: Columns: [roleid, userid]
+2014-10-13/23:47:59.322 [main] INFO  HHH000108: Foreign keys: [fk73429949b05fbf60]
+2014-10-13/23:47:59.322 [main] INFO  HHH000126: Indexes: [fk73429949b05fbf60, fk73429949b5b514ca]
+2014-10-13/23:47:59.323 [main] INFO  HHH000232: Schema update complete
+2014-10-13/23:47:59.420 [main] INFO  Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgeosh953heoyb1id12bk|1188439, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgeosh953heoyb1id12bk|1188439, idleConnectionTestPeriod -> 3000, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://localhost:3306/octopus, lastAcquisitionFailureDefaultUser -> null, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 20, maxStatements -> 50, maxStatementsPerConnection -> 0, minPoolSize -> 5, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+2014-10-13/23:47:59.431 [main] INFO  HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2014-10-13/23:47:59.431 [main] INFO  HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2014-10-13/23:47:59.432 [main] INFO  HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-10-13/23:47:59.432 [main] INFO  HHH000397: Using ASTQueryTranslatorFactory
+2014-10-13/23:47:59.440 [main] INFO  HHH000228: Running hbm2ddl schema update
+2014-10-13/23:47:59.440 [main] INFO  HHH000102: Fetching database metadata
+2014-10-13/23:47:59.441 [main] INFO  HHH000396: Updating schema
+2014-10-13/23:47:59.446 [main] INFO  HHH000261: Table found: octopus.audit_entry
+2014-10-13/23:47:59.446 [main] INFO  HHH000037: Columns: [id, body, userid, messagetype, moduleid, messageid, type, sessionid, remoteip, date, deviceid]
+2014-10-13/23:47:59.446 [main] INFO  HHH000108: Foreign keys: []
+2014-10-13/23:47:59.446 [main] INFO  HHH000126: Indexes: [primary]
+2014-10-13/23:47:59.447 [main] INFO  HHH000232: Schema update complete
+2014-10-13/23:47:59.689 [main] INFO  Server started
+2014-10-13/23:50:00.006 [cron4j::scheduler[332d42d300ddcabb01389244000001490c8e19c077b27fd7]::executor[332d42d300ddcabb00e75147000001490c8fefc60e8e60c0]] INFO  Starting Testing companies purge process
+2014-10-13/23:50:00.006 [cron4j::scheduler[332d42d300ddcabb01389244000001490c8e19c077b27fd7]::executor[332d42d300ddcabb00e75147000001490c8fefc4020c24d3]] INFO  Starting Inactive orders purge process
+2014-10-13/23:50:00.118 [cron4j::scheduler[332d42d300ddcabb01389244000001490c8e19c077b27fd7]::executor[332d42d300ddcabb00e75147000001490c8fefc4020c24d3]] INFO  Inactive orders purge process ended
+2014-10-13/23:50:00.119 [cron4j::scheduler[332d42d300ddcabb01389244000001490c8e19c077b27fd7]::executor[332d42d300ddcabb00e75147000001490c8fefc60e8e60c0]] INFO  Testing companies purge process ended

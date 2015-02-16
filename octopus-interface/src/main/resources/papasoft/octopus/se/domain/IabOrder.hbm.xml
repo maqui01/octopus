@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="papasoft.octopus.domain.se">
+    <class name="IabOrder" table="iab_order" >
+        <id name="id">
+             <generator class="native"/>
+        </id>
+        
+        <property name="orderId"/>
+        <property name="token"/>
+        <property name="sku"/>
+        <property name="date"/>
+        <property name="status"/>
+        
+    </class>
+</hibernate-mapping>

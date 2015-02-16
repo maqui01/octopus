@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="papasoft.octopus.domain">
+    <class name="PromotionItem" table="promo_item" >
+        <id name="id">
+             <generator class="native"/>
+        </id>
+        
+        <many-to-one name="article" class="papasoft.octopus.se.domain.SEArticle">
+            <column name="article"/>
+            <column name="companyId"/>
+        </many-to-one>    
+        
+        <property name="quantity"/>
+        <property name="price"/>
+        <property name="toCredit"/>
+        
+    </class>
+</hibernate-mapping>

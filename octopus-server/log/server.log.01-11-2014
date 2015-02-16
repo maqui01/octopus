@@ -1,0 +1,225 @@
+2014-11-01/18:14:56.184 [main] INFO  Server starting
+2014-11-01/18:14:56.275 [main] INFO  Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@17ee8b8: startup date [Sat Nov 01 18:14:56 ART 2014]; root of context hierarchy
+2014-11-01/18:14:56.565 [main] INFO  MLog clients using log4j logging.
+2014-11-01/18:14:56.656 [main] INFO  Initializing c3p0-0.9.1 [built 16-January-2007 14:46:42; debug? true; trace: 10]
+2014-11-01/18:14:56.815 [main] INFO  HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2014-11-01/18:14:56.820 [main] INFO  HHH000412: Hibernate Core {4.2.0.Final}
+2014-11-01/18:14:56.822 [main] INFO  HHH000206: hibernate.properties not found
+2014-11-01/18:14:56.824 [main] INFO  HHH000021: Bytecode provider name : javassist
+2014-11-01/18:14:57.026 [main] INFO  Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgeosh95uavlxvbj2he5|1eb0, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgeosh95uavlxvbj2he5|1eb0, idleConnectionTestPeriod -> 3000, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://localhost:3306/octopus, lastAcquisitionFailureDefaultUser -> null, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 20, maxStatements -> 50, maxStatementsPerConnection -> 0, minPoolSize -> 5, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+2014-11-01/18:15:07.227 [main] INFO  HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2014-11-01/18:15:07.236 [main] INFO  HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2014-11-01/18:15:07.248 [main] INFO  HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-11-01/18:15:07.253 [main] INFO  HHH000397: Using ASTQueryTranslatorFactory
+2014-11-01/18:15:07.450 [main] INFO  HHH000228: Running hbm2ddl schema update
+2014-11-01/18:15:07.451 [main] INFO  HHH000102: Fetching database metadata
+2014-11-01/18:15:07.454 [main] INFO  HHH000396: Updating schema
+2014-11-01/18:15:07.504 [main] INFO  HHH000261: Table found: octopus.audit_entry
+2014-11-01/18:15:07.504 [main] INFO  HHH000037: Columns: [id, body, userid, messagetype, moduleid, messageid, type, sessionid, remoteip, date, deviceid]
+2014-11-01/18:15:07.504 [main] INFO  HHH000108: Foreign keys: []
+2014-11-01/18:15:07.505 [main] INFO  HHH000126: Indexes: [primary]
+2014-11-01/18:15:07.505 [main] INFO  HHH000232: Schema update complete
+2014-11-01/18:15:07.529 [main] ERROR Error starting server
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'octopusContext' defined in class path resource [application-context.xml]: Cannot resolve reference to bean 'salesModule' while setting bean property 'modules' with key [0]; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'salesModule' is defined
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:329)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:107)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveManagedList(BeanDefinitionValueResolver.java:353)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:154)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1391)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1132)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:461)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:295)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:223)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:292)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:626)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:932)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:479)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:139)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:93)
+	at papasoft.octopus.context.OctopusContext.getCtx(OctopusContext.java:34)
+	at papasoft.octopus.server.ServerStarter.initializeServer(ServerStarter.java:61)
+	at papasoft.octopus.server.ServerStarter.start(ServerStarter.java:40)
+	at papasoft.octopus.server.ServerStarter.main(ServerStarter.java:33)
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'salesModule' is defined
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanDefinition(DefaultListableBeanFactory.java:568)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getMergedLocalBeanDefinition(AbstractBeanFactory.java:1099)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:278)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:323)
+	... 20 more
+2014-11-01/18:15:07.531 [main] INFO  Server failed to start
+2014-11-01/18:15:07.544 [main] ERROR Error running server
+java.lang.NullPointerException
+	at papasoft.octopus.server.ServerStarter.startServer(ServerStarter.java:50)
+	at papasoft.octopus.server.ServerStarter.start(ServerStarter.java:42)
+	at papasoft.octopus.server.ServerStarter.main(ServerStarter.java:33)
+2014-11-01/18:15:07.545 [main] ERROR Fatal error during server runtime. Server STOPPED
+papasoft.octopus.exception.OctopusException: Error running server
+	at papasoft.octopus.server.ServerStarter.startServer(ServerStarter.java:54)
+	at papasoft.octopus.server.ServerStarter.start(ServerStarter.java:42)
+	at papasoft.octopus.server.ServerStarter.main(ServerStarter.java:33)
+Caused by: java.lang.NullPointerException
+	at papasoft.octopus.server.ServerStarter.startServer(ServerStarter.java:50)
+	... 2 more
+2014-11-01/18:17:15.890 [main] INFO  Server starting
+2014-11-01/18:17:15.978 [main] INFO  Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@17ee8b8: startup date [Sat Nov 01 18:17:15 ART 2014]; root of context hierarchy
+2014-11-01/18:17:16.339 [main] INFO  MLog clients using log4j logging.
+2014-11-01/18:17:16.428 [main] INFO  Initializing c3p0-0.9.1 [built 16-January-2007 14:46:42; debug? true; trace: 10]
+2014-11-01/18:17:16.585 [main] INFO  HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2014-11-01/18:17:16.590 [main] INFO  HHH000412: Hibernate Core {4.2.0.Final}
+2014-11-01/18:17:16.592 [main] INFO  HHH000206: hibernate.properties not found
+2014-11-01/18:17:16.593 [main] INFO  HHH000021: Bytecode provider name : javassist
+2014-11-01/18:17:16.834 [main] WARN  HHH000038: Composite-id class does not override equals(): papasoft.octopus.se.domain.Stock
+2014-11-01/18:17:16.834 [main] WARN  HHH000039: Composite-id class does not override hashCode(): papasoft.octopus.se.domain.Stock
+2014-11-01/18:17:16.838 [main] WARN  HHH000039: Composite-id class does not override hashCode(): papasoft.octopus.se.domain.SEArticle
+2014-11-01/18:17:16.895 [main] INFO  Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgeosh95uaylshzfm3dk|c3e9e9, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgeosh95uaylshzfm3dk|c3e9e9, idleConnectionTestPeriod -> 3000, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://localhost:3306/octopus, lastAcquisitionFailureDefaultUser -> null, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 20, maxStatements -> 50, maxStatementsPerConnection -> 0, minPoolSize -> 5, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+2014-11-01/18:17:17.079 [main] INFO  HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2014-11-01/18:17:17.086 [main] INFO  HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2014-11-01/18:17:17.098 [main] INFO  HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-11-01/18:17:17.102 [main] INFO  HHH000397: Using ASTQueryTranslatorFactory
+2014-11-01/18:17:17.347 [main] INFO  HHH000228: Running hbm2ddl schema update
+2014-11-01/18:17:17.347 [main] INFO  HHH000102: Fetching database metadata
+2014-11-01/18:17:17.350 [main] INFO  HHH000396: Updating schema
+2014-11-01/18:17:17.403 [main] INFO  HHH000261: Table found: octopus.article
+2014-11-01/18:17:17.403 [main] INFO  HHH000037: Columns: [startdate, company, name, customergroup, pack, article_type, code, enddate]
+2014-11-01/18:17:17.404 [main] INFO  HHH000108: Foreign keys: [fkd458ccf6e0f26781]
+2014-11-01/18:17:17.404 [main] INFO  HHH000126: Indexes: [fkd458ccf6e0f26781, primary]
+2014-11-01/18:17:17.417 [main] INFO  HHH000261: Table found: octopus.article_price
+2014-11-01/18:17:17.418 [main] INFO  HHH000037: Columns: [companyid, priceid, price, articleid]
+2014-11-01/18:17:17.418 [main] INFO  HHH000108: Foreign keys: [fk2748d0c0e1af996e]
+2014-11-01/18:17:17.418 [main] INFO  HHH000126: Indexes: [fk2748d0c0e1af996e, fk2748d0c06556300e, primary]
+2014-11-01/18:17:17.436 [main] INFO  HHH000261: Table found: octopus.company
+2014-11-01/18:17:17.436 [main] INFO  HHH000037: Columns: [id, remainingorders, email, name, creationdate, testcompany]
+2014-11-01/18:17:17.436 [main] INFO  HHH000108: Foreign keys: []
+2014-11-01/18:17:17.437 [main] INFO  HHH000126: Indexes: [primary]
+2014-11-01/18:17:17.459 [main] INFO  HHH000261: Table found: octopus.customer
+2014-11-01/18:17:17.460 [main] INFO  HHH000037: Columns: [id, phonenumber, observation, address, email, company, name, cust_group, priceslist]
+2014-11-01/18:17:17.460 [main] INFO  HHH000108: Foreign keys: [fk24217fdee0f26781]
+2014-11-01/18:17:17.460 [main] INFO  HHH000126: Indexes: [id, primary, fk24217fdee0f26781]
+2014-11-01/18:17:17.480 [main] INFO  HHH000261: Table found: octopus.iab_order
+2014-11-01/18:17:17.480 [main] INFO  HHH000037: Columns: [id, status, token, orderid, date, sku]
+2014-11-01/18:17:17.480 [main] INFO  HHH000108: Foreign keys: []
+2014-11-01/18:17:17.481 [main] INFO  HHH000126: Indexes: [primary]
+2014-11-01/18:17:17.499 [main] INFO  HHH000261: Table found: octopus.order_item
+2014-11-01/18:17:17.499 [main] INFO  HHH000037: Columns: [id, companyid, price, tocredit, name, quantity, orderid, itemid, pack, articlecode]
+2014-11-01/18:17:17.500 [main] INFO  HHH000108: Foreign keys: [fk_fgitlw88thprv5ixaxy8854jl, fk_d9fp313gthlw9q6hv0e4aanlm]
+2014-11-01/18:17:17.500 [main] INFO  HHH000126: Indexes: [fk_fgitlw88thprv5ixaxy8854jl, primary, fk_d9fp313gthlw9q6hv0e4aanlm]
+2014-11-01/18:17:17.513 [main] INFO  HHH000261: Table found: octopus.order_m
+2014-11-01/18:17:17.513 [main] INFO  HHH000037: Columns: [id, companyid, customercompanyid, status, date, customer, user]
+2014-11-01/18:17:17.513 [main] INFO  HHH000108: Foreign keys: [fk_t42ekg5tps9w3lnrjipjq6gv2, fk_lv1x2e5sfgjgsatxrol85ctut, fk_i76kddwje4cycmlpnbb1f4e1w]
+2014-11-01/18:17:17.513 [main] INFO  HHH000126: Indexes: [fk_t42ekg5tps9w3lnrjipjq6gv2, primary, fk_lv1x2e5sfgjgsatxrol85ctut, fk_i76kddwje4cycmlpnbb1f4e1w]
+2014-11-01/18:17:17.549 [main] INFO  HHH000261: Table found: octopus.promo_item
+2014-11-01/18:17:17.550 [main] INFO  HHH000037: Columns: [id, companyid, price, tocredit, article, promotionid, quantity]
+2014-11-01/18:17:17.550 [main] INFO  HHH000108: Foreign keys: [fk3a1abc43e8e4d37b, fk3a1abc43a98299c8]
+2014-11-01/18:17:17.550 [main] INFO  HHH000126: Indexes: [fk3a1abc4318558873, fk3a1abc43e8e4d37b, primary, fk3a1abc4313cfd268, fk3a1abc43a98299c8]
+2014-11-01/18:17:17.589 [main] INFO  HHH000261: Table found: octopus.role
+2014-11-01/18:17:17.590 [main] INFO  HHH000037: Columns: [id, name]
+2014-11-01/18:17:17.590 [main] INFO  HHH000108: Foreign keys: []
+2014-11-01/18:17:17.590 [main] INFO  HHH000126: Indexes: [primary]
+2014-11-01/18:17:17.605 [main] INFO  HHH000261: Table found: octopus.sales_user_customer
+2014-11-01/18:17:17.606 [main] INFO  HHH000037: Columns: [companyid, customerid, daystovisit, salesuserid]
+2014-11-01/18:17:17.606 [main] INFO  HHH000108: Foreign keys: [fk3b0a2fdf37e0a400]
+2014-11-01/18:17:17.606 [main] INFO  HHH000126: Indexes: [fk3b0a2fdf37e0a400, fk3b0a2fdf882fd6f8, fk3b0a2fdf4abc6fb0]
+2014-11-01/18:17:17.621 [main] INFO  HHH000261: Table found: octopus.stock
+2014-11-01/18:17:17.621 [main] INFO  HHH000037: Columns: [companyid, stock, article]
+2014-11-01/18:17:17.621 [main] INFO  HHH000108: Foreign keys: [fk68af71694aef1d3, fk68af71618558873]
+2014-11-01/18:17:17.621 [main] INFO  HHH000126: Indexes: [fk68af71694aef1d3, primary, fk68af71618558873]
+2014-11-01/18:17:17.638 [main] INFO  HHH000261: Table found: octopus.user
+2014-11-01/18:17:17.639 [main] INFO  HHH000037: Columns: [id, companyid, ident, status, user_type, name, cancreatecreditnotes, password]
+2014-11-01/18:17:17.639 [main] INFO  HHH000108: Foreign keys: [fk36ebcb5415495c]
+2014-11-01/18:17:17.639 [main] INFO  HHH000126: Indexes: [primary, fk36ebcb5415495c]
+2014-11-01/18:17:17.651 [main] INFO  HHH000261: Table found: octopus.user_roles
+2014-11-01/18:17:17.651 [main] INFO  HHH000037: Columns: [roleid, userid]
+2014-11-01/18:17:17.651 [main] INFO  HHH000108: Foreign keys: [fk73429949b05fbf60]
+2014-11-01/18:17:17.652 [main] INFO  HHH000126: Indexes: [fk73429949b05fbf60, fk73429949b5b514ca]
+2014-11-01/18:17:17.652 [main] INFO  HHH000232: Schema update complete
+2014-11-01/18:17:17.710 [main] INFO  Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgeosh95uaylshzfm3dk|5878d2, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgeosh95uaylshzfm3dk|5878d2, idleConnectionTestPeriod -> 3000, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://localhost:3306/octopus, lastAcquisitionFailureDefaultUser -> null, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 20, maxStatements -> 50, maxStatementsPerConnection -> 0, minPoolSize -> 5, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+2014-11-01/18:17:17.723 [main] INFO  HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2014-11-01/18:17:17.723 [main] INFO  HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2014-11-01/18:17:17.724 [main] INFO  HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-11-01/18:17:17.725 [main] INFO  HHH000397: Using ASTQueryTranslatorFactory
+2014-11-01/18:17:17.731 [main] INFO  HHH000228: Running hbm2ddl schema update
+2014-11-01/18:17:17.731 [main] INFO  HHH000102: Fetching database metadata
+2014-11-01/18:17:17.732 [main] INFO  HHH000396: Updating schema
+2014-11-01/18:17:17.736 [main] INFO  HHH000261: Table found: octopus.audit_entry
+2014-11-01/18:17:17.736 [main] INFO  HHH000037: Columns: [id, body, userid, messagetype, moduleid, messageid, type, sessionid, remoteip, date, deviceid]
+2014-11-01/18:17:17.737 [main] INFO  HHH000108: Foreign keys: []
+2014-11-01/18:17:17.737 [main] INFO  HHH000126: Indexes: [primary]
+2014-11-01/18:17:17.737 [main] INFO  HHH000232: Schema update complete
+2014-11-01/18:17:17.954 [main] INFO  Server started
+2014-11-01/18:20:00.003 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa100bc6007000001496d3aa40202594a0e]] INFO  Starting Inactive orders purge process
+2014-11-01/18:20:00.003 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa100bc6007000001496d3aa40375c5e766]] INFO  Starting Testing companies purge process
+2014-11-01/18:20:00.080 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa100bc6007000001496d3aa40375c5e766]] INFO  Testing companies purge process ended
+2014-11-01/18:20:00.122 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa100bc6007000001496d3aa40202594a0e]] INFO  Order [7] is purged for being pending after 120 minutes
+2014-11-01/18:20:00.168 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa100bc6007000001496d3aa40202594a0e]] INFO  Order [9] is purged for being pending after 120 minutes
+2014-11-01/18:20:00.257 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa100bc6007000001496d3aa40202594a0e]] INFO  Inactive orders purge process ended
+2014-11-01/18:30:00.000 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa101b4df9c000001496d43cbc00e33f24d]] INFO  Starting Inactive orders purge process
+2014-11-01/18:30:00.001 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa101b4df9c000001496d43cbc027137f48]] INFO  Starting Testing companies purge process
+2014-11-01/18:30:00.002 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa101b4df9c000001496d43cbc00e33f24d]] INFO  Inactive orders purge process ended
+2014-11-01/18:30:00.002 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa101b4df9c000001496d43cbc027137f48]] INFO  Testing companies purge process ended
+2014-11-01/18:40:00.002 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa10158497c000001496d4cf3812b5ef116]] INFO  Starting Inactive orders purge process
+2014-11-01/18:40:00.002 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa10158497c000001496d4cf382209fffc2]] INFO  Starting Testing companies purge process
+2014-11-01/18:40:00.004 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa10158497c000001496d4cf382209fffc2]] INFO  Testing companies purge process ended
+2014-11-01/18:40:00.004 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa10158497c000001496d4cf3812b5ef116]] INFO  Inactive orders purge process ended
+2014-11-01/18:50:00.001 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa10098062f000001496d561b410357ba5b]] INFO  Starting Inactive orders purge process
+2014-11-01/18:50:00.001 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa10098062f000001496d561b41239a0948]] INFO  Starting Testing companies purge process
+2014-11-01/18:50:00.003 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa10098062f000001496d561b41239a0948]] INFO  Testing companies purge process ended
+2014-11-01/18:50:00.003 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa10098062f000001496d561b410357ba5b]] INFO  Inactive orders purge process ended
+2014-11-01/19:00:00.001 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa10140243b000001496d5f430013bedb0f]] INFO  Starting Inactive orders purge process
+2014-11-01/19:00:00.001 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa10140243b000001496d5f43012750df27]] INFO  Starting Testing companies purge process
+2014-11-01/19:00:00.002 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa10140243b000001496d5f43012750df27]] INFO  Testing companies purge process ended
+2014-11-01/19:00:00.002 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa10140243b000001496d5f430013bedb0f]] INFO  Inactive orders purge process ended
+2014-11-01/19:10:00.002 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa100db248c000001496d686ac14376d88b]] INFO  Starting Inactive orders purge process
+2014-11-01/19:10:00.002 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa100db248c000001496d686ac23f91444d]] INFO  Starting Testing companies purge process
+2014-11-01/19:10:00.004 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa100db248c000001496d686ac23f91444d]] INFO  Testing companies purge process ended
+2014-11-01/19:10:00.004 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa100db248c000001496d686ac14376d88b]] INFO  Inactive orders purge process ended
+2014-11-01/19:20:00.002 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa100d3c69c000001496d71928175a3564f]] INFO  Starting Inactive orders purge process
+2014-11-01/19:20:00.002 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa100d3c69c000001496d71928266cfe027]] INFO  Starting Testing companies purge process
+2014-11-01/19:20:00.004 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa100d3c69c000001496d71928175a3564f]] INFO  Inactive orders purge process ended
+2014-11-01/19:20:00.004 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa100d3c69c000001496d71928266cfe027]] INFO  Testing companies purge process ended
+2014-11-01/19:30:00.001 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa100e90097000001496d7aba41162b856f]] INFO  Starting Inactive orders purge process
+2014-11-01/19:30:00.001 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa100e90097000001496d7aba413ffc2b75]] INFO  Starting Testing companies purge process
+2014-11-01/19:30:00.003 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa100e90097000001496d7aba413ffc2b75]] INFO  Testing companies purge process ended
+2014-11-01/19:30:00.003 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa100e90097000001496d7aba41162b856f]] INFO  Inactive orders purge process ended
+2014-11-01/19:40:00.002 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa1000c74fe000001496d83e2011382daf2]] INFO  Starting Inactive orders purge process
+2014-11-01/19:40:00.002 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa1000c74fe000001496d83e20268f6e4d3]] INFO  Starting Testing companies purge process
+2014-11-01/19:40:00.003 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa1000c74fe000001496d83e20268f6e4d3]] INFO  Testing companies purge process ended
+2014-11-01/19:40:00.003 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa1000c74fe000001496d83e2011382daf2]] INFO  Inactive orders purge process ended
+2014-11-01/19:50:00.001 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa1001a503f000001496d8d09c15d9b0f11]] INFO  Starting Inactive orders purge process
+2014-11-01/19:50:00.002 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa1001a503f000001496d8d09c107c70d6b]] INFO  Starting Testing companies purge process
+2014-11-01/19:50:00.003 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa1001a503f000001496d8d09c107c70d6b]] INFO  Testing companies purge process ended
+2014-11-01/19:50:00.003 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa1001a503f000001496d8d09c15d9b0f11]] INFO  Inactive orders purge process ended
+2014-11-01/20:00:00.001 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa1008bf3ec000001496d96318052026371]] INFO  Starting Inactive orders purge process
+2014-11-01/20:00:00.001 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa1008bf3ec000001496d96318159c86df9]] INFO  Starting Testing companies purge process
+2014-11-01/20:00:00.003 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa1008bf3ec000001496d96318052026371]] INFO  Inactive orders purge process ended
+2014-11-01/20:00:00.003 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa1008bf3ec000001496d96318159c86df9]] INFO  Testing companies purge process ended
+2014-11-01/20:10:00.001 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa101458657000001496d9f59407951320b]] INFO  Starting Inactive orders purge process
+2014-11-01/20:10:00.001 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa101458657000001496d9f5941352ea39b]] INFO  Starting Testing companies purge process
+2014-11-01/20:10:00.002 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa101458657000001496d9f59407951320b]] INFO  Inactive orders purge process ended
+2014-11-01/20:10:00.002 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa101458657000001496d9f5941352ea39b]] INFO  Testing companies purge process ended
+2014-11-01/20:20:00.002 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa101263b07000001496da881012229c427]] INFO  Starting Inactive orders purge process
+2014-11-01/20:20:00.002 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa101263b07000001496da881022257b3cf]] INFO  Starting Testing companies purge process
+2014-11-01/20:20:00.004 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa101263b07000001496da881022257b3cf]] INFO  Testing companies purge process ended
+2014-11-01/20:20:00.004 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa101263b07000001496da881012229c427]] INFO  Inactive orders purge process ended
+2014-11-01/20:30:00.000 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa101ceebfa000001496db1a8c03a2d70f0]] INFO  Starting Inactive orders purge process
+2014-11-01/20:30:00.001 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa101ceebfa000001496db1a8c073892a9a]] INFO  Starting Testing companies purge process
+2014-11-01/20:30:00.002 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa101ceebfa000001496db1a8c03a2d70f0]] INFO  Inactive orders purge process ended
+2014-11-01/20:30:00.002 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa101ceebfa000001496db1a8c073892a9a]] INFO  Testing companies purge process ended
+2014-11-01/20:40:00.001 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa1019478c7000001496dbad081456a03f5]] INFO  Starting Inactive orders purge process
+2014-11-01/20:40:00.001 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa1019478c7000001496dbad0810ed2bd86]] INFO  Starting Testing companies purge process
+2014-11-01/20:40:00.003 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa1019478c7000001496dbad0810ed2bd86]] INFO  Testing companies purge process ended
+2014-11-01/20:40:00.003 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa1019478c7000001496dbad081456a03f5]] INFO  Inactive orders purge process ended
+2014-11-01/20:50:00.002 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa10198d9cf000001496dc3f84100e26c6c]] INFO  Starting Inactive orders purge process
+2014-11-01/20:50:00.002 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa10198d9cf000001496dc3f84276f17a45]] INFO  Starting Testing companies purge process
+2014-11-01/20:50:00.004 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa10198d9cf000001496dc3f84276f17a45]] INFO  Testing companies purge process ended
+2014-11-01/20:50:00.004 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa10198d9cf000001496dc3f84100e26c6c]] INFO  Inactive orders purge process ended
+2014-11-01/21:00:00.001 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa100825cf3000001496dcd200014f5b368]] INFO  Starting Inactive orders purge process
+2014-11-01/21:00:00.001 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa100825cf3000001496dcd2001052e79b2]] INFO  Starting Testing companies purge process
+2014-11-01/21:00:00.002 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa100825cf3000001496dcd2001052e79b2]] INFO  Testing companies purge process ended
+2014-11-01/21:00:00.002 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa100825cf3000001496dcd200014f5b368]] INFO  Inactive orders purge process ended
+2014-11-01/21:10:00.000 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa1004c7e10000001496dd647c040873b5c]] INFO  Starting Inactive orders purge process
+2014-11-01/21:10:00.001 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa1004c7e10000001496dd647c037541da5]] INFO  Starting Testing companies purge process
+2014-11-01/21:10:00.002 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa1004c7e10000001496dd647c040873b5c]] INFO  Inactive orders purge process ended
+2014-11-01/21:10:00.002 [cron4j::scheduler[407c8d5400d2efa101162212000001496d382afc33d3d017]::executor[407c8d5400d2efa1004c7e10000001496dd647c037541da5]] INFO  Testing companies purge process ended

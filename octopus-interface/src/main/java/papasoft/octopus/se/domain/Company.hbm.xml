@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="papasoft.octopus.domain.se">
+    <class name="Company" table="company" >
+        <id name="id">
+             <generator class="native"/>
+        </id>
+        
+        <property name="name" unique="true"/>
+        <property name="email"/>
+        <property name="remainingOrders"/>
+        <property name="testCompany"/>
+        <property name="creationDate"/>
+        
+        <bag name="users" lazy="true">
+            <key column="companyId"/>
+            <one-to-many class="papasoft.octopus.domain.User"/>
+        </bag> 
+        
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+           
+    <!-- Messages configuration 
+     <bean id="MODULE_NAME" class="MODULE_CLASSNAME">
+    	<property name="messages">
+             <map>
+             	<entry key="MESSAGE_ID" value-ref="MESSAGE_BEAN"/> MESSAGE_BEAN must be defined below
+             	...
+             	<entry key="ANOTHER_MESSAGE_ID" value-ref="ANOTHER_MESSAGE_BEAN"/>
+             </map> 
+    	</property>
+    	<property name="moduleInterface" ref="MODULE_INTERFACE_BEAN"/>
+    	
+	    <bean name="moduleInterface" class="INTERFACE_CLASS">
+	       	<property name="someDao" ref="DAO_BEAN"/>
+	    </bean>
+	    
+	    <bean name="DAO_BEAN" class="DAO_CLASS">
+	        <property name="sessionFactory" ref="hibernateSessionFactory"/>
+	    </bean>
+    </bean>
+    
+    <bean id="MESSAGE_BEAN" class="MESSAGE_CLASSNAME"/>
+    <bean id="ANOTHER_MESSAGE_BEAN" class="ANOTHER_MESSAGE_CLASSNAME"/> 
+             
+    -->
+    
+    <bean id="salesModule" class="papasoft.octopus.sales.module.SalesModule">
+        <property name="moduleId" value="1"/>
+    	<property name="messages">
+    	    <map>
+    	        <!-- Keys are message type ID -->
+    	        <entry key="0" value-ref="loginMessage"/>
+    	        <entry key="1" value-ref="retrieveCustomersMessage"/>
+    	        <entry key="2" value-ref="retrieveArticlesMessage"/>
+    	        <entry key="3" value-ref="createOrderMessage"/>
+    	        <entry key="4" value-ref="confirmOrderMessage"/>
+    	        <entry key="5" value-ref="cancelOrderMessage"/>
+    	        <entry key="6" value-ref="bookArticleMessage"/>
+    	        <entry key="7" value-ref="cancelArticleBookingMessage"/>
+    	        <entry key="8" value-ref="createCompanyMessage"/>
+    	        <entry key="9" value-ref="buyOrdersPackMessage"/>
+    	        <entry key="10" value-ref="retrieveCompanyRemainingOrdersMessage"/>
+    	    </map>
+    	</property>
+    	<property name="moduleInterface" ref="salesInterface"/>
+    	<property name="batchProcesses">
+			<list>
+			    <ref bean="inactiveOrderPurgeProcess"/>
+			    <ref bean="testingCompaniesPurgeProcess"/>
+			</list>
+    	</property>
+    </bean>
+    
+    <!-- Sales Module messages -->
+    <bean id="loginMessage" class="papasoft.octopus.sales.message.LoginMessage"/>
+    <bean id="retrieveCustomersMessage" class="papasoft.octopus.sales.message.RetrieveCustomersMessage"/>
+    <bean id="retrieveArticlesMessage" class="papasoft.octopus.sales.message.RetrieveArticlesMessage"/> 
+    <bean id="createOrderMessage" class="papasoft.octopus.sales.message.CreateOrderMessage"/> 
+    <bean id="confirmOrderMessage" class="papasoft.octopus.sales.message.ConfirmOrderMessage"/> 
+    <bean id="cancelOrderMessage" class="papasoft.octopus.sales.message.CancelOrderMessage"/> 
+    <bean id="bookArticleMessage" class="papasoft.octopus.sales.message.BookArticleMessage"/> 
+    <bean id="cancelArticleBookingMessage" class="papasoft.octopus.sales.message.CancelArticleBookingMessage"/>
+    <bean id="createCompanyMessage" class="papasoft.octopus.sales.message.CreateCompanyMessage"/>
+    <bean id="buyOrdersPackMessage" class="papasoft.octopus.sales.message.BuyOrdersPackMessage"/>
+    <bean id="retrieveCompanyRemainingOrdersMessage" class="papasoft.octopus.sales.message.RetrieveCompanyRemainingOrdersMessage"/>
+    
+    <!-- Sales Interface -->
+    <bean name="salesInterface" class="papasoft.octopus.se.sales.minterface.SESalesInterface">
+       	<property name="salesDao" ref="salesDao"/>
+    </bean>
+    
+    <!-- Sales Interface DAO -->
+    <bean name="salesDao" class="papasoft.octopus.se.dao.SalesDao">
+        <property name="sessionFactory" ref="hibernateSessionFactory"/>
+    </bean>
+    
+    <bean name="inactiveOrderPurgeProcess" class="papasoft.octopus.sales.batch.InactiveOrdersPurgeProcess">
+        <property name="cronPattern" value="*/10 * * * *"/>
+        <property name="orderInactiveMinutes" value="120"/>
+        <property name="moduleInterface" ref="salesInterface"/>
+    </bean>
+    
+    <bean name="testingCompaniesPurgeProcess" class="papasoft.octopus.sales.batch.TestingCompaniesPurgeProcess">
+        <property name="cronPattern" value="*/10 * * * *"/>
+        <property name="companiesLifeHours" value="120"/>
+        <property name="moduleInterface" ref="salesInterface"/>
+    </bean>
+</beans>

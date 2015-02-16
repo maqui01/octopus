@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+  		xmlns:f="http://java.sun.com/jsf/core"
+      	xmlns:t="http://myfaces.apache.org/tomahawk"
+      	xmlns:p="http://primefaces.org/ui"
+    	xmlns:of="http://omnifaces.org/functions">
+<h:head>
+	<title><t:outputText value="#{msg.octopus_webapp}"/></title>
+	<h:outputStylesheet library="css" name="style.css"/>
+</h:head>
+<h:body>
+
+	<h:form id="main">	
+		<f:view locale="#{facesContext.externalContext.requestLocale}">
+		<p:layout fullPage="true" >
+			<p:layoutUnit position="north" size="45" resizable="false" closable="false" collapsible="false">
+				<t:panelGroup styleClass="crud_header">
+			        <t:graphicImage
+						library="images" name="octopus_logo.png" height="30"
+						style="padding-left: 10px; padding-right: 7px; vertical-align:bottom;" />
+					<t:outputText value="#{msg.octopus_webapp}" style="padding-left: 10px; vertical-align:middle"/>
+				</t:panelGroup>
+		    </p:layoutUnit>
+		    <p:layoutUnit position="center">
+		    	<t:panelGrid>
+		    		<t:outputText value="#{msg.an_error_has_occurred}"/>
+		    		<t:inputTextarea value="#{of:printStackTrace(requestScope['javax.servlet.error.exception'])}" rows="20" cols="200" readonly="true"/>
+		    		<p:commandButton value="#{msg.logout}" action="#{loginBean.logout}" ajax="false"/>
+		    	</t:panelGrid>
+		    </p:layoutUnit>
+		</p:layout>
+		</f:view>
+	</h:form>
+	
+</h:body>
+</html>

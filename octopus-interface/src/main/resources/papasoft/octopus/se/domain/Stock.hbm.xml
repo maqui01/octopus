@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="papasoft.octopus.se.domain">
+    <class name="Stock" table="stock">
+        <composite-id>
+            <key-many-to-one name="article" class="papasoft.octopus.se.domain.SEArticle">
+	            <column name="article"/>
+	            <column name="companyId"/>
+            </key-many-to-one>
+        </composite-id>
+
+        <property name="stock"/>
+        
+    </class>
+</hibernate-mapping>

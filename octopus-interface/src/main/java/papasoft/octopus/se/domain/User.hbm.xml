@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="papasoft.octopus.domain">
+    <class name="User" table="user" discriminator-value="default" >
+        <id name="id">
+             <generator class="native"/>
+        </id>
+        <discriminator column="user_type" type="string" force="true"/>
+        
+        <property name="name"/>
+        <property name="password"/>
+        <property name="status"/>
+        <bag name="roles" table="user_roles">
+            <key column="userId"/>
+            <many-to-many class="Role" column="roleId"/>
+        </bag>
+        
+        <subclass name="papasoft.octopus.se.domain.SESalesUser" discriminator-value="sales">
+       		<property name="canCreateCreditNotes"/>
+       		<bag name="customers" lazy="false" cascade="all-delete-orphan" table="sales_user_customer">
+       		    <key> 
+       		        <column name="salesUserId" />
+       		    </key>
+       		    <composite-element class="papasoft.octopus.se.domain.SalesUserCustomer">
+       		        <parent name="salesUser"/>
+       		        <many-to-one name="customer" class="papasoft.octopus.se.domain.SECustomer" lazy="false">
+		                <column name="customerId"/>
+		                <column name="companyId"/>
+       		        </many-to-one>
+      				<property name="daysToVisit"/>
+       		    </composite-element>       		    
+       		</bag>
+        	<many-to-one name="company" column="companyId" not-null="true"/>
+        </subclass>
+    </class>
+</hibernate-mapping>

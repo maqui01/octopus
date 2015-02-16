@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="papasoft.octopus.se.domain">
+    <class name="SEArticle" table="article" discriminator-value="article">
+        <composite-id>
+            <key-property name="code"/>
+            <key-property name="companyId" column="company"/>
+        </composite-id>
+        
+        <discriminator column="article_type" type="string"/>
+        <property name="name"/>
+        <property name="pack"/>
+        <list name="prices" table="article_price">
+            <key>
+                <column name="articleId"></column>
+                <column name="companyId"></column>
+            </key>
+            <list-index column="priceId"/>
+            <element type="double" column="price"/>
+        </list>
+        <many-to-one name="company" insert="false" update="false"/>
+        
+        <subclass name="SEPromotion" discriminator-value="promotion">
+       		<property name="customerGroup"/>
+       		<property name="startDate"/>
+       		<property name="endDate"/>
+	        <bag name="items" cascade="all-delete-orphan" lazy="false">
+	            <key>
+	                <column name="promotionId"/>
+	                <column name="companyId"/>
+	            </key>
+	            <one-to-many class="papasoft.octopus.domain.PromotionItem"/>
+	        </bag> 
+        </subclass>
+    </class>
+</hibernate-mapping>

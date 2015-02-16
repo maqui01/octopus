@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+  		xmlns:f="http://java.sun.com/jsf/core"
+      	xmlns:t="http://myfaces.apache.org/tomahawk"
+      	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title><t:outputText value="#{msg.octopus_webapp}"/></title>
+	<h:outputStylesheet library="css" name="style.css"/>
+</h:head>
+<h:body>
+
+	<h:form id="main">
+		<f:view locale="#{facesContext.externalContext.requestLocale}">
+		<!-- Ajax Status -->
+		<p:ajaxStatus onstart="document.getElementById('ajaxStatus').style.display = 'block';" oncomplete="document.getElementById('ajaxStatus').style.display = 'none';"/>
+		<t:div id="ajaxStatus" forceId="true" style="position: fixed; top:45%; width: 100%; z-index:2; text-align: center; display:none;">
+			<t:graphicImage alt="Loading..." library="images" name="ajax_status.gif"/>
+		</t:div>
+		
+		<p:confirmDialog global="true">
+	        <p:commandButton value="#{msg.accept}" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+	        <p:commandButton value="#{msg.cancel}" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+	    </p:confirmDialog>
+	    <p:defaultCommand target="searchButton" />
+	
+		<p:layout fullPage="true" >
+			<p:layoutUnit position="north" resizable="false" closable="false" collapsible="false">
+				<p:toolbar>
+					<f:facet name="left">
+						<t:panelGrid styleClass="header" columns="2" cellspacing="0" cellpadding="0">
+					        	<t:graphicImage alt="#{msg.octopus_webapp}" library="images" name="oc_logo.png" styleClass="header_logo"/>
+								<t:outputText value="#{msg.octopus_webapp}" styleClass="header_logo_text"/>
+						</t:panelGrid>
+					</f:facet>
+					<f:facet name="right">
+						<p:commandButton title="#{msg.home}" alt="#{msg.home}" value="#{msg.home}" icon="ui-icon-home"
+								action="home" immediate="true"/>
+						<p:menuButton value="#{msg.administration}" style="padding-left: 5px; padding-right: 10px;" rendered="#{userBean.isAdminUser}">
+			               <p:menuitem value="#{msg.users}" icon="ui-icon-person" action="users" immediate="true" actionListener="#{crudContext.clearSelectedValues}"/>
+			               <p:menuitem value="#{msg.customers}" icon="ui-icon-contact" action="customers" immediate="true" actionListener="#{crudContext.clearSelectedValues}"/>
+			               <p:menuitem value="#{msg.articles}" icon="ui-icon-cart" action="articles" immediate="true" actionListener="#{crudContext.clearSelectedValues}"/>
+			           </p:menuButton>
+						<p:commandButton value="#{msg.logout}" icon="ui-icon-power" action="#{loginBean.logout}" immediate="true"/>
+					</f:facet>
+				</p:toolbar>
+			</p:layoutUnit>
+		    <p:layoutUnit position="center">
+		    
+	        	<t:panelGrid id="userCrudPanel" columns="1" border="0"
+					width="900px" align="center" cellspacing="4" cellpadding="4">
+						<t:panelGrid columns="3" style="padding-left: 5px;">
+							<h:outputLabel value="#{msg.name}" for="in_username"/>
+							<p:inputText id="in_username" value="#{crudUserBean.username}"/>
+							<p:commandButton id="searchButton" value="#{msg.search}" update="usersDatatable userDataPanel" process="in_username" actionListener="#{crudUserBean.searchUsers}"/>
+						</t:panelGrid>
+						<p:dataTable id="usersDatatable" value="#{crudUserBean.users}" rows="10" emptyMessage="#{msg.no_results}" 
+							paginator="true" paginatorPosition="bottom" binding="#{crudUserBean.usersDatatable}"
+							selectionMode="single" selection="#{crudUserBean.selectedUser}" 
+							var="user" rowKey="#{user.id}">
+							<f:facet name="header">
+					            <p:outputLabel value="#{msg.users}"/>
+					        </f:facet>
+					        <p:ajax event="rowSelect" update="@([id$=userDataPanel]) @([id$=usersDatatable])" listener="#{crudUserBean.userSelect}"/>
+     						<p:column style="text-align: left" headerText="#{msg.name}">
+								<h:outputText value="#{user.name}"/>
+							</p:column>
+							<p:column style="text-align: left" headerText="#{msg.roles}">
+								<h:outputText value="#{crudUserBean.userRoles}"/>
+							</p:column>
+							<p:column style="text-align: right" headerText="#{msg.customers}">
+								<h:outputText value="#{crudUserBean.userCustomersSize}"/>
+							</p:column>
+							<p:column style="text-align: left" headerText="#{msg.blocked}">
+								<p:selectBooleanCheckbox value="#{crudUserBean.userBlocked}" disabled="true"/>
+							</p:column>
+							<p:column headerText="#{msg.can_create_credit_notes}">
+								<p:selectBooleanCheckbox value="#{user.canCreateCreditNotes}" disabled="true"/>
+							</p:column>
+						</p:dataTable>
+						<t:panelGrid id="userDataPanel" width="100%" cellpadding="0" cellspacing="0">
+							<p:commandButton value="#{msg['new']}" icon="ui-icon-plus" action="#{crudUserBean.newUser}" update="@([id$=userDataPanel])" rendered="#{crudUserBean.selectedUser == null}" process="@this"/>
+							<p:panel rendered="#{crudUserBean.selectedUser != null}" header="#{crudUserBean.userPanelTitle}">
+								<f:facet name="options">
+						            <p:menu>
+						                <p:submenu icon="ui-icon-gear">
+						                    <p:menuitem> 
+						                    	<p:commandLink styleClass="ui-menuitem-link" action="#{crudUserBean.deleteUser}" update="@([id$=userDataPanel]) @([id$=usersDatatable])">
+						                    		<t:outputText styleClass="ui-menuitem-icon ui-icon ui-icon-close"/>
+						                    		<t:outputText styleClass="ui-menuitem-text" value="#{msg.delete_user}"/>
+						                    		<p:confirm header="#{msg.delete_user}" message="#{msg.are_you_sure_delete_user}" icon="ui-icon-alert"/>
+						                    	</p:commandLink>
+						                    </p:menuitem>
+						                </p:submenu>
+						            </p:menu>
+						        </f:facet>
+								<t:panelGrid columns="3" columnClasses="topVerticalAlign, topVerticalAlign, topVerticalAlign">
+									<t:panelGrid columns="2">
+										<h:outputLabel value="#{msg.name}" for="edit_username"/>
+										<t:panelGrid columns="1" cellpadding="0" cellspacing="0">
+											<p:inputText id="edit_username" value="#{crudUserBean.selectedUser.name}" required="true" autocomplete="off" requiredMessage="#{msg.required}"/>
+											<p:message for="edit_username" display="text"/>
+										</t:panelGrid>
+										
+										<h:outputLabel value="#{msg.password}" for="edit_password"/>
+										<p:commandButton value="#{msg.change_password}" action="#{crudUserBean.changePassword}" update="@([id$=userDataPanel])" rendered="#{!crudContext.passwordChanged}"/>
+										
+										<t:panelGrid columns="1" rendered="#{crudContext.passwordChanged}" cellspacing="0" cellpadding="0">
+											<p:password id="edit_password" value="#{crudUserBean.selectedUser.password}" match="edit_password_2" feedback="true" required="true" autocomplete="off" validatorMessage="#{msg.password_mismatch}" requiredMessage="#{msg.required}"/>
+											<p:password id="edit_password_2" value="#{crudUserBean.selectedUser.password}" required="true" autocomplete="off"/>
+											<p:message for="edit_password" display="text"/>
+										</t:panelGrid>
+										
+										<h:outputLabel value="#{msg.blocked}" for="edit_blocked"/>
+										<p:selectBooleanCheckbox id="edit_blocked" value="#{crudUserBean.selectedUserBlocked}" style="padding-left:3px"/>
+										
+										<h:outputLabel value="#{msg.can_create_credit_notes}" for="edit_create_cn"/>
+										<p:selectBooleanCheckbox id="edit_create_cn" value="#{crudUserBean.selectedUser.canCreateCreditNotes}" style="padding-left:3px"/>
+										
+										<h:outputLabel value="#{msg.roles}" for="edit_roles"/>
+										<p:selectManyCheckbox id="edit_roles" value="#{crudUserBean.selectedRoles}" converter="RoleConverter">
+											<f:selectItems value="#{crudUserBean.allRoles}" var="role" itemValue="#{role}" itemLabel="#{role.name}" itemDisabled="#{role.name == crudUserBean.adminRoleName}"/>
+										</p:selectManyCheckbox>
+									</t:panelGrid>
+									<p:spacer width="50px"/>
+									<t:panelGrid columns="1" columnClasses="topVerticalAlign">
+										<h:outputLabel value="#{msg.assigned_customers}" for="edit_customers"/>
+										<p:selectManyMenu id="edit_customers" value="#{crudUserBean.selectedUserCustomers}" converter="CustomerConverter" filter="true" filterMatchMode="contains" showCheckbox="true" scrollHeight="150" style="width:300px">
+											<f:selectItems value="#{crudUserBean.allCustomers}" var="cust" itemValue="#{cust}" itemLabel="#{cust.id} - #{cust.name}"/>
+										</p:selectManyMenu>
+									</t:panelGrid>
+								</t:panelGrid>
+								<p:commandButton value="#{msg.save}" action="#{crudUserBean.saveSelectedUser}" update="@([id$=userDataPanel]) @([id$=usersDatatable])" process="userDataPanel"/>
+								<p:commandButton value="#{msg.cancel}" action="#{crudUserBean.cancelUserEdit}" update="@([id$=userDataPanel])" process="@this"/>
+							</p:panel>
+						</t:panelGrid> 
+				</t:panelGrid>
+			       
+		    </p:layoutUnit>
+		
+		</p:layout>
+		</f:view>
+	</h:form>
+	
+</h:body>
+</html>

@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title><t:outputText value="#{msg.octopus_webapp}" /></title>
+	<h:outputStylesheet library="css" name="style.css" />
+	<script type="text/javascript">
+		function verifyCurrentPage() {
+	        var i = $('.ordersTable .ui-state-highlight').length;
+	        if (i == 0) {
+	        	var currentPage = PF('ordersTable').getPaginator().getCurrentPage();
+	        	PF('ordersTable').getPaginator().setPage(currentPage+1);
+	        }
+	    }
+	</script>
+</h:head>
+<h:body>
+	<h:form id="main">
+		<f:view locale="#{facesContext.externalContext.requestLocale}">
+		<!-- Ajax Status -->
+		<p:ajaxStatus onstart="document.getElementById('ajaxStatus').style.display = 'block';" oncomplete="document.getElementById('ajaxStatus').style.display = 'none';"/>
+		<t:div id="ajaxStatus" forceId="true" style="position: fixed; top:45%; width: 100%; z-index:2; text-align: center; display:none;">
+			<t:graphicImage alt="Loading..." library="images" name="ajax_status.gif"/>
+		</t:div>
+		
+		<!-- SaveStates -->
+		<t:saveState value="#{ordersReportBean}"/>
+		
+		<!-- HotKeys -->
+		<p:hotkey bind="down" update="@([id$=selectedOrderPanel]),@([id$=ordersTablePanel])" action="#{ordersReportBean.nextOrder}"/>
+		<p:hotkey bind="up" update="@([id$=selectedOrderPanel]),@([id$=ordersTablePanel])" action="#{ordersReportBean.prevOrder}"/>
+		<p:hotkey bind="esc" update="@([id$=selectedOrderPanel]),@([id$=ordersTablePanel])" action="#{ordersReportBean.closeOrder}"/>
+		<p:defaultCommand target="searchButton" />
+	
+		<p:layout fullPage="true">
+			<p:layoutUnit position="north" resizable="false" closable="false" collapsible="false">
+				<p:toolbar >
+					<f:facet name="left">
+						<t:panelGrid styleClass="header" columns="2" cellspacing="0" cellpadding="0">
+					        	<t:graphicImage alt="#{msg.octopus_webapp}" library="images" name="oc_logo.png" styleClass="header_logo"/>
+								<t:outputText value="#{msg.octopus_webapp}" styleClass="header_logo_text"/>
+						</t:panelGrid>
+					</f:facet>
+					<f:facet name="right">
+						<p:menuButton value="#{msg.administration}" style="padding-left: 5px; padding-right: 10px;" rendered="#{userBean.isAdminUser}">
+			               <p:menuitem value="#{msg.users}" icon="ui-icon-person" action="users" immediate="true">
+			               		<f:setPropertyActionListener target="#{crudContext.selectedUser}" value="#{null}"/>
+			               </p:menuitem>
+			               <p:menuitem value="#{msg.customers}" icon="ui-icon-contact" action="customers" immediate="true"/>
+			               <p:menuitem value="#{msg.articles}" icon="ui-icon-cart" action="articles" immediate="true"/>
+			           </p:menuButton>
+						<p:commandButton title="#{msg.logout}" alt="#{msg.logout}" value="#{msg.logout}" icon="ui-icon-power"
+								action="#{loginBean.logout}" immediate="true"/>
+					</f:facet>
+				</p:toolbar>
+			</p:layoutUnit>
+			<p:layoutUnit position="center" resizable="false" closable="false" collapsible="false">
+				<t:panelGrid width="900px" align="center">
+					<p:outputPanel id="filters">
+						<t:panelGrid columns="10">
+							<t:outputText value="#{msg.number}"/>
+							<p:inputText id="numberFromInput" value="#{ordersReportBean.numberFromFilter}" size="10"/>
+							<t:outputText value="-"/>
+							<p:inputText id="numberToInput" value="#{ordersReportBean.numberToFilter}" size="10"/>
+							<p:watermark for="numberFromInput" value="#{msg.from}"/>
+							<p:watermark for="numberToInput" value="#{msg.to}"/>
+							<t:outputText value="#{msg.salesman}" style="padding-left: 20px;"/>
+							<t:selectOneMenu value="#{ordersReportBean.userIdFilter}">
+								<f:selectItem itemLabel="#{msg.all}" itemValue="#{null}"/>
+								<f:selectItems value="#{ordersReportBean.usersItems}"/>
+							</t:selectOneMenu>
+							<t:outputText value="#{msg.status}" style="padding-left: 20px;"/>
+							<t:selectOneMenu value="#{ordersReportBean.orderStatusFilter}">
+								<f:selectItem noSelectionOption="true" itemLabel="#{msg.all}" itemValue="#{null}"/>
+								<f:selectItem itemLabel="#{msg.accepted}" itemValue="4"/>
+								<f:selectItem itemLabel="#{msg.pending}" itemValue="0"/>
+								<f:selectItem itemLabel="#{msg.cancelled}" itemValue="5"/>
+							</t:selectOneMenu>
+						</t:panelGrid>
+						<t:panelGrid columns="11">
+							<t:outputText value="#{msg.customer}"/>
+							<p:inputText id="customerIdInput" value="#{ordersReportBean.customerFilter}" size="25"/>
+							<p:watermark for="customerIdInput" value="#{msg.code_or_name}"/>
+							<t:outputText value="#{msg.date_submitted}" style="padding-left: 20px;white-space:nowrap;"/>
+							<p:calendar id="dateSinceInput" value="#{ordersReportBean.dateSinceFilter}" pattern="dd/MM/yyyy" mask="true" />
+							<t:outputText value="-"/>
+							<p:calendar id="dateToInput" value="#{ordersReportBean.dateToFilter}" pattern="dd/MM/yyyy" mask="true" style="padding-right: 40px;" />
+							<p:watermark for="dateSinceInput" value="#{msg.since}"/>
+							<p:watermark for="dateToInput" value="#{msg.to}"/>
+							<p:commandButton id="searchButton" value="#{msg.search}" action="#{ordersReportBean.refreshOperations}" update="@([id$=filters]),@([id$=ordersTablePanel]),@([id$=selectedOrderPanel])" style="width:100px;"/>
+							<p:commandButton icon="pdf-button" value="#{msg.export}" action="#{ordersReportBean.refreshOperations}" update="@([id$=filters]),@([id$=ordersTablePanel]),@([id$=selectedOrderPanel])" oncomplete="document.getElementById('exportButton').click();"/>
+							<t:commandButton id="exportButton" forceId="true" value="#{msg.export}" action="#{ordersReportBean.exportOrdersToPdf}" style="display:none;"
+									onclick="document.getElementById('ajaxStatus').style.display = 'block';"/>
+						</t:panelGrid>
+					</p:outputPanel>
+					<p:outputPanel id="ordersTablePanel">
+						<p:dataTable id="ordersTable" widgetVar="ordersTable" var="order" value="#{ordersReportBean.orders}" rows="10"
+										emptyMessage="#{msg.no_results}" rowKey="#{order.id}" rowIndexVar="rowIdx"
+										paginator="true" paginatorPosition="bottom" styleClass="ordersTable"
+										selectionMode="single" selection="#{ordersReportBean.selectedOrder}"
+										binding="#{ordersReportBean.ordersDatatable}" style="min-width:800px;">
+					        <f:facet name="header">
+				            	<t:outputText value="#{msg.orders}"/>
+					        </f:facet>
+					        <p:column headerText="#{msg.number_short}" sortBy="#{order.id}" width="50" style="text-align: center;">
+					            <h:outputText value="#{order.id}" />
+					        </p:column>
+					        <p:column headerText="#{msg.code_short}" sortBy="#{order.customer.id}" width="50" style="text-align: right;">
+					            <h:outputText value="#{order.customer.id}" />
+					        </p:column>
+					        <p:column headerText="#{msg.customer_name}" sortBy="#{order.customer.name}" style="text-align: left;">
+					            <h:outputText value="#{order.customer.name}" />
+					        </p:column>
+					        <p:column headerText="#{msg.date_submitted}" sortBy="#{order.date}" style="text-align: center;" width="110">
+								<t:outputText value="#{order.date}">
+									<f:convertDateTime pattern="dd/MM/yyyy HH:mm" type="both" timeZone="GMT-3"/>
+								</t:outputText>
+					        </p:column>
+					        <p:column headerText="#{msg.salesman}" sortBy="#{order.user.name}" width="150"  style="text-align: left;">
+								<t:outputText value="#{order.user.name}"/>
+					        </p:column>
+					        <p:column headerText="#{msg.amount}" sortBy="#{order.totalAmount}" width="100" style="text-align: right;">
+								<t:outputText value="#{order.totalAmount}" style="padding-right:5px;">
+									<f:convertNumber type="currency" currencySymbol="$ " maxFractionDigits="2" minFractionDigits="2" minIntegerDigits="1"/>
+								</t:outputText>
+					        </p:column>
+					        <p:column headerText="#{msg.status}" style="text-align: center;" width="50">
+								<t:graphicImage library="images" name="status_confirm.png" alt="#{msg.accepted}" title="#{msg.accepted}" height="20" rendered="#{order.status eq 4}"/>
+								<t:graphicImage library="images" name="status_on_edition.png" alt="#{msg.pending}" title="#{msg.pending}" height="20" rendered="#{order.status eq 0}"/>
+								<t:graphicImage library="images" name="status_cancel.png" alt="#{msg.cancelled}" title="#{msg.cancelled}" height="20" rendered="#{order.status eq 5}"/>
+					        </p:column>
+					        
+					        <p:ajax event="rowSelect" update="@([id$=selectedOrderPanel]),@([id$=ordersTablePanel])" listener="#{ordersReportBean.selectOrder}"/>
+					    </p:dataTable>
+					</p:outputPanel>
+					<p:outputPanel id="selectedOrderPanel">
+						<p:outputPanel rendered="#{ordersReportBean.selectedOrder != null}">
+							<t:panelGrid width="700px" align="center">
+								<p:panel header="#{msg.order} #{msg.nro} #{ordersReportBean.selectedOrder.id} - #{msg.created_by}: #{ordersReportBean.selectedOrder.user.name}">
+									<f:facet name="actions">
+							            <p:commandButton styleClass="ui-panel-titlebar-icon ui-corner-all ui-state-default" style="height: 18px;font-size: 9px; padding-left:5px;"
+							            		icon="ui-icon-close" action="#{ordersReportBean.closeOrder}" update="@([id$=selectedOrderPanel]),@([id$=ordersTablePanel])" value="#{msg.close}"/>
+							        </f:facet>
+									
+									<t:panelGrid width="100%" columns="2">
+										<t:panelGrid columns="2" columnClasses="right_align_column, left_align_column" align="left">
+								    		<t:outputText value="#{msg.customer}:" styleClass="label_bold"/>
+								    		<t:outputText value="#{ordersReportBean.selectedOrder.customer.id} - #{ordersReportBean.selectedOrder.customer.name}"/>
+							    		</t:panelGrid>
+							    		
+							    		<t:panelGrid cellspacing="0" cellpadding="0" border="0" columns="2" align="right">
+								    		<t:panelGrid columns="2" columnClasses="right_align_column, left_align_column" width="200px" align="center">
+									    		<t:outputText value="#{msg.date}:" styleClass="label_bold"/>
+									    		<t:outputText value="#{ordersReportBean.selectedOrder.date}">
+									    			<f:convertDateTime pattern="dd/MM/yyyy HH:mm" type="both" timeZone="GMT-3"/>
+									    		</t:outputText>
+								    		</t:panelGrid>
+								    		
+								    		<t:panelGrid cellspacing="0" cellpadding="0" border="0" width="200px">
+								    			<t:panelGrid columns="2" columnClasses="right_align_column, left_align_column" align="right">
+										    		<t:outputText value="#{msg.status}:" styleClass="label_bold"/>
+													<t:panelGroup>
+														<t:panelGrid columns="2" rendered="#{ordersReportBean.selectedOrder.status eq 4}">
+															<t:outputText value="#{msg.accepted}"/>
+															<t:graphicImage library="images" name="status_confirm.png" alt="#{msg.accepted}" title="#{msg.accepted}" height="20" />
+														</t:panelGrid>
+														<t:panelGrid columns="2" rendered="#{ordersReportBean.selectedOrder.status eq 0}">
+															<t:outputText value="#{msg.pending}"/>
+															<t:graphicImage library="images" name="status_on_edition.png" alt="#{msg.pending}" title="#{msg.pending}" height="20"/>
+														</t:panelGrid>
+														<t:panelGrid columns="2" rendered="#{ordersReportBean.selectedOrder.status eq 5}">
+															<t:outputText value="#{msg.cancelled}"/>
+															<t:graphicImage library="images" name="status_cancel.png" alt="#{msg.cancelled}" title="#{msg.cancelled}" height="20"/>
+														</t:panelGrid>
+													</t:panelGroup>
+												</t:panelGrid>
+											</t:panelGrid>
+										</t:panelGrid>
+							    	</t:panelGrid>
+									
+									<p:dataTable var="item" value="#{ordersReportBean.selectedOrder.seItems}" rows="10"
+											emptyMessage="#{msg.no_articles}" rowKey="#{item.id}" rowIndexVar="rowIdx"
+											paginator="true" paginatorPosition="bottom" style="min-width:800px;">
+								        <p:column headerText="#{msg.article_code}" sortBy="#{item.articleCode}" width="100" style="text-align: left;">
+								            <h:outputText value="#{item.articleCode}" />
+								        </p:column>
+								        <p:column headerText="#{msg.article}" sortBy="#{item.name}" style="text-align: left;">
+								            <h:outputText value="#{item.name}" />
+								        </p:column>
+								        <p:column headerText="#{msg.quantity}" sortBy="#{item.quantity}" width="100" style="text-align: right;">
+								            <h:outputText value="#{item.quantity}" />
+								        </p:column>
+								        <p:column headerText="#{msg.unit_price}" sortBy="#{item.price}" width="100" style="text-align: right;">
+								            <t:outputText value="#{item.price}">
+												<f:convertNumber type="currency" currencySymbol="$ " maxFractionDigits="2" minFractionDigits="2" minIntegerDigits="1"/>
+											</t:outputText>
+											<f:facet name="footer">
+								                <t:outputText value="#{msg.total}"/>
+									    	</f:facet>
+								        </p:column>
+								        <p:column headerText="#{msg.total_price}" sortBy="#{item.totalAmount}" width="100" style="text-align: right;">
+								            <t:outputText value="#{item.totalAmount}">
+												<f:convertNumber type="currency" currencySymbol="$ " maxFractionDigits="2" minFractionDigits="2" minIntegerDigits="1"/>
+											</t:outputText>
+											<f:facet name="footer">
+								                <t:outputText value="#{ordersReportBean.selectedOrder.totalAmount}">
+													<f:convertNumber type="currency" currencySymbol="$ " maxFractionDigits="2" minFractionDigits="2" minIntegerDigits="1"/>
+												</t:outputText>
+									    	</f:facet>
+								        </p:column>
+									</p:dataTable>
+								</p:panel>
+							</t:panelGrid>
+						</p:outputPanel>
+					</p:outputPanel>
+				</t:panelGrid>
+			</p:layoutUnit>
+		</p:layout>
+		</f:view>
+	</h:form>
+</h:body>
+</html>

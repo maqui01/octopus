@@ -1,0 +1,150 @@
+2014-05-02/16:33:34.118 [main] INFO  Server starting
+2014-05-02/16:33:34.309 [main] INFO  Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1551f60: startup date [Fri May 02 16:33:34 ART 2014]; root of context hierarchy
+2014-05-02/16:33:35.138 [main] INFO  MLog clients using log4j logging.
+2014-05-02/16:33:35.378 [main] INFO  Initializing c3p0-0.9.1 [built 16-January-2007 14:46:42; debug? true; trace: 10]
+2014-05-02/16:33:35.613 [main] INFO  HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2014-05-02/16:33:35.618 [main] INFO  HHH000412: Hibernate Core {4.2.0.Final}
+2014-05-02/16:33:35.620 [main] INFO  HHH000206: hibernate.properties not found
+2014-05-02/16:33:35.621 [main] INFO  HHH000021: Bytecode provider name : javassist
+2014-05-02/16:33:35.920 [main] WARN  HHH000038: Composite-id class does not override equals(): papasoft.octopus.se.domain.SalesUserCustomer
+2014-05-02/16:33:35.921 [main] WARN  HHH000039: Composite-id class does not override hashCode(): papasoft.octopus.se.domain.SalesUserCustomer
+2014-05-02/16:33:35.921 [main] WARN  HHH000038: Composite-id class does not override equals(): papasoft.octopus.se.domain.Stock
+2014-05-02/16:33:35.921 [main] WARN  HHH000039: Composite-id class does not override hashCode(): papasoft.octopus.se.domain.Stock
+2014-05-02/16:33:35.922 [main] WARN  HHH000038: Composite-id class does not override equals(): papasoft.octopus.se.domain.SEOrder
+2014-05-02/16:33:35.923 [main] WARN  HHH000039: Composite-id class does not override hashCode(): papasoft.octopus.se.domain.SEOrder
+2014-05-02/16:33:35.923 [main] WARN  HHH000039: Composite-id class does not override hashCode(): papasoft.octopus.se.domain.SEArticle
+2014-05-02/16:33:35.924 [main] WARN  HHH000039: Composite-id class does not override hashCode(): papasoft.octopus.se.domain.SECustomer
+2014-05-02/16:33:35.998 [main] INFO  Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgeosh911gu4lf0py19pw|9c2715, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgeosh911gu4lf0py19pw|9c2715, idleConnectionTestPeriod -> 3000, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://localhost:3306/octopus, lastAcquisitionFailureDefaultUser -> null, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 20, maxStatements -> 50, maxStatementsPerConnection -> 0, minPoolSize -> 5, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+2014-05-02/16:33:36.257 [main] INFO  HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2014-05-02/16:33:36.265 [main] INFO  HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2014-05-02/16:33:36.277 [main] INFO  HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-05-02/16:33:36.285 [main] INFO  HHH000397: Using ASTQueryTranslatorFactory
+2014-05-02/16:33:36.546 [main] INFO  HHH000228: Running hbm2ddl schema update
+2014-05-02/16:33:36.547 [main] INFO  HHH000102: Fetching database metadata
+2014-05-02/16:33:36.550 [main] INFO  HHH000396: Updating schema
+2014-05-02/16:33:36.567 [main] INFO  HHH000261: Table found: octopus.article
+2014-05-02/16:33:36.567 [main] INFO  HHH000037: Columns: [startdate, company, name, customergroup, pack, article_type, code, enddate]
+2014-05-02/16:33:36.568 [main] INFO  HHH000108: Foreign keys: [fkd458ccf6e0f26781]
+2014-05-02/16:33:36.568 [main] INFO  HHH000126: Indexes: [fkd458ccf6e0f26781, primary]
+2014-05-02/16:33:36.573 [main] INFO  HHH000261: Table found: octopus.article_price
+2014-05-02/16:33:36.574 [main] INFO  HHH000037: Columns: [companyid, priceid, price, articleid]
+2014-05-02/16:33:36.574 [main] INFO  HHH000108: Foreign keys: [fk2748d0c0e1af996e]
+2014-05-02/16:33:36.574 [main] INFO  HHH000126: Indexes: [fk2748d0c0e1af996e, fk2748d0c06556300e, primary]
+2014-05-02/16:33:36.579 [main] INFO  HHH000261: Table found: octopus.company
+2014-05-02/16:33:36.579 [main] INFO  HHH000037: Columns: [id, name]
+2014-05-02/16:33:36.579 [main] INFO  HHH000108: Foreign keys: []
+2014-05-02/16:33:36.579 [main] INFO  HHH000126: Indexes: [primary]
+2014-05-02/16:33:36.585 [main] INFO  HHH000261: Table found: octopus.customer
+2014-05-02/16:33:36.585 [main] INFO  HHH000037: Columns: [id, observation, company, name, cust_group, priceslist]
+2014-05-02/16:33:36.585 [main] INFO  HHH000108: Foreign keys: [fk24217fdee0f26781]
+2014-05-02/16:33:36.586 [main] INFO  HHH000126: Indexes: [id, primary, fk24217fdee0f26781]
+2014-05-02/16:33:36.591 [main] INFO  HHH000261: Table found: octopus.order_item
+2014-05-02/16:33:36.591 [main] INFO  HHH000037: Columns: [id, companyid, price, tocredit, article, quantity, orderid]
+2014-05-02/16:33:36.591 [main] INFO  HHH000108: Foreign keys: [fk2asdf2341, fk24asd413]
+2014-05-02/16:33:36.592 [main] INFO  HHH000126: Indexes: [fk2d110d64c16a647e, fk2d110d6418558873, primary, fk2asdf2341, fk24asd413]
+2014-05-02/16:33:36.597 [main] INFO  HHH000261: Table found: octopus.order_m
+2014-05-02/16:33:36.598 [main] INFO  HHH000037: Columns: [id, companyid, customercompanyid, status, date, customer, user]
+2014-05-02/16:33:36.598 [main] INFO  HHH000108: Foreign keys: [fkb80cf7bcba411665, fkb80cf7bc5415495c, fkb80cf7bcb7df3efa]
+2014-05-02/16:33:36.598 [main] INFO  HHH000126: Indexes: [id, fkb80cf7bcba411665, id_2, fkb80cf7bc5415495c, fkb80cf7bccd1ce215, primary, fkb80cf7bcb7df3efa, fkb80cf7bce7c0ce6f]
+2014-05-02/16:33:36.603 [main] INFO  HHH000261: Table found: octopus.promo_item
+2014-05-02/16:33:36.603 [main] INFO  HHH000037: Columns: [id, companyid, price, tocredit, article, promotionid, quantity]
+2014-05-02/16:33:36.604 [main] INFO  HHH000108: Foreign keys: [fk3a1abc43e8e4d37b, fk3a1abc43a98299c8]
+2014-05-02/16:33:36.604 [main] INFO  HHH000126: Indexes: [fk3a1abc4318558873, fk3a1abc43e8e4d37b, primary, fk3a1abc4313cfd268, fk3a1abc43a98299c8]
+2014-05-02/16:33:36.608 [main] INFO  HHH000261: Table found: octopus.role
+2014-05-02/16:33:36.608 [main] INFO  HHH000037: Columns: [id, name]
+2014-05-02/16:33:36.608 [main] INFO  HHH000108: Foreign keys: []
+2014-05-02/16:33:36.609 [main] INFO  HHH000126: Indexes: [primary]
+2014-05-02/16:33:36.613 [main] INFO  HHH000261: Table found: octopus.sales_user_customer
+2014-05-02/16:33:36.613 [main] INFO  HHH000037: Columns: [companyid, customerid, daystovisit, salesuserid]
+2014-05-02/16:33:36.614 [main] INFO  HHH000108: Foreign keys: [fk3b0a2fdf37e0a400]
+2014-05-02/16:33:36.614 [main] INFO  HHH000126: Indexes: [fk3b0a2fdf37e0a400, fk3b0a2fdf882fd6f8, fk3b0a2fdf4abc6fb0, primary]
+2014-05-02/16:33:36.618 [main] INFO  HHH000261: Table found: octopus.stock
+2014-05-02/16:33:36.618 [main] INFO  HHH000037: Columns: [companyid, stock, article]
+2014-05-02/16:33:36.618 [main] INFO  HHH000108: Foreign keys: [fk68af71694aef1d3, fk68af71618558873]
+2014-05-02/16:33:36.619 [main] INFO  HHH000126: Indexes: [fk68af71694aef1d3, primary, fk68af71618558873]
+2014-05-02/16:33:36.623 [main] INFO  HHH000261: Table found: octopus.user
+2014-05-02/16:33:36.623 [main] INFO  HHH000037: Columns: [id, companyid, ident, status, user_type, cancreatecreditnotes, password]
+2014-05-02/16:33:36.623 [main] INFO  HHH000108: Foreign keys: [fk36ebcb5415495c]
+2014-05-02/16:33:36.624 [main] INFO  HHH000126: Indexes: [primary, fk36ebcb5415495c]
+2014-05-02/16:33:36.627 [main] INFO  HHH000261: Table found: octopus.user_roles
+2014-05-02/16:33:36.628 [main] INFO  HHH000037: Columns: [roleid, userid]
+2014-05-02/16:33:36.628 [main] INFO  HHH000108: Foreign keys: [fk73429949b05fbf60]
+2014-05-02/16:33:36.628 [main] INFO  HHH000126: Indexes: [fk73429949b05fbf60, fk73429949b5b514ca]
+2014-05-02/16:33:36.714 [main] INFO  HHH000232: Schema update complete
+2014-05-02/16:33:36.821 [main] INFO  Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgeosh911gu4lf0py19pw|a69b6b, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgeosh911gu4lf0py19pw|a69b6b, idleConnectionTestPeriod -> 3000, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://localhost:3306/octopus, lastAcquisitionFailureDefaultUser -> null, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 20, maxStatements -> 50, maxStatementsPerConnection -> 0, minPoolSize -> 5, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+2014-05-02/16:33:36.832 [main] INFO  HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2014-05-02/16:33:36.832 [main] INFO  HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2014-05-02/16:33:36.833 [main] INFO  HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-05-02/16:33:36.833 [main] INFO  HHH000397: Using ASTQueryTranslatorFactory
+2014-05-02/16:33:36.840 [main] INFO  HHH000228: Running hbm2ddl schema update
+2014-05-02/16:33:36.840 [main] INFO  HHH000102: Fetching database metadata
+2014-05-02/16:33:36.840 [main] INFO  HHH000396: Updating schema
+2014-05-02/16:33:36.845 [main] INFO  HHH000261: Table found: octopus.audit_entry
+2014-05-02/16:33:36.845 [main] INFO  HHH000037: Columns: [id, body, userid, messagetype, moduleid, messageid, type, sessionid, remoteip, date, deviceid]
+2014-05-02/16:33:36.845 [main] INFO  HHH000108: Foreign keys: []
+2014-05-02/16:33:36.846 [main] INFO  HHH000126: Indexes: [primary]
+2014-05-02/16:33:36.846 [main] INFO  HHH000232: Schema update complete
+2014-05-02/16:33:37.080 [main] INFO  Server started
+2014-05-02/16:34:01.348 [main] INFO  Server starting
+2014-05-02/16:34:01.433 [main] INFO  Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1551f60: startup date [Fri May 02 16:34:01 ART 2014]; root of context hierarchy
+2014-05-02/16:34:01.729 [main] INFO  MLog clients using log4j logging.
+2014-05-02/16:34:01.821 [main] INFO  Initializing c3p0-0.9.1 [built 16-January-2007 14:46:42; debug? true; trace: 10]
+2014-05-02/16:34:01.982 [main] INFO  HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2014-05-02/16:34:01.987 [main] INFO  HHH000412: Hibernate Core {4.2.0.Final}
+2014-05-02/16:34:01.989 [main] INFO  HHH000206: hibernate.properties not found
+2014-05-02/16:34:01.990 [main] INFO  HHH000021: Bytecode provider name : javassist
+2014-05-02/16:34:02.230 [main] WARN  HHH000038: Composite-id class does not override equals(): papasoft.octopus.se.domain.SalesUserCustomer
+2014-05-02/16:34:02.230 [main] WARN  HHH000039: Composite-id class does not override hashCode(): papasoft.octopus.se.domain.SalesUserCustomer
+2014-05-02/16:34:02.231 [main] WARN  HHH000038: Composite-id class does not override equals(): papasoft.octopus.se.domain.Stock
+2014-05-02/16:34:02.231 [main] WARN  HHH000039: Composite-id class does not override hashCode(): papasoft.octopus.se.domain.Stock
+2014-05-02/16:34:02.232 [main] WARN  HHH000038: Composite-id class does not override equals(): papasoft.octopus.se.domain.SEOrder
+2014-05-02/16:34:02.232 [main] WARN  HHH000039: Composite-id class does not override hashCode(): papasoft.octopus.se.domain.SEOrder
+2014-05-02/16:34:02.233 [main] WARN  HHH000039: Composite-id class does not override hashCode(): papasoft.octopus.se.domain.SEArticle
+2014-05-02/16:34:02.233 [main] WARN  HHH000039: Composite-id class does not override hashCode(): papasoft.octopus.se.domain.SECustomer
+2014-05-02/16:34:02.293 [main] INFO  Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgeosh911gu55wfbwi90r|9c2715, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgeosh911gu55wfbwi90r|9c2715, idleConnectionTestPeriod -> 3000, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://localhost:3306/octopus_v2, lastAcquisitionFailureDefaultUser -> null, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 20, maxStatements -> 50, maxStatementsPerConnection -> 0, minPoolSize -> 5, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+2014-05-02/16:34:02.473 [main] INFO  HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2014-05-02/16:34:02.480 [main] INFO  HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2014-05-02/16:34:02.492 [main] INFO  HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-05-02/16:34:02.500 [main] INFO  HHH000397: Using ASTQueryTranslatorFactory
+2014-05-02/16:34:02.743 [main] INFO  HHH000228: Running hbm2ddl schema update
+2014-05-02/16:34:02.744 [main] INFO  HHH000102: Fetching database metadata
+2014-05-02/16:34:02.747 [main] INFO  HHH000396: Updating schema
+2014-05-02/16:34:02.750 [main] INFO  HHH000262: Table not found: article
+2014-05-02/16:34:02.750 [main] INFO  HHH000262: Table not found: article_price
+2014-05-02/16:34:02.751 [main] INFO  HHH000262: Table not found: company
+2014-05-02/16:34:02.752 [main] INFO  HHH000262: Table not found: customer
+2014-05-02/16:34:02.753 [main] INFO  HHH000262: Table not found: order_item
+2014-05-02/16:34:02.756 [main] INFO  HHH000262: Table not found: order_m
+2014-05-02/16:34:02.757 [main] INFO  HHH000262: Table not found: promo_item
+2014-05-02/16:34:02.759 [main] INFO  HHH000262: Table not found: role
+2014-05-02/16:34:02.759 [main] INFO  HHH000262: Table not found: sales_user_customer
+2014-05-02/16:34:02.760 [main] INFO  HHH000262: Table not found: stock
+2014-05-02/16:34:02.761 [main] INFO  HHH000262: Table not found: user
+2014-05-02/16:34:02.762 [main] INFO  HHH000262: Table not found: user_roles
+2014-05-02/16:34:02.762 [main] INFO  HHH000262: Table not found: article
+2014-05-02/16:34:02.763 [main] INFO  HHH000262: Table not found: article_price
+2014-05-02/16:34:02.764 [main] INFO  HHH000262: Table not found: company
+2014-05-02/16:34:02.764 [main] INFO  HHH000262: Table not found: customer
+2014-05-02/16:34:02.765 [main] INFO  HHH000262: Table not found: order_item
+2014-05-02/16:34:02.765 [main] INFO  HHH000262: Table not found: order_m
+2014-05-02/16:34:02.766 [main] INFO  HHH000262: Table not found: promo_item
+2014-05-02/16:34:02.767 [main] INFO  HHH000262: Table not found: role
+2014-05-02/16:34:02.767 [main] INFO  HHH000262: Table not found: sales_user_customer
+2014-05-02/16:34:02.768 [main] INFO  HHH000262: Table not found: stock
+2014-05-02/16:34:02.769 [main] INFO  HHH000262: Table not found: user
+2014-05-02/16:34:02.769 [main] INFO  HHH000262: Table not found: user_roles
+2014-05-02/16:34:04.244 [main] INFO  HHH000232: Schema update complete
+2014-05-02/16:34:04.297 [main] INFO  Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgeosh911gu55wfbwi90r|8491b8, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgeosh911gu55wfbwi90r|8491b8, idleConnectionTestPeriod -> 3000, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://localhost:3306/octopus_v2, lastAcquisitionFailureDefaultUser -> null, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 20, maxStatements -> 50, maxStatementsPerConnection -> 0, minPoolSize -> 5, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+2014-05-02/16:34:04.312 [main] INFO  HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2014-05-02/16:34:04.313 [main] INFO  HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2014-05-02/16:34:04.313 [main] INFO  HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-05-02/16:34:04.314 [main] INFO  HHH000397: Using ASTQueryTranslatorFactory
+2014-05-02/16:34:04.320 [main] INFO  HHH000228: Running hbm2ddl schema update
+2014-05-02/16:34:04.320 [main] INFO  HHH000102: Fetching database metadata
+2014-05-02/16:34:04.320 [main] INFO  HHH000396: Updating schema
+2014-05-02/16:34:04.321 [main] INFO  HHH000262: Table not found: AUDIT_ENTRY
+2014-05-02/16:34:04.322 [main] INFO  HHH000262: Table not found: AUDIT_ENTRY
+2014-05-02/16:34:04.345 [main] INFO  HHH000232: Schema update complete
+2014-05-02/16:34:04.561 [main] INFO  Server started
+2014-05-02/16:40:00.004 [cron4j::scheduler[bce5f6df00229ed40116221200000145be6de60c06b9a1d2]::executor[bce5f6df00229ed400fa54fe00000145be73528301f4dfbf]] INFO  Starting Inactive orders purge process
+2014-05-02/16:40:00.068 [cron4j::scheduler[bce5f6df00229ed40116221200000145be6de60c06b9a1d2]::executor[bce5f6df00229ed400fa54fe00000145be73528301f4dfbf]] INFO  Inactive orders purge process ended

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="papasoft.octopus.se.domain">
+    <class name="SEOrder" table="order_m">
+        <composite-id>
+            <key-property name="id"/>
+            <key-property name="companyId" column="companyId"/>
+            <generator class="papasoft.octopus.se.domain.generator.OrderIdGenerator"/>
+        </composite-id>
+        
+        <many-to-one name="user"/>
+        <many-to-one name="customer" class="papasoft.octopus.se.domain.SECustomer">
+	        <column name="customer"/>
+	        <column name="customerCompanyId"/>
+        </many-to-one>
+        <property name="date"/>
+        <property name="status"/>
+        <bag name="seItems" cascade="all-delete-orphan" lazy="false">
+            <key>
+                <column name="orderId"/>
+                <column name="companyId"/>
+            </key>
+            <one-to-many class="papasoft.octopus.se.domain.SEItem"/>
+        </bag> 
+        <many-to-one name="company" column="companyId" insert="false" update="false"/>
+        
+    </class>
+</hibernate-mapping>

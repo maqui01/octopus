@@ -1,0 +1,95 @@
+2014-04-13/13:51:06.056 [main] INFO  Server starting
+2014-04-13/13:51:06.188 [main] INFO  Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@e0b6f5: startup date [Sun Apr 13 13:51:06 ART 2014]; root of context hierarchy
+2014-04-13/13:51:06.865 [main] INFO  MLog clients using log4j logging.
+2014-04-13/13:51:07.061 [main] INFO  Initializing c3p0-0.9.1 [built 16-January-2007 14:46:42; debug? true; trace: 10]
+2014-04-13/13:51:07.280 [main] INFO  HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+2014-04-13/13:51:07.285 [main] INFO  HHH000412: Hibernate Core {4.2.0.Final}
+2014-04-13/13:51:07.287 [main] INFO  HHH000206: hibernate.properties not found
+2014-04-13/13:51:07.288 [main] INFO  HHH000021: Bytecode provider name : javassist
+2014-04-13/13:51:07.552 [main] WARN  HHH000038: Composite-id class does not override equals(): papasoft.octopus.se.domain.SalesUserCustomer
+2014-04-13/13:51:07.552 [main] WARN  HHH000039: Composite-id class does not override hashCode(): papasoft.octopus.se.domain.SalesUserCustomer
+2014-04-13/13:51:07.552 [main] WARN  HHH000038: Composite-id class does not override equals(): papasoft.octopus.se.domain.Stock
+2014-04-13/13:51:07.553 [main] WARN  HHH000039: Composite-id class does not override hashCode(): papasoft.octopus.se.domain.Stock
+2014-04-13/13:51:07.635 [main] INFO  Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgeosh91piygwi2i49br|44cbbe, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgeosh91piygwi2i49br|44cbbe, idleConnectionTestPeriod -> 3000, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://localhost:3306/octopus, lastAcquisitionFailureDefaultUser -> null, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 20, maxStatements -> 50, maxStatementsPerConnection -> 0, minPoolSize -> 5, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+2014-04-13/13:51:15.691 [main] INFO  HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2014-04-13/13:51:15.699 [main] INFO  HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2014-04-13/13:51:15.711 [main] INFO  HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-04-13/13:51:15.717 [main] INFO  HHH000397: Using ASTQueryTranslatorFactory
+2014-04-13/13:51:16.076 [main] INFO  HHH000228: Running hbm2ddl schema update
+2014-04-13/13:51:16.077 [main] INFO  HHH000102: Fetching database metadata
+2014-04-13/13:51:16.080 [main] INFO  HHH000396: Updating schema
+2014-04-13/13:51:16.174 [main] INFO  HHH000261: Table found: octopus.article
+2014-04-13/13:51:16.174 [main] INFO  HHH000037: Columns: [startdate, name, customergroup, pack, article_type, code, enddate]
+2014-04-13/13:51:16.174 [main] INFO  HHH000108: Foreign keys: []
+2014-04-13/13:51:16.174 [main] INFO  HHH000126: Indexes: [primary]
+2014-04-13/13:51:16.272 [main] INFO  HHH000261: Table found: octopus.article_price
+2014-04-13/13:51:16.272 [main] INFO  HHH000037: Columns: [priceid, price, articleid]
+2014-04-13/13:51:16.272 [main] INFO  HHH000108: Foreign keys: [fk2748d0c06556300e]
+2014-04-13/13:51:16.273 [main] INFO  HHH000126: Indexes: [fk2748d0c06556300e, primary]
+2014-04-13/13:51:16.337 [main] INFO  HHH000261: Table found: octopus.customer
+2014-04-13/13:51:16.337 [main] INFO  HHH000037: Columns: [id, observation, name, cust_group, priceslist]
+2014-04-13/13:51:16.337 [main] INFO  HHH000108: Foreign keys: []
+2014-04-13/13:51:16.338 [main] INFO  HHH000126: Indexes: [primary]
+2014-04-13/13:51:16.385 [main] INFO  HHH000261: Table found: octopus.order_item
+2014-04-13/13:51:16.385 [main] INFO  HHH000037: Columns: [id, price, tocredit, article, quantity, orderid]
+2014-04-13/13:51:16.386 [main] INFO  HHH000108: Foreign keys: [fk2d110d64c16a647e, fk2d110d6418558873]
+2014-04-13/13:51:16.386 [main] INFO  HHH000126: Indexes: [fk2d110d64c16a647e, fk2d110d6418558873, primary]
+2014-04-13/13:51:16.437 [main] INFO  HHH000261: Table found: octopus.order_m
+2014-04-13/13:51:16.437 [main] INFO  HHH000037: Columns: [id, status, date, customer, user]
+2014-04-13/13:51:16.438 [main] INFO  HHH000108: Foreign keys: [fkb80cf7bccd1ce215, fkb80cf7bce7c0ce6f]
+2014-04-13/13:51:16.438 [main] INFO  HHH000126: Indexes: [fkb80cf7bccd1ce215, primary, fkb80cf7bce7c0ce6f]
+2014-04-13/13:51:16.493 [main] INFO  HHH000261: Table found: octopus.promo_item
+2014-04-13/13:51:16.493 [main] INFO  HHH000037: Columns: [id, price, tocredit, article, promotionid, quantity]
+2014-04-13/13:51:16.493 [main] INFO  HHH000108: Foreign keys: [fk3a1abc4318558873, fk3a1abc4313cfd268]
+2014-04-13/13:51:16.494 [main] INFO  HHH000126: Indexes: [fk3a1abc4318558873, primary, fk3a1abc4313cfd268]
+2014-04-13/13:51:16.511 [main] INFO  HHH000261: Table found: octopus.role
+2014-04-13/13:51:16.512 [main] INFO  HHH000037: Columns: [id, name]
+2014-04-13/13:51:16.512 [main] INFO  HHH000108: Foreign keys: []
+2014-04-13/13:51:16.512 [main] INFO  HHH000126: Indexes: [primary]
+2014-04-13/13:51:16.552 [main] INFO  HHH000261: Table found: octopus.sales_user_customer
+2014-04-13/13:51:16.553 [main] INFO  HHH000037: Columns: [customerid, daystovisit, salesuserid]
+2014-04-13/13:51:16.553 [main] INFO  HHH000108: Foreign keys: [fk3b0a2fdf882fd6f8, fk3b0a2fdf4abc6fb0]
+2014-04-13/13:51:16.553 [main] INFO  HHH000126: Indexes: [fk3b0a2fdf882fd6f8, fk3b0a2fdf4abc6fb0, primary]
+2014-04-13/13:51:16.583 [main] INFO  HHH000261: Table found: octopus.stock
+2014-04-13/13:51:16.583 [main] INFO  HHH000037: Columns: [stock, article]
+2014-04-13/13:51:16.584 [main] INFO  HHH000108: Foreign keys: [fk68af71618558873]
+2014-04-13/13:51:16.584 [main] INFO  HHH000126: Indexes: [primary, fk68af71618558873]
+2014-04-13/13:51:16.589 [main] INFO  HHH000261: Table found: octopus.user
+2014-04-13/13:51:16.589 [main] INFO  HHH000037: Columns: [id, status, user_type, cancreatecreditnotes, password]
+2014-04-13/13:51:16.589 [main] INFO  HHH000108: Foreign keys: []
+2014-04-13/13:51:16.589 [main] INFO  HHH000126: Indexes: [primary]
+2014-04-13/13:51:16.606 [main] INFO  HHH000261: Table found: octopus.user_roles
+2014-04-13/13:51:16.606 [main] INFO  HHH000037: Columns: [roleid, userid]
+2014-04-13/13:51:16.606 [main] INFO  HHH000108: Foreign keys: [fk73429949b05fbf60, fk73429949b5b514ca]
+2014-04-13/13:51:16.607 [main] INFO  HHH000126: Indexes: [fk73429949b05fbf60, fk73429949b5b514ca]
+2014-04-13/13:51:16.607 [main] INFO  HHH000232: Schema update complete
+2014-04-13/13:51:16.718 [main] INFO  Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgeosh91piygwi2i49br|1450bd, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgeosh91piygwi2i49br|1450bd, idleConnectionTestPeriod -> 3000, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://localhost:3306/octopus, lastAcquisitionFailureDefaultUser -> null, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 20, maxStatements -> 50, maxStatementsPerConnection -> 0, minPoolSize -> 5, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+2014-04-13/13:51:16.734 [main] INFO  HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2014-04-13/13:51:16.734 [main] INFO  HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2014-04-13/13:51:16.735 [main] INFO  HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-04-13/13:51:16.735 [main] INFO  HHH000397: Using ASTQueryTranslatorFactory
+2014-04-13/13:51:16.742 [main] INFO  HHH000228: Running hbm2ddl schema update
+2014-04-13/13:51:16.742 [main] INFO  HHH000102: Fetching database metadata
+2014-04-13/13:51:16.743 [main] INFO  HHH000396: Updating schema
+2014-04-13/13:51:16.781 [main] INFO  HHH000261: Table found: octopus.audit_entry
+2014-04-13/13:51:16.781 [main] INFO  HHH000037: Columns: [id, body, username, messagetype, moduleid, messageid, type, sessionid, remoteip, date, deviceid]
+2014-04-13/13:51:16.782 [main] INFO  HHH000108: Foreign keys: []
+2014-04-13/13:51:16.782 [main] INFO  HHH000126: Indexes: [primary]
+2014-04-13/13:51:16.782 [main] INFO  HHH000232: Schema update complete
+2014-04-13/13:51:17.024 [main] INFO  Server started
+2014-04-13/13:51:46.099 [xWorkerPool-1-thread-1] DEBUG Inc: ModId=1 MsgType=0 User=maqui Fields=1 - Response size: 848
+2014-04-13/13:51:47.350 [xWorkerPool-1-thread-2] DEBUG Inc: ModId=1 MsgType=3 User=maqui Fields=1 - Response size: 528
+2014-04-13/13:51:47.964 [xWorkerPool-1-thread-1] WARN  [DEPRECATION] Encountered positional parameter near line 1, column 61.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+2014-04-13/13:51:48.076 [xWorkerPool-1-thread-1] DEBUG Inc: ModId=1 MsgType=6 User=maqui Fields=5 - Response size: 464
+2014-04-13/13:51:48.520 [xWorkerPool-1-thread-2] DEBUG Inc: ModId=1 MsgType=6 User=maqui Fields=5 - Response size: 464
+2014-04-13/13:51:48.648 [xWorkerPool-1-thread-1] DEBUG Inc: ModId=1 MsgType=4 User=maqui Fields=2 - Response size: 464
+2014-04-13/13:51:48.859 [xWorkerPool-1-thread-2] DEBUG Inc: ModId=1 MsgType=3 User=maqui Fields=1 - Response size: 528
+2014-04-13/13:51:49.008 [xWorkerPool-1-thread-1] DEBUG Inc: ModId=1 MsgType=6 User=maqui Fields=5 - Response size: 464
+2014-04-13/13:51:49.224 [xWorkerPool-1-thread-2] DEBUG Inc: ModId=1 MsgType=6 User=maqui Fields=5 - Response size: 464
+2014-04-13/13:51:59.087 [xWorkerPool-1-thread-2] DEBUG Inc: ModId=1 MsgType=3 User=maqui Fields=1 - Response size: 528
+2014-04-13/13:52:06.779 [xWorkerPool-1-thread-2] DEBUG Inc: ModId=1 MsgType=6 User=maqui Fields=5 - Response size: 464
+2014-04-13/13:52:12.415 [xWorkerPool-1-thread-1] DEBUG Inc: ModId=1 MsgType=6 User=maqui Fields=5 - Response size: 464
+2014-04-13/13:52:18.199 [xWorkerPool-1-thread-2] DEBUG Inc: ModId=1 MsgType=7 User=maqui Fields=4 - Response size: 464
+2014-04-13/13:52:21.274 [xWorkerPool-1-thread-1] DEBUG Inc: ModId=1 MsgType=4 User=maqui Fields=2 - Response size: 464
+2014-04-13/13:52:30.732 [xWorkerPool-1-thread-1] DEBUG Inc: ModId=1 MsgType=7 User=maqui Fields=4 - Response size: 464
+2014-04-13/13:52:34.133 [xWorkerPool-1-thread-2] DEBUG Inc: ModId=1 MsgType=4 User=maqui Fields=2 - Response size: 464

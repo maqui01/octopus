@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+           
+    <!-- Messages configuration 
+     <bean id="MODULE_NAME" class="MODULE_CLASSNAME">
+    	<property name="messages">
+             <map>
+             	<entry key="MESSAGE_ID" value-ref="MESSAGE_BEAN"/> MESSAGE_BEAN must be defined below
+             	...
+             	<entry key="ANOTHER_MESSAGE_ID" value-ref="ANOTHER_MESSAGE_BEAN"/>
+             </map> 
+    	</property>
+    </bean>
+    
+    <bean id="MESSAGE_BEAN" class="MESSAGE_CLASSNAME"/>
+    <bean id="ANOTHER_MESSAGE_BEAN" class="ANOTHER_MESSAGE_CLASSNAME"/> 
+             
+    -->
+    <bean id="dummyModule" class="papasoft.octopus.module.DummyModule">
+        <property name="moduleId" value="0"/>
+    	<property name="messages">
+    	    <map>
+    	        <!-- Keys are message type ID -->
+    	        <entry key="0" value-ref="dummyMessage"/>
+    	    </map>
+    	</property>
+    </bean>
+    
+    <!-- Sales Module messages -->
+    <bean id="dummyMessage" class="papasoft.octopus.server.message.handler.DummyMessage"/>
+</beans>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="papasoft.octopus.audit">
+    <class name="AuditEntry" table="AUDIT_ENTRY">
+        <id name="id" type="long" column="id">
+             <generator class="identity"/>
+        </id>
+        <property name="moduleId"/>
+        <property name="messageType"/>
+        <property name="date"/>
+        <property name="remoteIp"/>
+        <property name="body"/>
+        <property name="sessionId"/>
+        <property name="userId"/>
+        <property name="deviceId"/>
+        <property name="type"/>
+        <property name="messageId"/>
+        
+    </class>
+</hibernate-mapping>
