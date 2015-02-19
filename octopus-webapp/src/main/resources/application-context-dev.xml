@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="applicationContext" class="papasoft.octopus.webapp.context.ApplicationContext">
+		<property name="salesDao" ref="salesDao"/>
+    </bean>
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="c3p0datasource"/>
+		<property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+            </props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>papasoft/octopus/se/domain/Customer.hbm.xml</value>
+				<value>papasoft/octopus/se/domain/Article.hbm.xml</value>
+				<value>papasoft/octopus/se/domain/Item.hbm.xml</value>
+				<value>papasoft/octopus/se/domain/PromotionItem.hbm.xml</value>
+				<value>papasoft/octopus/se/domain/Order.hbm.xml</value>
+				<value>papasoft/octopus/se/domain/User.hbm.xml</value>
+				<value>papasoft/octopus/se/domain/Stock.hbm.xml</value>
+				<value>papasoft/octopus/se/domain/Role.hbm.xml</value>
+				<value>papasoft/octopus/se/domain/Company.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+    
+    <!-- Sales Interface DAO -->
+    <bean name="salesDao" class="papasoft.octopus.se.dao.SalesDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    
+    <bean id="c3p0datasource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+        <property name="driverClass" value="com.mysql.jdbc.Driver" />
+        
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/octopus" />
+		<property name="user" value="root" />
+		<property name="password" value="papa1234" />
+		
+		
+		<property name="minPoolSize" value="5" />
+		<property name="maxPoolSize" value="20" />
+		<property name="maxStatements" value="50" />
+		<property name="idleConnectionTestPeriod" value="3000" />
+		<property name="loginTimeout" value="300" />
+    </bean>
+    
+</beans>
