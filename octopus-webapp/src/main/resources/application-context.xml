@@ -14,7 +14,7 @@
 		<property name="dataSource" ref="c3p0datasource"/>
 		<property name="hibernateProperties">
             <props>
-                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+                <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
 				<prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.hbm2ddl.auto">update</prop>
             </props>
@@ -43,9 +43,9 @@
 		destroy-method="close">
         <property name="driverClass" value="com.mysql.jdbc.Driver" />
         
-		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/octopus" />
-		<property name="user" value="root" />
-		<property name="password" value="papa1234" />
+		<property name="jdbcUrl" value="jdbc:postgres://joqlsgmgwlhhtz:s2FmziOyPou_WGe_5xD5n3OaMW@ec2-54-225-101-4.compute-1.amazonaws.com:5432/d5jilvfuuesa1v" />
+		<property name="user" value="joqlsgmgwlhhtz" />
+		<property name="password" value="s2FmziOyPou_WGe_5xD5n3OaMW" />
 		
 		
 		<property name="minPoolSize" value="5" />
