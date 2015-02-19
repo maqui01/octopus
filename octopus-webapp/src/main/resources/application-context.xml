@@ -41,7 +41,7 @@
     
     <bean id="c3p0datasource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
-        <property name="driverClass" value="com.mysql.jdbc.Driver" />
+        <property name="driverClass" value="org.postgresql.Driver" />
         
 		<property name="jdbcUrl" value="jdbc:postgres://joqlsgmgwlhhtz:s2FmziOyPou_WGe_5xD5n3OaMW@ec2-54-225-101-4.compute-1.amazonaws.com:5432/d5jilvfuuesa1v" />
 		<property name="user" value="joqlsgmgwlhhtz" />
