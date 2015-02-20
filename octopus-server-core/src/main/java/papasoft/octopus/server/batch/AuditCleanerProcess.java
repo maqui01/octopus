@@ -39,8 +39,8 @@ public class AuditCleanerProcess extends ServerBatchProcess {
 			calendar.add(Calendar.DATE, -getDaysToSave());
 			Date date = calendar.getTime();
 			
-			Integer deleted = OctopusContext.getCtx().getAuditManager().getAuditDao().deleteAllOlderThanDate(date);
-			LogManager.logDebug( "Old " + deleted + " audit entries deleted", getLoggerName());
+//			Integer deleted = OctopusContext.getCtx().getAuditManager().getAuditDao().deleteAllOlderThanDate(date);
+//			LogManager.logDebug( "Old " + deleted + " audit entries deleted", getLoggerName());
 		} catch (Throwable th) {
 			// Hago como si nada...
 		}

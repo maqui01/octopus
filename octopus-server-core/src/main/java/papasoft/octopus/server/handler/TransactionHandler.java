@@ -63,7 +63,7 @@ public class TransactionHandler implements IDataHandler {
 				}	
 				
 				incomingMessage = (ClientToServerMessage) MessageBuilder.buildMessage(data, OctopusServerEncripter.getInstance().getCipherDecriptor(sessionId));
-				OctopusContext.getCtx().getAuditManager().auditIncomingMessage(incomingMessage, conn.getRemoteAddress().getHostAddress(), sessionId);
+//				OctopusContext.getCtx().getAuditManager().auditIncomingMessage(incomingMessage, conn.getRemoteAddress().getHostAddress(), sessionId);
 				
 				boolean validMessage = validateMessage(conn, session.getId(), incomingMessage);
 				if (!validMessage) {
@@ -97,7 +97,7 @@ public class TransactionHandler implements IDataHandler {
 	 */
 	private void sendFatalSignal(INonBlockingConnection conn,
 			Integer signal, ClientToServerMessage incomingMessage) throws BufferOverflowException, IOException {
-		OctopusContext.getCtx().getAuditManager().auditOutgoingFatal(incomingMessage, signal, conn.getRemoteAddress().getHostAddress());
+//		OctopusContext.getCtx().getAuditManager().auditOutgoingFatal(incomingMessage, signal, conn.getRemoteAddress().getHostAddress());
 		conn.write(signal);
 	}
 
@@ -131,7 +131,7 @@ public class TransactionHandler implements IDataHandler {
 					responseMessage.setMoreData(true);
 				}
 				responseMessage.setMessagesQuantity(responseMessages.size());
-				OctopusContext.getCtx().getAuditManager().auditOutgoingMessage(responseMessage, incomingMessage, conn.getRemoteAddress() != null ? conn.getRemoteAddress().getHostAddress() : "N/A", sessionId);
+//				OctopusContext.getCtx().getAuditManager().auditOutgoingMessage(responseMessage, incomingMessage, conn.getRemoteAddress() != null ? conn.getRemoteAddress().getHostAddress() : "N/A", sessionId);
 				responseSize += sendResponseMessage(conn, session.getId(), responseMessage);
 			}
 		} else {
@@ -152,7 +152,7 @@ public class TransactionHandler implements IDataHandler {
 		try {
 			SessionData session = OctopusContext.getCtx().getSessionManager().getSessionData();
 			session.setSecretKey(OctopusServerEncripter.getInstance().decryptSecretKey(data));
-			OctopusContext.getCtx().getAuditManager().auditSessionIdCreation(conn.getRemoteAddress().getHostAddress(), session.getId());
+//			OctopusContext.getCtx().getAuditManager().auditSessionIdCreation(conn.getRemoteAddress().getHostAddress(), session.getId());
 			conn.write(session.getId());
 			return true;
 		} catch (Throwable th) {
@@ -218,7 +218,7 @@ public class TransactionHandler implements IDataHandler {
 			String errorCode) throws OctopusException {
 		ServerToClientMessage errorMessage = new ServerToClientMessage();
 		errorMessage.setResult(errorCode);
-		OctopusContext.getCtx().getAuditManager().auditOutgoingMessage(errorMessage, incomingMessage, conn.getRemoteAddress() != null ? conn.getRemoteAddress().getHostAddress() : "N/A", sessionId);
+//		OctopusContext.getCtx().getAuditManager().auditOutgoingMessage(errorMessage, incomingMessage, conn.getRemoteAddress() != null ? conn.getRemoteAddress().getHostAddress() : "N/A", sessionId);
 		return sendResponseMessage(conn, sessionId, errorMessage);
 	}
 
