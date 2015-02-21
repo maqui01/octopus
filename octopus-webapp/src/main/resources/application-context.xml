@@ -37,11 +37,11 @@
         <property name="sessionManager" ref="sessionManager"/>
         <property name="configurationManager" ref="configurationManager"/>
         <!-- <property name="auditManager" ref="auditManager"/> -->
-    	<!-- <property name="batchProcesses">
+    	<property name="batchProcesses">
 			<list>
-			    <ref bean="licenseMailSender"/>
+			    <!-- <ref bean="licenseMailSender"/> -->
 			</list>
-    	</property> -->
+    	</property>
         <property name="modules">
             <list>
                 <ref bean="salesModule"/>
