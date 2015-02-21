@@ -14,7 +14,7 @@
         <property name="sessionFactory" ref="hibernateSessionFactory"/>
     </bean>
     
-    <bean id="c3p0Datasource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+    <bean id="c3p0DataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
         <property name="driverClass" value="org.postgresql.Driver" />
         
