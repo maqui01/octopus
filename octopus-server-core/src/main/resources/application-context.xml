@@ -52,7 +52,7 @@
 		
 		<property name="jdbcUrl" value="jdbc:postgresql://ec2-54-225-101-4.compute-1.amazonaws.com:5432/d5jilvfuuesa1v" />
 		<property name="user" value="joqlsgmgwlhhtz" />
-		<property name="password" value="s2FmziOyPou_WGe_5xD5n3OaMW" />>
+		<property name="password" value="s2FmziOyPou_WGe_5xD5n3OaMW" />
 		
 		<property name="minPoolSize" value="5" />
 		<property name="maxPoolSize" value="20" />
@@ -89,10 +89,12 @@
 	
 	<bean id="c3p0AuditoryDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
-		<property name="driverClass" value="com.mysql.jdbc.Driver" />
-		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/octopus" />
-		<property name="user" value="root" />
-		<property name="password" value="papa1234" />
+        <property name="driverClass" value="org.postgresql.Driver" />
+		
+		<property name="jdbcUrl" value="jdbc:postgresql://ec2-54-225-101-4.compute-1.amazonaws.com:5432/d5jilvfuuesa1v" />
+		<property name="user" value="joqlsgmgwlhhtz" />
+		<property name="password" value="s2FmziOyPou_WGe_5xD5n3OaMW" />
+		
 		<property name="minPoolSize" value="5" />
 		<property name="maxPoolSize" value="20" />
 		<property name="maxStatements" value="50" />
@@ -105,7 +107,7 @@
 		<property name="dataSource" ref="c3p0AuditoryDataSource" />
 		<property name="hibernateProperties">
             <props>
-                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+                <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.hbm2ddl.auto">update</prop>
             </props>
