@@ -38,6 +38,9 @@
     <servlet-name>Faces Servlet</servlet-name>
     <url-pattern>/faces/*</url-pattern>
   </servlet-mapping>
+  <listener>
+      <listener-class>papasoft.octopus.webapp.context.ServerContextListener</listener-class>
+  </listener>
   	<filter>
 	    <filter-name>facesExceptionFilter</filter-name>
 	    <filter-class>org.omnifaces.filter.FacesExceptionFilter</filter-class>
