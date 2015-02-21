@@ -8,35 +8,10 @@
     <bean id="applicationContext" class="papasoft.octopus.webapp.context.ApplicationContext">
 		<property name="salesDao" ref="salesDao"/>
     </bean>
-
-	<bean id="sessionFactory"
-		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-		<property name="dataSource" ref="c3p0datasource"/>
-		<property name="hibernateProperties">
-            <props>
-                <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
-				<prop key="hibernate.show_sql">true</prop>
-                <prop key="hibernate.hbm2ddl.auto">update</prop>
-            </props>
-		</property>
-		<property name="mappingResources">
-			<list>
-				<value>papasoft/octopus/se/domain/Customer.hbm.xml</value>
-				<value>papasoft/octopus/se/domain/Article.hbm.xml</value>
-				<value>papasoft/octopus/se/domain/Item.hbm.xml</value>
-				<value>papasoft/octopus/se/domain/PromotionItem.hbm.xml</value>
-				<value>papasoft/octopus/se/domain/Order.hbm.xml</value>
-				<value>papasoft/octopus/se/domain/User.hbm.xml</value>
-				<value>papasoft/octopus/se/domain/Stock.hbm.xml</value>
-				<value>papasoft/octopus/se/domain/Role.hbm.xml</value>
-				<value>papasoft/octopus/se/domain/Company.hbm.xml</value>
-			</list>
-		</property>
-	</bean>
     
     <!-- Sales Interface DAO -->
     <bean name="salesDao" class="papasoft.octopus.se.dao.SalesDao">
-        <property name="sessionFactory" ref="sessionFactory"/>
+        <property name="sessionFactory" ref="hibernateSessionFactory"/>
     </bean>
     
     <bean id="c3p0datasource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
@@ -53,6 +28,124 @@
 		<property name="maxStatements" value="50" />
 		<property name="idleConnectionTestPeriod" value="3000" />
 		<property name="loginTimeout" value="300" />
+    </bean>
+    
+    <import resource="classpath*:/sales-module-config.xml"/>
+    <!-- <import resource="../modules/dummy-module-config.xml"/> -->
+
+    <bean id="octopusContext" class="papasoft.octopus.context.OctopusContext">
+        <property name="sessionManager" ref="sessionManager"/>
+        <property name="configurationManager" ref="configurationManager"/>
+        <!-- <property name="auditManager" ref="auditManager"/> -->
+    	<!-- <property name="batchProcesses">
+			<list>
+			    <ref bean="licenseMailSender"/>
+			</list>
+    	</property> -->
+        <property name="modules">
+            <list>
+                <ref bean="salesModule"/>
+                <!-- <ref bean="dummyModule"/> -->
+            </list>
+        </property>
+        <property name="companyName" value="PapaSoft"/>
+    </bean>
+    
+    <bean id="sessionManager" class="papasoft.octopus.session.SessionManager">
+        <constructor-arg type="java.lang.Integer" value="60"/> <!-- Session Timeout in minutes -->
+    </bean>
+    
+    <!-- Server configuration parameters -->
+    <bean id="configurationManager" class="papasoft.octopus.config.ConfigurationManager">
+        <property name="properties">
+			<props>
+			    <prop key="server_port">4462</prop>
+			</props>
+		 </property>
+    	<property name="applicationParameters">
+			<map>
+			    <entry key="max_rows_per_order" value="23"/>
+			    <entry key="mobile_version" value="6"/>
+			    <entry key="mobile_version_url" value="http://www.octopus-mobile.com.ar/Octopus.apk"/>
+			    <entry key="webapp_url" value="http://server.octopus-mobile.com:9000/octopusDev/?c=[tu_empresa]"/>
+			</map>
+		 </property>
+    </bean>
+
+	<bean id="hibernateSessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="c3p0DataSource" />
+		<property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+            </props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>papasoft/octopus/se/domain/Customer.hbm.xml</value>
+				<value>papasoft/octopus/se/domain/Article.hbm.xml</value>
+				<value>papasoft/octopus/se/domain/Item.hbm.xml</value>
+				<value>papasoft/octopus/se/domain/PromotionItem.hbm.xml</value>
+				<value>papasoft/octopus/se/domain/Order.hbm.xml</value>
+				<value>papasoft/octopus/se/domain/User.hbm.xml</value>
+				<value>papasoft/octopus/se/domain/Stock.hbm.xml</value>
+				<value>papasoft/octopus/se/domain/Role.hbm.xml</value>
+				<value>papasoft/octopus/se/domain/Company.hbm.xml</value>
+				<value>papasoft/octopus/se/domain/IabOrder.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="c3p0AuditoryDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+        <property name="driverClass" value="org.postgresql.Driver" />
+		
+		<property name="jdbcUrl" value="jdbc:postgresql://ec2-54-225-101-4.compute-1.amazonaws.com:5432/d5jilvfuuesa1v" />
+		<property name="user" value="joqlsgmgwlhhtz" />
+		<property name="password" value="s2FmziOyPou_WGe_5xD5n3OaMW" />
+		
+		<property name="minPoolSize" value="5" />
+		<property name="maxPoolSize" value="20" />
+		<property name="maxStatements" value="50" />
+		<property name="idleConnectionTestPeriod" value="3000" />
+		<property name="loginTimeout" value="300" />
+	</bean>
+	
+	<bean id="hibernateAuditorySessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="c3p0AuditoryDataSource" />
+		<property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+            </props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>papasoft/octopus/audit/AuditEntry.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="auditManager" class="papasoft.octopus.audit.AuditManager">
+	    <property name="auditDao" ref="auditDao"/>
+	</bean>
+	
+	<bean name="licenseMailSender" class="papasoft.octopus.server.batch.LicenseMailSenderProcess">
+        <property name="cronPattern" value="0 11 * * 1"/>
+    </bean>
+    
+	<bean name="auditCleanerProcess" class="papasoft.octopus.server.batch.AuditCleanerProcess">
+        <property name="cronPattern" value="0 0 * * *"/>
+        <property name="daysToSave" value="30"/>
+    </bean>
+	
+    <!-- Sales Interface DAO -->
+    <bean name="auditDao" class="papasoft.octopus.audit.AuditDao">
+        <property name="sessionFactory" ref="hibernateAuditorySessionFactory"/>
     </bean>
     
 </beans>
