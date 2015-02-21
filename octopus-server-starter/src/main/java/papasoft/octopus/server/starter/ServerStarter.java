@@ -37,7 +37,7 @@ public class ServerStarter {
 	/**
 	 * 
 	 */
-	private void start() {
+	public void start() {
 		initializeServer();
 		try {
 			startServer();

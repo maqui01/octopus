@@ -24,7 +24,7 @@
     </dependency>
     <dependency>
       <groupId>papasoft.octopus.server.core</groupId>
-	  <artifactId>octopus-server-core</artifactId>
+  	  <artifactId>octopus-server-core</artifactId>
       <version>1.0-SNAPSHOT</version>
     </dependency>
 	<dependency>

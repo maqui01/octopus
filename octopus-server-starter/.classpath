@@ -6,7 +6,7 @@
   <classpathentry kind="var" path="M2_REPO/javax/activation/activation/1.1/activation-1.1.jar"/>
   <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
   <classpathentry kind="src" path="/octopus-shared"/>
-  <classpathentry kind="var" path="M2_REPO/papasoft/octopus/server/octopus-server/1.0-SNAPSHOT/octopus-server-1.0-SNAPSHOT.jar"/>
+  <classpathentry kind="src" path="/octopus-server-core"/>
   <classpathentry kind="var" path="M2_REPO/org/hibernate/hibernate-core/4.2.11.Final/hibernate-core-4.2.11.Final.jar"/>
   <classpathentry kind="var" path="M2_REPO/antlr/antlr/2.7.7/antlr-2.7.7.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/jboss/logging/jboss-logging/3.1.0.GA/jboss-logging-3.1.0.GA.jar"/>
@@ -32,5 +32,7 @@
   <classpathentry kind="var" path="M2_REPO/it/sauronsoftware/cron4j/cron4j/2.2.5/cron4j-2.2.5.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/bouncycastle/bcprov-jdk16/1.46/bcprov-jdk16-1.46.jar"/>
   <classpathentry kind="var" path="M2_REPO/log4j/log4j/1.2.17/log4j-1.2.17.jar"/>
-  <classpathentry kind="var" path="M2_REPO/mysql/mysql-connector-java/5.1.34/mysql-connector-java-5.1.34.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/postgresql/postgresql/9.2-1003-jdbc4/postgresql-9.2-1003-jdbc4.jar"/>
+  <classpathentry kind="src" path="/octopus-sales"/>
+  <classpathentry kind="src" path="/octopus-interface"/>
 </classpath>

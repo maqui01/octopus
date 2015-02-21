@@ -33,6 +33,16 @@
 	  <artifactId>octopus-interface</artifactId>
       <version>1.0-SNAPSHOT</version>
     </dependency>
+    <dependency>
+      <groupId>papasoft.octopus.starter</groupId>
+  	  <artifactId>octopus-server-starter</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+	    <groupId>papasoft.octopus.server.core</groupId>
+  		<artifactId>octopus-server-core</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
 	<dependency>
 		<groupId>org.hibernate</groupId>
 		<artifactId>hibernate-core</artifactId>
